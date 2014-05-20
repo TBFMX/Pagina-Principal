@@ -1,0 +1,46 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<div id="contact-form">
+    <h1>¡Contáctate con nosotros!</h1>
+
+    <%= form_tag do |person| %> 
+      <label for="name">Nombre: <span class="required">*</span></label>
+      <%= text_field_tag :nombre,nil,autofocus: true, required: true, placeholder: "Nombre" %>
+
+      <br>
+
+      <label for="email">Email: <span class="required">*</span></label> 
+      <%= email_field_tag :email,nil,autofocus: true, required: true, placeholder: "tu@email.com" %>       
+
+      <br>
+
+      <label for="ciudad">Ciudad: <span class="required">*</span></label>
+      <%= text_field_tag :ciudad,nil,autofocus: true, required: true, placeholder: "Ciudad" %>       
+      <br>
+      <label for="pais">País: <span class="required">*</span></label> 
+      <%= text_field_tag :pais,nil,autofocus: true, required: true, placeholder: "País" %>                    
+         
+      <br>
+
+      <label for="area">Áreas de interes:</label> 
+      <br>
+      <%= check_box_tag(:area_web) %>
+	  <%= label_tag(:area_web, "Desarrollo web") %><br>  
+	  <%= check_box_tag(:area_realidad) %>
+	  <%= label_tag(:area_realidad, "Realidad Aumentada") %><br>  
+	  <%= check_box_tag(:area_modulos) %>
+	  <%= label_tag(:area_modulos, "Módulos Interactivos") %><br>  
+	  <%= check_box_tag(:area_video) %>
+	  <%= label_tag(:area_video, "Video Mapping") %>	  	     
+         
+      <br><br>
+
+      <label for="mensajes">Comentario: <span class="required">*</span></label> 
+      <%= text_area_tag :mensajes,nil,autofocus: true, required: true, placeholder: "Escriba su comentario aquí." %>
+           
+	 <%= submit_tag "Enviar", id: "submit" %>           
+    <% end %>
+
+</div>    

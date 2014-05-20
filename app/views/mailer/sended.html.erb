@@ -1,0 +1,39 @@
+<h1>Mailer#send</h1>
+
+<p>Los siguintes datos fueron proporcionados por medio de la forma de contacto</p>
+
+  <p>
+    <%= @datos[:nombre] %>
+  </p>
+  <p>
+    <%= @datos[:email] %>
+  </p>
+  <p>
+    <%= @datos[:ciudad] %>
+  </p>
+  <p>
+    <%= @datos["pais"] %>
+  </p>
+  <p> areas de interes:   </p>
+  <ul>
+    <% unless  @datos["area_web"].nil? %> 
+      <li> Desarrollo Web </li> 
+    <% end %>
+
+    <% unless  @datos["area_realidad"].nil?  %> 
+       <li>Realidad Aumentada </li> 
+    <% end %>
+    <% unless  @datos["area_modulos"].nil?  %> 
+       <li> Modulos Interactivos </li> 
+    <% end %>
+    <% unless  @datos["area_video"].nil?  %> 
+       <li> Video Mapping </li> 
+    <% end %>
+  </ul>
+
+
+
+
+<p>
+  <%= @datos["mensajes"] %>
+</p>
