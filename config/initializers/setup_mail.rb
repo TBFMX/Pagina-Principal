@@ -3,8 +3,8 @@ ActionMailer::Base.smtp_settings = {
   :address              => "smtp.gmail.com",
   :port                 => 587,
   :domain               => "tbf.mx",
-  :user_name            => "carlos.acosta8912@gmail.com",
-  :password             => "dcujzzcapusgfdvg",
+  :user_name            => "arturito@tbf.mx",
+  :password             => "vampirocanadiense",
   :authentication       => :login,
   :enable_starttls_auto => true 
 }
