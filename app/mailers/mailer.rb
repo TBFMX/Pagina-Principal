@@ -46,7 +46,7 @@ class Mailer < ActionMailer::Base
     @greeting = "Hi"
     @datos = datos
 
-    mail(:to => "hugo@tbf.mx", :subject => "Nuevo Mensaje de Contacto", :from => "\"Conserje\" <info@tbf.mx>", :reply_to =>"conserje@tbf.com")
+    mail(:to => "miguel@tbf.mx", :subject => "Nuevo Mensaje de Contacto", :from => "\"Conserje\" <info@tbf.mx>", :reply_to =>"conserje@tbf.com")
     #mail to: "hugo@tbf.mx"
   end
   
