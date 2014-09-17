@@ -42,6 +42,9 @@ class WelcomeController < ApplicationController
   	redirect_to login_url, notice: "Logged out"
   end
 
+  def test_trial
+    
+  end   
 
 
 end
