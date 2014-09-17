@@ -2,7 +2,7 @@ body
 {
 	font-family: Monospace;
 	font-weight: bold;
-	/*background-color: rgb(238, 238, 238);*/
+	background-color: #ccccff;
 	margin: 0px;
 	overflow: hidden;
 }
