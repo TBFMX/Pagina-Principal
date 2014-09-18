@@ -66,7 +66,7 @@ function init()
 	var VIEW_ANGLE = 50, ASPECT = SCREEN_WIDTH / SCREEN_HEIGHT, NEAR = 0.1, FAR = 20000;
 	camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR);
 	scene.add(camera);
-	camera.position.set(0,0,5.0);
+	camera.position.set(0,0,4.0);
 	camera.lookAt(scene.position);
 	// RENDERER
 	if ( Detector.webgl )
@@ -103,6 +103,8 @@ function init()
 	var stepZ = 0.0;
 	var stepRuby = 1.0;
 	
+
+	///declaracion de elementos
 	var tbfEvolvingTexture = THREE.ImageUtils.loadTexture('../../images/tbfEvolving.jpg');
 	var tbfEvolvingMaterial = new THREE.MeshBasicMaterial( { map: tbfEvolvingTexture, side:THREE.DoubleSide } );
 	var tbfEvolvingPlane = new THREE.PlaneGeometry(allWidth, allHeight);
@@ -165,7 +167,11 @@ function init()
 	tbfNull = new THREE.Mesh(tbfNullPlane, tbfNullMaterial);
 	tbfNull.name = "tbfNull";
 	tbfNull.position.set(1.0,-1.0,stepZ);
-	
+	////
+
+	//variables de control
+	var actual_page_out = ""
+
 	//~ scene.add(tbfHome);
 	scene.add(tbfEvolving);
 	scene.add(tbfLogin);
@@ -548,11 +554,13 @@ function videoOut(aObject,outTime){
 }
 
 function pageOut(aObject,outTime){
-	tweenPageOut(aObject,{x:0,y:0,z:5},outTime);
+	tweenPageOut(aObject,{x:0,y:0,z:6},outTime);
 }
 
 function launchPage(page){
-	document.location.href = page;
+	//document.location.href = page;
+	var win = window.open(page, '_blank');
+  	win.focus();
 }
 
 function tweenPageOut(aObject,position,outTime){
