@@ -106,7 +106,7 @@ function init()
 	tbfDatos = initializePlane("tbfDatos",{x:1.0,y:1.0,z:0.0},{w:1.0, h:1.0},texturePath_datos);
 	//rails
 	var texturePath_rails = '../../images/rubyonrails.jpg';
-	tbfRails = initializePlane("Ruby On Rails",{x:1.0,y:-1.0,z:0.0},{w:1.0, h:1.0},texturePath_rails);
+	tbfRails = initializePlane("Ruby On Rails",{x:-1.0,y:0.0,z:0.0},{w:1.0, h:1.0},texturePath_rails);
 	
 	var texturePath_realidad = '../../images/moblieapps.jpg';
 	tbfMoblie = initializePlane("Moblie Apps",{x:0.0,y:0.0,z:0.0},{w:1.0, h:1.0},texturePath_realidad);
@@ -121,7 +121,7 @@ function init()
 	tbfVJ = initializePlane("Video Juegos",{x:0.0,y:-1.0,z:0.0},{w:1.0, h:1.0},texturePath_videojuegos);
 	
 	var texturePath_sites = '../../images/personalizedsites.jpg';
-	tbfSites = initializePlane("Sitio Personalizados",{x:-1.0,y:0.0,z:0.0},{w:1.0, h:1.0},texturePath_sites);
+	tbfSites = initializePlane("Sitio Personalizados",{x:1.0,y:-1.0,z:0.0},{w:1.0, h:1.0},texturePath_sites);
 
 
 
@@ -143,29 +143,29 @@ function init()
 	// our created pages
 	
 	texturePath = '../../images/nordlock.jpg';
-	rubyNordlock = initializePlane("nordlock",{x:-1.0,y:0.0,z:0.1},{w:1.0, h:1.0},texturePath);
+	rubyNordlock = initializePlane("nordlock",{x:1.0,y:-1.0,z:0.0},{w:1.0, h:1.0},texturePath);
 	rubyNordlock.rotation.set(0,0,0);
 	rubyNordlock.scale.set(0.1,0.1,0.1);
 	
 	texturePath = '../../images/tonerDepot.jpg';
-	rubyToner = initializePlane("tonerDepot",{x:-1.0,y:0.0,z:0.1},{w:1.0, h:1.0},texturePath);
+	rubyToner = initializePlane("tonerDepot",{x:1.0,y:-1.0,z:0.0},{w:1.0, h:1.0},texturePath);
 	rubyToner.rotation.set(0,0,0);
 	rubyToner.scale.set(0.1,0.1,0.1);
 	
 	texturePath = '../../images/cedimo.jpg';
-	rubyCedimo = initializePlane("cedimo",{x:-1.0,y:0.0,z:0.1},{w:1.0, h:1.0},texturePath);
+	rubyCedimo = initializePlane("cedimo",{x:1.0,y:-1.0,z:0.0},{w:1.0, h:1.0},texturePath);
 	rubyCedimo.rotation.set(0,0,0);
 	rubyCedimo.scale.set(0.1,0.1,0.1);
 	
 	texturePath = '../../images/eym.jpg';
-	rubyEym = initializePlane("eym",{x:-1.0,y:0.0,z:0.1},{w:1.0, h:1.0},texturePath);
+	rubyEym = initializePlane("eym",{x:1.0,y:-1.0,z:0.0},{w:1.0, h:1.0},texturePath);
 	rubyEym.rotation.set(0,0,0);
 	rubyEym.scale.set(0.1,0.1,0.1);
 	
 	var sizingFactor = 4;
 	texturePath = '../../images/rubyNull.jpg';
-	//~ rubyNull = initializePlane("rubyNull",{x:-1.0,y:0.0,z:0.1},{w:3.0, h:3.0},texturePath);
-	rubyNull = initializePlane("rubyNull",{x:-1.0,y:0.0,z:0.1},{w:sizingFactor*ASPECT, h:sizingFactor},texturePath);
+	//~ rubyNull = initializePlane("rubyNull",{x:1.0,y:-1.0,z:0.0},{w:3.0, h:3.0},texturePath);
+	rubyNull = initializePlane("rubyNull",{x:1.0,y:-1.0,z:0.0},{w:sizingFactor*ASPECT, h:sizingFactor},texturePath);
 	rubyNull.rotation.set(0,0,0);
 	rubyNull.scale.set(0.1,0.1,0.1);
 
@@ -394,11 +394,11 @@ function tweenRightSpinRuby(spinTime,axis,delay){
 }
 
 function tweenLeftSpinRuby(spinTime,axis,delay){
-	setTimeout ( tweenSpinLeft(rubyNordlock,{x:-1,y:0,z:0.1},spinTime,axis) , delay);
-	setTimeout ( tweenSpinLeft(rubyToner,{x:-1,y:0,z:0.1},spinTime,axis) , delay);
-	setTimeout ( tweenSpinLeft(rubyCedimo,{x:-1,y:0,z:0.1},spinTime,axis) , delay);
-	setTimeout ( tweenSpinLeft(rubyEym,{x:-1,y:0,z:0.1},spinTime,axis) , delay);
-	setTimeout ( tweenSpinLeft(rubyNull,{x:-1,y:0,z:0.1},spinTime,axis) , delay);
+	setTimeout ( tweenSpinLeft(rubyNordlock,{x:1.0,y:-1.0,z:0.0},spinTime,axis) , delay);
+	setTimeout ( tweenSpinLeft(rubyToner,{x:1.0,y:-1.0,z:0.0},spinTime,axis) , delay);
+	setTimeout ( tweenSpinLeft(rubyCedimo,{x:1.0,y:-1.0,z:0.0},spinTime,axis) , delay);
+	setTimeout ( tweenSpinLeft(rubyEym,{x:1.0,y:-1.0,z:0.0},spinTime,axis) , delay);
+	setTimeout ( tweenSpinLeft(rubyNull,{x:1.0,y:-1.0,z:0.0},spinTime,axis) , delay);
 }
 
 function tweenSpinDown(aObject,spinTime){
