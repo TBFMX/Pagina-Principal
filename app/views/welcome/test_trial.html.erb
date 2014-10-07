@@ -99,43 +99,46 @@ function init()
 	tbfEvolving = initializePlane("evolvingConcepts",{x:-1,y:1.0,z:0.0},{w:1.0, h:1.0},texturePath);
 	tbfEvolving.rotation.set(0,0,0);
 	
-	texturePath = '../../images/tbfLogin.jpg';
-	tbfLogin = initializePlane("login",{x:0.0,y:1.0,z:0.0},{w:1.0, h:1.0},texturePath);
+	var texturePath_login = '../../images/tbfLogin.jpg';
+	tbfLogin = initializePlane("login",{x:0.0,y:1.0,z:0.0},{w:1.0, h:1.0},texturePath_login);
 	
-	texturePath = '../../images/tbfDatos.jpg';
-	tbfDatos = initializePlane("tbfDatos",{x:1.0,y:1.0,z:0.0},{w:1.0, h:1.0},texturePath);
+	var texturePath_datos = '../../images/tbfDatos.jpg';
+	tbfDatos = initializePlane("tbfDatos",{x:1.0,y:1.0,z:0.0},{w:1.0, h:1.0},texturePath_datos);
+	//rails
+	var texturePath_rails = '../../images/rubyonrails.jpg';
+	tbfRails = initializePlane("Ruby On Rails",{x:1.0,y:-1.0,z:0.0},{w:1.0, h:1.0},texturePath_rails);
 	
-	texturePath = '../../images/tbfRails.jpg';
-	tbfRails = initializePlane("rubyRails",{x:-1.0,y:0.0,z:0.0},{w:1.0, h:1.0},texturePath);
+	var texturePath_realidad = '../../images/moblieapps.jpg';
+	tbfMoblie = initializePlane("Moblie Apps",{x:0.0,y:0.0,z:0.0},{w:1.0, h:1.0},texturePath_realidad);
 	
-	texturePath = '../../images/tbfRealidad.jpg';
-	tbfRealidad = initializePlane("augmentedReality",{x:0.0,y:0.0,z:0.0},{w:1.0, h:1.0},texturePath);
+	var texturePath_interactive = '../../images/apidevelopment.jpg';
+	tbfApi = initializePlane("Api Development",{x:1.0,y:0.0,z:0.0},{w:1.0, h:1.0},texturePath_interactive);
 	
-	texturePath = '../../images/tbfInteractive.jpg';
-	tbfInteractive = initializePlane("ModulosInteractivos",{x:1.0,y:0.0,z:0.0},{w:1.0, h:1.0},texturePath);
+	var texturePath_mapping = '../../images/ecommerce.jpg';
+	tbfEcommerce = initializePlane("Ecommerce",{x:-1.0,y:-1.0,z:0.0},{w:1.0, h:1.0},texturePath_mapping);
 	
-	texturePath = '../../images/tbfMapping.jpg';
-	tbfMapping = initializePlane("videoMapping",{x:-1.0,y:-1.0,z:0.0},{w:1.0, h:1.0},texturePath);
+	var texturePath_videojuegos = '../../images/videogames.jpg';
+	tbfVJ = initializePlane("Video Juegos",{x:0.0,y:-1.0,z:0.0},{w:1.0, h:1.0},texturePath_videojuegos);
 	
-	texturePath = '../../images/tbf360.jpg';
-	tbf360 = initializePlane("tbf360",{x:0.0,y:-1.0,z:0.0},{w:1.0, h:1.0},texturePath);
-	
-	texturePath = '../../images/tbfNull.jpg';
-	tbfNull = initializePlane("tbfNull",{x:1.0,y:-1.0,z:0.0},{w:1.0, h:1.0},texturePath);
+	var texturePath_sites = '../../images/personalizedsites.jpg';
+	tbfSites = initializePlane("Sitio Personalizados",{x:-1.0,y:0.0,z:0.0},{w:1.0, h:1.0},texturePath_sites);
+
+
 
 	//variables de control
 	var actual_page_out = "";
 
+	//se dibujan las imagenes
 	//~ scene.add(tbfHome);
 	scene.add(tbfEvolving);
 	scene.add(tbfLogin);
 	scene.add(tbfDatos);
 	scene.add(tbfRails);
-	scene.add(tbfRealidad);
-	scene.add(tbfInteractive);
-	scene.add(tbfMapping);
-	scene.add(tbf360);
-	scene.add(tbfNull);
+	scene.add(tbfMoblie);
+	scene.add(tbfApi);
+	scene.add(tbfEcommerce);
+	scene.add(tbfVJ);
+	scene.add(tbfSites);
 	
 	// our created pages
 	
@@ -280,6 +283,7 @@ function onDocumentMouseDown( event )
 
 		var selectedObject = intersects[ 0 ].object.name;
 		switch(selectedObject){
+		/*	
 		case "augmentedReality":
 			//~ document.location.href = "http://tbf.mx";
 			tweenSpinDown(tbfEvolving,500);
@@ -303,7 +307,8 @@ function onDocumentMouseDown( event )
 			
 			videoTexture.needsUpdate = true;
 			break;
-		case "evolvingConcepts":
+		*/	
+		case "Moblie Apps":
 			video.pause();
 			video.currentTime = 0;
 			videoIn(movieScreen,500);
@@ -324,7 +329,7 @@ function onDocumentMouseDown( event )
 		case "tbfNull":
 			//~ tweenHomeTogether(3000,0);
 			break;
-		case "rubyRails":
+		case "Sitio Personalizados":
 			//~ tweenHomeFade(500);
 			//~ setTimeout(tweenHomeTogether(500),500);
 			
@@ -381,11 +386,11 @@ function hideVideo(){
 }
 
 function tweenRightSpinRuby(spinTime,axis,delay){
-	setTimeout ( tweenSpinRight(rubyNordlock,{x:-0.75,y:0.75,z:1.5},spinTime,axis) , delay);
-	setTimeout ( tweenSpinRight(rubyToner,{x:0.75,y:0.75,z:1.5},spinTime,axis) , delay);
-	setTimeout ( tweenSpinRight(rubyCedimo,{x:-0.75,y:-0.75,z:1.5},spinTime,axis) , delay);
-	setTimeout ( tweenSpinRight(rubyEym,{x:0.75,y:-0.75,z:1.5},spinTime,axis) , delay);
-	setTimeout ( tweenSpinRight(rubyNull,{x:0.0,y:0.0,z:1.0},spinTime,axis) , delay);
+	setTimeout ( tweenSpinRight(rubyNordlock,{x:-0.75,y:0.75,z:1.3},spinTime,axis) , delay);
+	setTimeout ( tweenSpinRight(rubyToner,{x:0.75,y:0.75,z:1.3},spinTime,axis) , delay);
+	setTimeout ( tweenSpinRight(rubyCedimo,{x:-0.75,y:-0.75,z:1.3},spinTime,axis) , delay);
+	setTimeout ( tweenSpinRight(rubyEym,{x:0.75,y:-0.75,z:1.3},spinTime,axis) , delay);
+	setTimeout ( tweenSpinRight(rubyNull,{x:0.0,y:0.0,z:0.9},spinTime,axis) , delay);
 }
 
 function tweenLeftSpinRuby(spinTime,axis,delay){
@@ -691,17 +696,131 @@ function update()
 			// update text, if it has a "name" field.
 			if ( intersects[ 0 ].object.name )
 			{
-			    context1.clearRect(0,0,640,480);
-				var message = intersects[ 0 ].object.name;
-				var metrics = context1.measureText(message);
-				var width = metrics.width;
-				context1.fillStyle = "rgba(0,0,0,0.95)"; // black border
-				context1.fillRect( 0,0, width+8,20+8);
-				context1.fillStyle = "rgba(255,255,255,0.95)"; // white filler
-				context1.fillRect( 2,2, width+4,20+4 );
-				context1.fillStyle = "rgba(0,0,0,1)"; // text color
-				context1.fillText( message, 4,20 );
-				texture1.needsUpdate = true;
+				if(intersects[ 0 ].object.name != "rubyNull"){
+				    context1.clearRect(0,0,640,480);
+					var message = intersects[ 0 ].object.name;
+					var metrics = context1.measureText(message);
+					var width = metrics.width;
+					context1.fillStyle = "rgba(0,0,0,0.95)"; // black border
+					context1.fillRect( 0,0, width+8,20+8);
+					context1.fillStyle = "rgba(255,255,255,0.95)"; // white filler
+					context1.fillRect( 2,2, width+4,20+4 );
+					context1.fillStyle = "rgba(0,0,0,1)"; // text color
+					context1.fillText( message, 4,20 );
+					//aqui es
+					
+					var texture_alt;
+					var nombre = intersects[ 0 ].object.name
+					switch(nombre){
+
+					case "Ruby On Rails":
+						
+						context1.clearRect(0,0,640,480);
+						var message = intersects[ 0 ].object.name;
+						var metrics = context1.measureText(message);
+						var width = metrics.width;
+						context1.fillStyle = "rgba(0,0,0,0.95)"; // black border
+						context1.fillRect( 0,0, width+8,20+8);
+						context1.fillStyle = "rgba(255,255,255,0.95)"; // white filler
+						context1.fillRect( 2,2, width+4,20+4 );
+						context1.fillStyle = "rgba(0,0,0,1)"; // text color
+						context1.fillText( message, 4,20 );
+						texture_alt = THREE.ImageUtils.loadTexture('../../images/rubyonrails_on.jpg');
+						//intersects[ 0 ].object.material.map(texture_alt);
+						intersects[ 0 ].object.material.map.image.src = '../../images/rubyonrails_on.jpg'
+						texture1.needsUpdate = true;
+						break;
+					case "Moblie Apps":
+						texture_alt = THREE.ImageUtils.loadTexture('../../images/moblieapps_on.jpg');
+						intersects[ 0 ].object.material.map.image.src = '../../images/moblieapps_on.jpg';
+						context1.clearRect(0,0,640,480);
+						var message = intersects[ 0 ].object.name;
+						var metrics = context1.measureText(message);
+						var width = metrics.width;
+						context1.fillStyle = "rgba(0,0,0,0.95)"; // black border
+						context1.fillRect( 0,0, width+8,20+8);
+						context1.fillStyle = "rgba(255,255,255,0.95)"; // white filler
+						context1.fillRect( 2,2, width+4,20+4 );
+						context1.fillStyle = "rgba(0,0,0,1)"; // text color
+						context1.fillText( message, 4,20 );
+						texture1.needsUpdate = true;
+						break;
+					case "Api Development":
+						texture_alt = THREE.ImageUtils.loadTexture('../../images/apidevelopment_on.jpg');
+						intersects[ 0 ].object.material.map.image.src = '../../images/apidevelopment_on.jpg'
+						context1.clearRect(0,0,640,480);
+						var message = intersects[ 0 ].object.name;
+						var metrics = context1.measureText(message);
+						var width = metrics.width;
+						context1.fillStyle = "rgba(0,0,0,0.95)"; // black border
+						context1.fillRect( 0,0, width+8,20+8);
+						context1.fillStyle = "rgba(255,255,255,0.95)"; // white filler
+						context1.fillRect( 2,2, width+4,20+4 );
+						context1.fillStyle = "rgba(0,0,0,1)"; // text color
+						context1.fillText( message, 4,20 );
+						texture1.needsUpdate = true;
+						break;
+					case "Ecommerce":
+						texture_alt = THREE.ImageUtils.loadTexture('../../images/ecommerce_on.jpg');
+						intersects[ 0 ].object.material.map.image.src = '../../images/ecommerce_on.jpg'
+						context1.clearRect(0,0,640,480);
+						var message = intersects[ 0 ].object.name;
+						var metrics = context1.measureText(message);
+						var width = metrics.width;
+						context1.fillStyle = "rgba(0,0,0,0.95)"; // black border
+						context1.fillRect( 0,0, width+8,20+8);
+						context1.fillStyle = "rgba(255,255,255,0.95)"; // white filler
+						context1.fillRect( 2,2, width+4,20+4 );
+						context1.fillStyle = "rgba(0,0,0,1)"; // text color
+						context1.fillText( message, 4,20 );
+						texture1.needsUpdate = true;
+						break;
+					case "Video Juegos":
+						texture_alt = THREE.ImageUtils.loadTexture('../../images/videogames_on.jpg');
+						intersects[ 0 ].object.material.map.image.src = '../../images/videogames_on.jpg'
+						context1.clearRect(0,0,640,480);
+						var message = intersects[ 0 ].object.name;
+						var metrics = context1.measureText(message);
+						var width = metrics.width;
+						context1.fillStyle = "rgba(0,0,0,0.95)"; // black border
+						context1.fillRect( 0,0, width+8,20+8);
+						context1.fillStyle = "rgba(255,255,255,0.95)"; // white filler
+						context1.fillRect( 2,2, width+4,20+4 );
+						context1.fillStyle = "rgba(0,0,0,1)"; // text color
+						context1.fillText( message, 4,20 );
+						texture1.needsUpdate = true;
+						break;
+					case "Sitio Personalizados":
+						texture_alt = THREE.ImageUtils.loadTexture('../../images/personalizedsites_on.jpg');
+						intersects[ 0 ].object.material.map.image.src = '../../images/personalizedsites_on.jpg'
+						context1.clearRect(0,0,640,480);
+						var message = intersects[ 0 ].object.name;
+						var metrics = context1.measureText(message);
+						var width = metrics.width;
+						context1.fillStyle = "rgba(0,0,0,0.95)"; // black border
+						context1.fillRect( 0,0, width+8,20+8);
+						context1.fillStyle = "rgba(255,255,255,0.95)"; // white filler
+						context1.fillRect( 2,2, width+4,20+4 );
+						context1.fillStyle = "rgba(0,0,0,1)"; // text color
+						context1.fillText( message, 4,20 );
+						texture1.needsUpdate = true;
+						break;
+					
+					default:
+						//intersects[ 0 ].object.material.map(texture_alt);
+						
+
+						break;
+					}
+
+					
+					texture1.needsUpdate = true;
+				}
+				else{
+					context1.clearRect(0,0,300,300);
+					//aqui sera
+					texture1.needsUpdate = true;
+				}
 			}
 			else
 			{
