@@ -1,0 +1,549 @@
+
+I, [2014-09-18T11:10:04.353726 #2482]  INFO -- : Started GET "/contacto/index" for 201.156.164.40 at 2014-09-18 11:10:04 -0500
+I, [2014-09-18T11:10:04.501627 #2490]  INFO -- : Started GET "/welcome/test_trial.html" for 201.156.164.40 at 2014-09-18 11:10:04 -0500
+I, [2014-09-18T11:10:04.686395 #2490]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-18T11:10:04.686666 #2482]  INFO -- : Processing by ContactoController#index as HTML
+I, [2014-09-18T11:10:04.741127 #2490]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (2.9ms)
+I, [2014-09-18T11:10:04.741131 #2482]  INFO -- :   Rendered contacto/index.html.erb within layouts/application (9.9ms)
+I, [2014-09-18T11:10:04.743862 #2482]  INFO -- : Completed 200 OK in 57ms (Views: 23.0ms | ActiveRecord: 0.0ms)
+I, [2014-09-18T11:10:04.744466 #2490]  INFO -- : Completed 200 OK in 58ms (Views: 20.4ms | ActiveRecord: 0.0ms)
+I, [2014-09-18T11:10:07.838344 #2490]  INFO -- : Started GET "/welcome/test_trial.html" for 201.156.164.40 at 2014-09-18 11:10:07 -0500
+I, [2014-09-18T11:10:07.840220 #2490]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-18T11:10:07.841539 #2490]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.1ms)
+I, [2014-09-18T11:10:07.842359 #2490]  INFO -- : Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+I, [2014-09-18T12:40:39.149911 #2490]  INFO -- : Started GET "/" for 201.156.164.40 at 2014-09-18 12:40:39 -0500
+I, [2014-09-18T12:40:39.167472 #2490]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-18T12:40:39.329298 #2490]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (144.4ms)
+I, [2014-09-18T12:40:39.330314 #2490]  INFO -- : Completed 200 OK in 163ms (Views: 83.4ms | ActiveRecord: 78.1ms)
+I, [2014-09-18T12:40:42.266113 #2490]  INFO -- : Started GET "/welcome/test_trial.html" for 201.156.164.40 at 2014-09-18 12:40:42 -0500
+I, [2014-09-18T12:40:42.267602 #2490]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-18T12:40:42.268676 #2490]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.1ms)
+I, [2014-09-18T12:40:42.269249 #2490]  INFO -- : Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+I, [2014-09-18T12:53:52.398051 #2490]  INFO -- : Started GET "/" for 201.156.164.40 at 2014-09-18 12:53:52 -0500
+I, [2014-09-18T12:53:52.399346 #2490]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-18T12:53:52.403557 #2490]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (3.0ms)
+I, [2014-09-18T12:53:52.404377 #2490]  INFO -- : Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.5ms)
+I, [2014-09-18T12:53:54.489351 #2490]  INFO -- : Started GET "/welcome/test_trial.html" for 201.156.164.40 at 2014-09-18 12:53:54 -0500
+I, [2014-09-18T12:53:54.490886 #2490]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-18T12:53:54.491966 #2490]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.1ms)
+I, [2014-09-18T12:53:54.492729 #2490]  INFO -- : Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+I, [2014-09-18T14:57:42.645914 #2490]  INFO -- : Started GET "/" for 201.172.189.199 at 2014-09-18 14:57:42 -0500
+I, [2014-09-18T14:57:42.647514 #2490]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-18T14:57:42.650950 #2490]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (2.2ms)
+I, [2014-09-18T14:57:42.651470 #2490]  INFO -- : Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.4ms)
+I, [2014-09-18T14:57:48.562994 #2490]  INFO -- : Started GET "/welcome/test_trial.html" for 201.172.189.199 at 2014-09-18 14:57:48 -0500
+I, [2014-09-18T14:57:48.564624 #2490]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-18T14:57:48.565736 #2490]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.1ms)
+I, [2014-09-18T14:57:48.566317 #2490]  INFO -- : Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+I, [2014-09-18T15:18:01.006698 #2490]  INFO -- : Started GET "/" for 201.156.164.40 at 2014-09-18 15:18:01 -0500
+I, [2014-09-18T15:18:01.007931 #2490]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-18T15:18:01.011758 #2490]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (2.8ms)
+I, [2014-09-18T15:18:01.012551 #2490]  INFO -- : Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.5ms)
+I, [2014-09-18T15:18:02.348644 #2490]  INFO -- : Started GET "/welcome/test_trial.html" for 201.156.164.40 at 2014-09-18 15:18:02 -0500
+I, [2014-09-18T15:18:02.350122 #2490]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-18T15:18:02.351481 #2490]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.1ms)
+I, [2014-09-18T15:18:02.352314 #2490]  INFO -- : Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+I, [2014-09-18T16:38:52.742605 #2490]  INFO -- : Started GET "/" for 189.212.117.206 at 2014-09-18 16:38:52 -0500
+I, [2014-09-18T16:38:52.804306 #2490]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-18T16:38:52.871475 #2490]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (63.1ms)
+I, [2014-09-18T16:38:52.882088 #2490]  INFO -- : Completed 200 OK in 77ms (Views: 73.2ms | ActiveRecord: 0.8ms)
+I, [2014-09-18T16:39:02.096796 #2490]  INFO -- : Started GET "/welcome/test_trial.html" for 189.212.117.206 at 2014-09-18 16:39:02 -0500
+I, [2014-09-18T16:39:02.108652 #2490]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-18T16:39:02.110726 #2490]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.1ms)
+I, [2014-09-18T16:39:02.111644 #2490]  INFO -- : Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+I, [2014-09-18T16:40:21.238251 #2490]  INFO -- : Started GET "/" for 189.212.117.206 at 2014-09-18 16:40:21 -0500
+I, [2014-09-18T16:40:21.245583 #2490]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-18T16:40:21.272505 #2490]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (25.9ms)
+I, [2014-09-18T16:40:21.273342 #2490]  INFO -- : Completed 200 OK in 28ms (Views: 26.4ms | ActiveRecord: 0.5ms)
+I, [2014-09-18T16:40:30.973340 #2490]  INFO -- : Started GET "/" for 189.212.117.206 at 2014-09-18 16:40:30 -0500
+I, [2014-09-18T16:40:30.974908 #2490]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-18T16:40:30.992501 #2490]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (16.6ms)
+I, [2014-09-18T16:40:31.008054 #2490]  INFO -- : Completed 200 OK in 33ms (Views: 32.0ms | ActiveRecord: 0.5ms)
+I, [2014-09-18T16:40:50.253551 #2490]  INFO -- : Started GET "/welcome/test_trial.html" for 189.212.117.206 at 2014-09-18 16:40:50 -0500
+I, [2014-09-18T16:40:50.311487 #2490]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-18T16:40:50.316870 #2490]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.1ms)
+I, [2014-09-18T16:40:50.318162 #2490]  INFO -- : Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+I, [2014-09-18T16:41:15.854721 #2490]  INFO -- : Started GET "/" for 189.212.117.206 at 2014-09-18 16:41:15 -0500
+I, [2014-09-18T16:41:15.879120 #2490]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-18T16:41:15.969253 #2490]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (88.4ms)
+I, [2014-09-18T16:41:15.969905 #2490]  INFO -- : Completed 200 OK in 91ms (Views: 89.1ms | ActiveRecord: 0.8ms)
+I, [2014-09-18T16:41:16.517441 #2490]  INFO -- : Started GET "/" for 189.212.117.206 at 2014-09-18 16:41:16 -0500
+I, [2014-09-18T16:41:16.519730 #2490]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-18T16:41:16.535681 #2490]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (7.7ms)
+I, [2014-09-18T16:41:16.547658 #2490]  INFO -- : Completed 200 OK in 28ms (Views: 19.4ms | ActiveRecord: 0.6ms)
+I, [2014-09-18T16:41:31.131015 #2490]  INFO -- : Started GET "/" for 189.212.117.206 at 2014-09-18 16:41:31 -0500
+I, [2014-09-18T16:41:31.147422 #2490]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-18T16:41:31.164148 #2490]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (15.8ms)
+I, [2014-09-18T16:41:31.165475 #2490]  INFO -- : Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 0.4ms)
+I, [2014-09-18T16:41:32.777726 #2490]  INFO -- : Started GET "/welcome/test_trial.html" for 189.212.117.206 at 2014-09-18 16:41:32 -0500
+I, [2014-09-18T16:41:32.779273 #2490]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-18T16:41:32.792870 #2490]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.1ms)
+I, [2014-09-18T16:41:32.793509 #2490]  INFO -- : Completed 200 OK in 14ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+I, [2014-09-18T16:42:20.813803 #2490]  INFO -- : Started GET "/" for 189.212.117.206 at 2014-09-18 16:42:20 -0500
+I, [2014-09-18T16:42:20.838376 #2490]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-18T16:42:20.845052 #2490]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (3.5ms)
+I, [2014-09-18T16:42:20.864012 #2490]  INFO -- : Completed 200 OK in 25ms (Views: 23.9ms | ActiveRecord: 0.5ms)
+I, [2014-09-18T16:42:42.635207 #2490]  INFO -- : Started GET "/welcome/test_trial.html" for 189.212.117.206 at 2014-09-18 16:42:42 -0500
+I, [2014-09-18T16:42:42.636955 #2490]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-18T16:42:42.701418 #2490]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.2ms)
+I, [2014-09-18T16:42:42.702294 #2490]  INFO -- : Completed 200 OK in 65ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+I, [2014-09-18T17:26:19.085462 #2490]  INFO -- : Started GET "/" for 189.212.117.206 at 2014-09-18 17:26:19 -0500
+I, [2014-09-18T17:26:19.107050 #2490]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-18T17:26:19.124092 #2490]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (13.4ms)
+I, [2014-09-18T17:26:19.125361 #2490]  INFO -- : Completed 200 OK in 18ms (Views: 14.4ms | ActiveRecord: 0.6ms)
+I, [2014-09-18T20:55:04.688431 #2490]  INFO -- : Started GET "/" for 200.95.170.70 at 2014-09-18 20:55:04 -0500
+I, [2014-09-18T20:55:04.702181 #2490]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-18T20:55:04.743168 #2490]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (28.6ms)
+I, [2014-09-18T20:55:04.743992 #2490]  INFO -- : Completed 200 OK in 42ms (Views: 29.3ms | ActiveRecord: 0.5ms)
+I, [2014-09-19T15:01:38.501095 #2490]  INFO -- : Started GET "/" for 189.235.99.102 at 2014-09-19 15:01:38 -0500
+I, [2014-09-19T15:01:38.520517 #2490]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-19T15:01:38.568492 #2490]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (22.6ms)
+I, [2014-09-19T15:01:38.569985 #2490]  INFO -- : Completed 200 OK in 49ms (Views: 36.3ms | ActiveRecord: 0.7ms)
+I, [2014-09-19T17:28:10.356746 #2490]  INFO -- : Started GET "/" for 201.156.164.40 at 2014-09-19 17:28:10 -0500
+I, [2014-09-19T17:28:10.370002 #2490]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-19T17:28:10.405591 #2490]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (18.4ms)
+I, [2014-09-19T17:28:10.408510 #2490]  INFO -- : Completed 200 OK in 29ms (Views: 19.6ms | ActiveRecord: 0.6ms)
+I, [2014-09-19T17:28:13.019630 #2490]  INFO -- : Started GET "/welcome/test_trial.html" for 201.156.164.40 at 2014-09-19 17:28:13 -0500
+I, [2014-09-19T17:28:13.024397 #2490]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-19T17:28:13.025967 #2490]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.1ms)
+I, [2014-09-19T17:28:13.027045 #2490]  INFO -- : Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+I, [2014-09-19T17:28:32.275017 #2490]  INFO -- : Started GET "/" for 201.156.164.40 at 2014-09-19 17:28:32 -0500
+I, [2014-09-19T17:28:32.300567 #2490]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-19T17:28:32.315705 #2490]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (13.2ms)
+I, [2014-09-19T17:28:32.316953 #2490]  INFO -- : Completed 200 OK in 16ms (Views: 14.3ms | ActiveRecord: 0.5ms)
+I, [2014-09-19T17:28:33.658555 #2490]  INFO -- : Started GET "/welcome/test_trial.html" for 201.156.164.40 at 2014-09-19 17:28:33 -0500
+I, [2014-09-19T17:28:33.671218 #2490]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-19T17:28:33.674484 #2490]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.1ms)
+I, [2014-09-19T17:28:33.676118 #2490]  INFO -- : Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+I, [2014-09-22T17:29:44.331702 #2490]  INFO -- : Started GET "/" for 201.156.164.40 at 2014-09-22 17:29:44 -0500
+I, [2014-09-22T17:29:45.231335 #2490]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-22T17:29:46.238948 #2490]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (726.4ms)
+I, [2014-09-22T17:29:46.354635 #2490]  INFO -- : Completed 200 OK in 1119ms (Views: 893.0ms | ActiveRecord: 30.6ms)
+I, [2014-09-22T17:29:54.757196 #2490]  INFO -- : Started GET "/contacto/index" for 201.156.164.40 at 2014-09-22 17:29:54 -0500
+I, [2014-09-22T17:29:58.694933 #2490]  INFO -- : Processing by ContactoController#index as HTML
+I, [2014-09-22T17:30:01.864064 #2490]  INFO -- :   Rendered contacto/index.html.erb within layouts/application (1909.4ms)
+I, [2014-09-22T17:30:01.958490 #2490]  INFO -- : Completed 200 OK in 3241ms (Views: 2898.5ms | ActiveRecord: 0.0ms)
+I, [2014-09-22T17:30:02.034704 #2490]  INFO -- : Started GET "/contacto/index" for 201.156.164.40 at 2014-09-22 17:30:02 -0500
+I, [2014-09-22T17:30:02.121845 #2490]  INFO -- : Processing by ContactoController#index as HTML
+I, [2014-09-22T17:30:02.173898 #2490]  INFO -- :   Rendered contacto/index.html.erb within layouts/application (27.9ms)
+I, [2014-09-22T17:30:02.220305 #2490]  INFO -- : Completed 200 OK in 57ms (Views: 46.5ms | ActiveRecord: 0.0ms)
+I, [2014-09-22T17:30:07.372020 #2490]  INFO -- : Started GET "/contacto/index" for 201.156.164.40 at 2014-09-22 17:30:07 -0500
+I, [2014-09-22T17:30:07.430406 #2490]  INFO -- : Processing by ContactoController#index as HTML
+I, [2014-09-22T17:30:07.507206 #2490]  INFO -- :   Rendered contacto/index.html.erb within layouts/application (67.2ms)
+I, [2014-09-22T17:30:07.515435 #2490]  INFO -- : Completed 200 OK in 84ms (Views: 75.1ms | ActiveRecord: 0.0ms)
+I, [2014-09-22T17:30:20.410454 #2490]  INFO -- : Started GET "/contacto/index" for 201.156.164.40 at 2014-09-22 17:30:20 -0500
+I, [2014-09-22T17:30:20.504228 #2490]  INFO -- : Processing by ContactoController#index as HTML
+I, [2014-09-22T17:30:20.571781 #2490]  INFO -- :   Rendered contacto/index.html.erb within layouts/application (40.9ms)
+I, [2014-09-22T17:30:20.574227 #2490]  INFO -- : Completed 200 OK in 70ms (Views: 66.9ms | ActiveRecord: 0.0ms)
+I, [2014-09-22T17:30:26.162199 #2490]  INFO -- : Started GET "/" for 201.156.164.40 at 2014-09-22 17:30:26 -0500
+I, [2014-09-22T17:30:26.179706 #2490]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-22T17:30:41.290362 #2490]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (15104.7ms)
+I, [2014-09-22T17:30:41.330880 #2490]  INFO -- : Completed 200 OK in 15141ms (Views: 15060.8ms | ActiveRecord: 50.6ms)
+I, [2014-09-22T17:33:23.305209 #2490]  INFO -- : Started GET "/" for 201.156.164.40 at 2014-09-22 17:33:23 -0500
+I, [2014-09-22T17:33:23.425862 #2490]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-22T17:33:23.462668 #2490]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (19.6ms)
+I, [2014-09-22T17:33:23.463967 #2490]  INFO -- : Completed 200 OK in 38ms (Views: 33.9ms | ActiveRecord: 3.4ms)
+I, [2014-09-22T17:33:24.916048 #2490]  INFO -- : Started GET "/welcome/test_trial.html" for 201.156.164.40 at 2014-09-22 17:33:24 -0500
+I, [2014-09-22T17:33:24.956647 #2490]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-22T17:33:24.958156 #2490]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.1ms)
+I, [2014-09-22T17:33:24.958906 #2490]  INFO -- : Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+I, [2014-09-22T17:34:16.018728 #2490]  INFO -- : Started GET "/" for 201.156.164.40 at 2014-09-22 17:34:16 -0500
+I, [2014-09-22T17:34:16.020336 #2490]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-22T17:34:16.054939 #2490]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (2.1ms)
+I, [2014-09-22T17:34:16.055437 #2490]  INFO -- : Completed 200 OK in 35ms (Views: 2.5ms | ActiveRecord: 0.5ms)
+I, [2014-09-22T17:34:23.711655 #2490]  INFO -- : Started GET "/welcome/test_trial.html" for 201.156.164.40 at 2014-09-22 17:34:23 -0500
+I, [2014-09-22T17:34:23.712982 #2490]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-22T17:34:23.714138 #2490]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.1ms)
+I, [2014-09-22T17:34:23.714774 #2490]  INFO -- : Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+I, [2014-09-22T17:34:23.766334 #2490]  INFO -- : Started GET "/contacto/index" for 201.156.164.40 at 2014-09-22 17:34:23 -0500
+I, [2014-09-22T17:34:23.768079 #2490]  INFO -- : Processing by ContactoController#index as HTML
+I, [2014-09-22T17:34:23.771470 #2490]  INFO -- :   Rendered contacto/index.html.erb within layouts/application (2.1ms)
+I, [2014-09-22T17:34:23.772221 #2490]  INFO -- : Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+I, [2014-09-22T17:34:25.319037 #2490]  INFO -- : Started GET "/" for 201.156.164.40 at 2014-09-22 17:34:25 -0500
+I, [2014-09-22T17:34:25.320550 #2490]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-22T17:34:25.324637 #2490]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (2.8ms)
+I, [2014-09-22T17:34:25.325360 #2490]  INFO -- : Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.5ms)
+I, [2014-09-22T17:35:35.936248 #2490]  INFO -- : Started GET "/" for 201.156.164.40 at 2014-09-22 17:35:35 -0500
+I, [2014-09-22T17:35:35.994395 #2490]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-22T17:35:36.050078 #2490]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (39.6ms)
+I, [2014-09-22T17:35:36.078343 #2490]  INFO -- : Completed 200 OK in 84ms (Views: 53.7ms | ActiveRecord: 1.9ms)
+I, [2014-09-22T17:35:44.849650 #2490]  INFO -- : Started GET "/welcome/test_trial.html" for 201.156.164.40 at 2014-09-22 17:35:44 -0500
+I, [2014-09-22T17:35:44.856841 #2490]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-22T17:35:44.865084 #2490]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (3.1ms)
+I, [2014-09-22T17:35:44.878601 #2490]  INFO -- : Completed 200 OK in 22ms (Views: 16.9ms | ActiveRecord: 0.0ms)
+I, [2014-09-22T17:35:58.715349 #2490]  INFO -- : Started GET "/contacto/index" for 201.156.164.40 at 2014-09-22 17:35:58 -0500
+I, [2014-09-22T17:35:58.741029 #2490]  INFO -- : Processing by ContactoController#index as HTML
+I, [2014-09-22T17:35:58.794072 #2490]  INFO -- :   Rendered contacto/index.html.erb within layouts/application (42.5ms)
+I, [2014-09-22T17:35:58.795074 #2490]  INFO -- : Completed 200 OK in 54ms (Views: 52.9ms | ActiveRecord: 0.0ms)
+I, [2014-09-22T17:36:00.266515 #2490]  INFO -- : Started GET "/" for 201.156.164.40 at 2014-09-22 17:36:00 -0500
+I, [2014-09-22T17:36:00.268245 #2490]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-22T17:36:00.286384 #2490]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (16.3ms)
+I, [2014-09-22T17:36:00.304504 #2490]  INFO -- : Completed 200 OK in 36ms (Views: 34.7ms | ActiveRecord: 0.6ms)
+I, [2014-09-22T17:36:18.922614 #2490]  INFO -- : Started GET "/welcome/test_trial.html" for 201.156.164.40 at 2014-09-22 17:36:18 -0500
+I, [2014-09-22T17:36:18.924005 #2490]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-22T17:36:18.953796 #2490]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (3.6ms)
+I, [2014-09-22T17:36:18.955387 #2490]  INFO -- : Completed 200 OK in 14ms (Views: 5.5ms | ActiveRecord: 0.0ms)
+I, [2014-09-22T17:36:56.287415 #2490]  INFO -- : Started GET "/contacto/index" for 201.156.164.40 at 2014-09-22 17:36:56 -0500
+I, [2014-09-22T17:36:56.303524 #2490]  INFO -- : Processing by ContactoController#index as HTML
+I, [2014-09-22T17:36:56.335399 #2490]  INFO -- :   Rendered contacto/index.html.erb within layouts/application (11.6ms)
+I, [2014-09-22T17:36:56.340976 #2490]  INFO -- : Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.0ms)
+I, [2014-09-22T17:37:04.293434 #2490]  INFO -- : Started GET "/contacto/index" for 201.156.164.40 at 2014-09-22 17:37:04 -0500
+I, [2014-09-22T17:37:04.328086 #2490]  INFO -- : Processing by ContactoController#index as HTML
+I, [2014-09-22T17:37:04.341190 #2490]  INFO -- :   Rendered contacto/index.html.erb within layouts/application (11.4ms)
+I, [2014-09-22T17:37:04.341936 #2490]  INFO -- : Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.0ms)
+I, [2014-09-22T17:40:13.199778 #2490]  INFO -- : Started GET "/" for 201.156.164.40 at 2014-09-22 17:40:13 -0500
+I, [2014-09-22T17:40:13.211486 #2490]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-22T17:40:13.280311 #2490]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (67.6ms)
+I, [2014-09-22T17:40:13.282880 #2490]  INFO -- : Completed 200 OK in 71ms (Views: 55.1ms | ActiveRecord: 15.5ms)
+I, [2014-09-22T17:40:18.776736 #2490]  INFO -- : Started GET "/welcome/test_trial.html" for 201.156.164.40 at 2014-09-22 17:40:18 -0500
+I, [2014-09-22T17:40:18.793673 #2490]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-22T17:40:18.807699 #2490]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (12.8ms)
+I, [2014-09-22T17:40:18.825271 #2490]  INFO -- : Completed 200 OK in 31ms (Views: 30.6ms | ActiveRecord: 0.0ms)
+I, [2014-09-22T17:40:44.646114 #2490]  INFO -- : Started GET "/" for 201.156.164.40 at 2014-09-22 17:40:44 -0500
+I, [2014-09-22T17:40:44.662352 #2490]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-22T17:40:44.705961 #2490]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (41.4ms)
+I, [2014-09-22T17:40:44.707176 #2490]  INFO -- : Completed 200 OK in 45ms (Views: 42.5ms | ActiveRecord: 0.5ms)
+I, [2014-09-22T17:40:51.090075 #2490]  INFO -- : Started GET "/welcome/test_trial.html" for 201.156.164.40 at 2014-09-22 17:40:51 -0500
+I, [2014-09-22T17:40:51.156370 #2490]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-22T17:40:51.201667 #2490]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (43.7ms)
+I, [2014-09-22T17:40:51.231497 #2490]  INFO -- : Completed 200 OK in 75ms (Views: 73.8ms | ActiveRecord: 0.0ms)
+I, [2014-09-22T17:40:51.281865 #2490]  INFO -- : Started GET "/contacto/index" for 201.156.164.40 at 2014-09-22 17:40:51 -0500
+I, [2014-09-22T17:40:51.290182 #2490]  INFO -- : Processing by ContactoController#index as HTML
+I, [2014-09-22T17:40:51.334697 #2490]  INFO -- :   Rendered contacto/index.html.erb within layouts/application (43.3ms)
+I, [2014-09-22T17:40:51.347164 #2490]  INFO -- : Completed 200 OK in 57ms (Views: 56.0ms | ActiveRecord: 0.0ms)
+I, [2014-09-22T17:41:19.685566 #2490]  INFO -- : Started GET "/welcome/test_trial.html" for 201.156.164.40 at 2014-09-22 17:41:19 -0500
+I, [2014-09-22T17:41:19.706292 #2490]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-22T17:41:19.721272 #2490]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.1ms)
+I, [2014-09-22T17:41:19.738568 #2490]  INFO -- : Completed 200 OK in 32ms (Views: 17.8ms | ActiveRecord: 0.0ms)
+I, [2014-09-22T17:41:19.743213 #601]  INFO -- : Started GET "/contacto/index" for 201.156.164.40 at 2014-09-22 17:41:19 -0500
+I, [2014-09-22T17:41:20.042445 #601]  INFO -- : Processing by ContactoController#index as HTML
+I, [2014-09-22T17:41:20.093017 #601]  INFO -- :   Rendered contacto/index.html.erb within layouts/application (8.1ms)
+I, [2014-09-22T17:41:20.095427 #601]  INFO -- : Completed 200 OK in 53ms (Views: 26.7ms | ActiveRecord: 0.0ms)
+I, [2014-09-22T17:41:28.670670 #601]  INFO -- : Started GET "/welcome/test_trial.html" for 201.156.164.40 at 2014-09-22 17:41:28 -0500
+I, [2014-09-22T17:41:28.674682 #601]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-22T17:41:28.702214 #601]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (2.3ms)
+I, [2014-09-22T17:41:28.703423 #601]  INFO -- : Completed 200 OK in 29ms (Views: 27.5ms | ActiveRecord: 0.0ms)
+I, [2014-09-22T17:41:28.710952 #2490]  INFO -- : Started GET "/contacto/index" for 201.156.164.40 at 2014-09-22 17:41:28 -0500
+I, [2014-09-22T17:41:28.718522 #2490]  INFO -- : Processing by ContactoController#index as HTML
+I, [2014-09-22T17:41:28.735182 #2490]  INFO -- :   Rendered contacto/index.html.erb within layouts/application (14.9ms)
+I, [2014-09-22T17:41:28.764005 #2490]  INFO -- : Completed 200 OK in 45ms (Views: 43.7ms | ActiveRecord: 0.0ms)
+I, [2014-09-22T17:41:51.870801 #2490]  INFO -- : Started GET "/" for 201.156.164.40 at 2014-09-22 17:41:51 -0500
+I, [2014-09-22T17:41:51.872130 #2490]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-22T17:41:51.952706 #2490]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (63.2ms)
+I, [2014-09-22T17:41:51.954106 #2490]  INFO -- : Completed 200 OK in 82ms (Views: 53.6ms | ActiveRecord: 11.6ms)
+I, [2014-09-22T17:41:54.837728 #2490]  INFO -- : Started GET "/welcome/test_trial.html" for 201.156.164.40 at 2014-09-22 17:41:54 -0500
+I, [2014-09-22T17:41:54.840003 #2490]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-22T17:41:54.853190 #2490]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (11.1ms)
+I, [2014-09-22T17:41:54.857893 #2490]  INFO -- : Completed 200 OK in 18ms (Views: 16.0ms | ActiveRecord: 0.0ms)
+I, [2014-09-22T17:42:02.588505 #2490]  INFO -- : Started GET "/welcome/test_trial.html" for 201.156.164.40 at 2014-09-22 17:42:02 -0500
+I, [2014-09-22T17:42:02.596467 #2490]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-22T17:42:02.612976 #2490]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (14.9ms)
+I, [2014-09-22T17:42:02.623050 #2490]  INFO -- : Completed 200 OK in 26ms (Views: 25.3ms | ActiveRecord: 0.0ms)
+I, [2014-09-22T17:42:02.737193 #2490]  INFO -- : Started GET "/contacto/index" for 201.156.164.40 at 2014-09-22 17:42:02 -0500
+I, [2014-09-22T17:42:02.744741 #2490]  INFO -- : Processing by ContactoController#index as HTML
+I, [2014-09-22T17:42:02.773101 #2490]  INFO -- :   Rendered contacto/index.html.erb within layouts/application (26.9ms)
+I, [2014-09-22T17:42:02.774528 #2490]  INFO -- : Completed 200 OK in 30ms (Views: 28.7ms | ActiveRecord: 0.0ms)
+I, [2014-09-22T17:42:02.951784 #2490]  INFO -- : Started GET "/contacto/index" for 201.156.164.40 at 2014-09-22 17:42:02 -0500
+I, [2014-09-22T17:42:02.987983 #2490]  INFO -- : Processing by ContactoController#index as HTML
+I, [2014-09-22T17:42:03.015604 #2490]  INFO -- :   Rendered contacto/index.html.erb within layouts/application (17.9ms)
+I, [2014-09-22T17:42:03.017970 #2490]  INFO -- : Completed 200 OK in 30ms (Views: 20.5ms | ActiveRecord: 0.0ms)
+I, [2014-09-22T17:42:39.361047 #2490]  INFO -- : Started GET "/" for 201.156.164.40 at 2014-09-22 17:42:39 -0500
+I, [2014-09-22T17:42:39.373890 #2490]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-22T17:42:39.417616 #2490]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (35.0ms)
+I, [2014-09-22T17:42:39.418328 #2490]  INFO -- : Completed 200 OK in 44ms (Views: 43.3ms | ActiveRecord: 0.6ms)
+I, [2014-09-22T17:42:48.833293 #2490]  INFO -- : Started GET "/welcome/test_trial.html" for 201.156.164.40 at 2014-09-22 17:42:48 -0500
+I, [2014-09-22T17:42:48.875047 #2490]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-22T17:42:48.925177 #2490]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (10.2ms)
+I, [2014-09-22T17:42:48.937699 #2490]  INFO -- : Completed 200 OK in 62ms (Views: 23.2ms | ActiveRecord: 0.0ms)
+I, [2014-09-22T17:43:41.356041 #2490]  INFO -- : Started GET "/contacto/index" for 201.156.164.40 at 2014-09-22 17:43:41 -0500
+I, [2014-09-22T17:43:41.393209 #2490]  INFO -- : Processing by ContactoController#index as HTML
+I, [2014-09-22T17:43:41.457557 #2490]  INFO -- :   Rendered contacto/index.html.erb within layouts/application (56.3ms)
+I, [2014-09-22T17:43:41.464917 #2490]  INFO -- : Completed 200 OK in 71ms (Views: 57.7ms | ActiveRecord: 0.0ms)
+I, [2014-09-22T17:43:45.613530 #2490]  INFO -- : Started GET "/welcome/test_trial.html" for 201.156.164.40 at 2014-09-22 17:43:45 -0500
+I, [2014-09-22T17:43:45.638160 #2490]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-22T17:43:45.643099 #2490]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (1.9ms)
+I, [2014-09-22T17:43:45.645178 #2490]  INFO -- : Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+I, [2014-09-22T17:43:45.770566 #2490]  INFO -- : Started GET "/contacto/index" for 201.156.164.40 at 2014-09-22 17:43:45 -0500
+I, [2014-09-22T17:43:45.772807 #2490]  INFO -- : Processing by ContactoController#index as HTML
+I, [2014-09-22T17:43:45.797489 #2490]  INFO -- :   Rendered contacto/index.html.erb within layouts/application (12.2ms)
+I, [2014-09-22T17:43:45.799428 #2490]  INFO -- : Completed 200 OK in 26ms (Views: 25.6ms | ActiveRecord: 0.0ms)
+I, [2014-09-22T22:56:59.629138 #601]  INFO -- : Started GET "/" for 187.161.70.118 at 2014-09-22 22:56:59 -0500
+I, [2014-09-22T22:56:59.732047 #601]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-22T22:57:00.007703 #601]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (196.6ms)
+I, [2014-09-22T22:57:00.008822 #601]  INFO -- : Completed 200 OK in 277ms (Views: 98.5ms | ActiveRecord: 177.4ms)
+I, [2014-09-22T22:57:03.730525 #601]  INFO -- : Started GET "/welcome/test_trial.html" for 187.161.70.118 at 2014-09-22 22:57:03 -0500
+I, [2014-09-22T22:57:03.732578 #601]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-22T22:57:03.734036 #601]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.1ms)
+I, [2014-09-22T22:57:03.734918 #601]  INFO -- : Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+I, [2014-09-22T23:00:26.994348 #601]  INFO -- : Started GET "/" for 187.161.70.118 at 2014-09-22 23:00:26 -0500
+I, [2014-09-22T23:00:26.995764 #601]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-22T23:00:26.999675 #601]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (2.9ms)
+I, [2014-09-22T23:00:27.000480 #601]  INFO -- : Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.5ms)
+I, [2014-09-22T23:00:50.049553 #601]  INFO -- : Started GET "/welcome/test_trial.html" for 187.161.70.118 at 2014-09-22 23:00:50 -0500
+I, [2014-09-22T23:00:50.051336 #601]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-22T23:00:50.052746 #601]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.1ms)
+I, [2014-09-22T23:00:50.053571 #601]  INFO -- : Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+I, [2014-09-23T15:44:52.086802 #20102]  INFO -- : Started GET "/" for 189.219.119.47 at 2014-09-23 15:44:52 -0500
+I, [2014-09-23T15:44:53.178865 #20102]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-23T15:44:53.514017 #20112]  INFO -- : Started GET "/" for 189.219.119.47 at 2014-09-23 15:44:53 -0500
+I, [2014-09-23T15:44:53.647731 #20112]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-23T15:44:53.807331 #20102]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (126.3ms)
+I, [2014-09-23T15:44:53.807331 #20112]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (16.2ms)
+I, [2014-09-23T15:44:53.810698 #20102]  INFO -- : Completed 200 OK in 631ms (Views: 491.2ms | ActiveRecord: 108.5ms)
+I, [2014-09-23T15:44:53.878118 #20112]  INFO -- : Completed 200 OK in 230ms (Views: 200.4ms | ActiveRecord: 1.3ms)
+I, [2014-09-23T15:45:00.335004 #20112]  INFO -- : Started GET "/welcome/test_trial.html" for 189.219.119.47 at 2014-09-23 15:45:00 -0500
+I, [2014-09-23T15:45:00.337379 #20112]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-23T15:45:00.353585 #20112]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (2.3ms)
+I, [2014-09-23T15:45:00.354682 #20112]  INFO -- : Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 0.0ms)
+I, [2014-09-23T15:46:02.154527 #20112]  INFO -- : Started GET "/" for 189.219.119.47 at 2014-09-23 15:46:02 -0500
+I, [2014-09-23T15:46:02.156333 #20112]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-23T15:46:02.161712 #20112]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (3.9ms)
+I, [2014-09-23T15:46:02.162618 #20112]  INFO -- : Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.8ms)
+I, [2014-09-23T15:46:04.228448 #20112]  INFO -- : Started GET "/welcome/test_trial.html" for 189.219.119.47 at 2014-09-23 15:46:04 -0500
+I, [2014-09-23T15:46:04.230011 #20112]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-23T15:46:04.231286 #20112]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.1ms)
+I, [2014-09-23T15:46:04.232043 #20112]  INFO -- : Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+I, [2014-09-23T15:47:22.601278 #20112]  INFO -- : Started GET "/" for 189.219.119.47 at 2014-09-23 15:47:22 -0500
+I, [2014-09-23T15:47:22.602910 #20112]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-23T15:47:22.607098 #20112]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (2.9ms)
+I, [2014-09-23T15:47:22.607847 #20112]  INFO -- : Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.6ms)
+I, [2014-09-23T15:47:27.308482 #20112]  INFO -- : Started GET "/welcome/test_trial.html" for 189.219.119.47 at 2014-09-23 15:47:27 -0500
+I, [2014-09-23T15:47:27.310101 #20112]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-23T15:47:27.311212 #20112]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.1ms)
+I, [2014-09-23T15:47:27.311836 #20112]  INFO -- : Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+I, [2014-09-23T22:10:04.154572 #4452]  INFO -- : Started GET "/" for 189.219.119.182 at 2014-09-23 22:10:04 -0500
+I, [2014-09-23T22:10:04.381835 #4452]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-23T22:10:04.474270 #4452]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (41.4ms)
+I, [2014-09-23T22:10:04.477300 #4452]  INFO -- : Completed 200 OK in 95ms (Views: 42.2ms | ActiveRecord: 25.8ms)
+I, [2014-09-23T22:10:08.162207 #4452]  INFO -- : Started GET "/welcome/test_trial.html" for 189.219.119.182 at 2014-09-23 22:10:08 -0500
+I, [2014-09-23T22:10:08.164281 #4452]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-23T22:10:08.186211 #4452]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (2.0ms)
+I, [2014-09-23T22:10:08.187144 #4452]  INFO -- : Completed 200 OK in 23ms (Views: 21.9ms | ActiveRecord: 0.0ms)
+I, [2014-09-24T23:19:12.941420 #4452]  INFO -- : Started GET "/" for 189.219.119.182 at 2014-09-24 23:19:12 -0500
+I, [2014-09-24T23:19:14.590682 #4452]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-24T23:19:17.603033 #4452]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (1924.7ms)
+I, [2014-09-24T23:19:17.875258 #4452]  INFO -- : Completed 200 OK in 3242ms (Views: 2728.5ms | ActiveRecord: 85.9ms)
+I, [2014-09-24T23:19:23.794677 #4452]  INFO -- : Started GET "/welcome/test_trial.html" for 189.219.119.182 at 2014-09-24 23:19:23 -0500
+I, [2014-09-24T23:19:23.923756 #4452]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-24T23:19:24.026779 #4452]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (3.6ms)
+I, [2014-09-24T23:19:24.054716 #4452]  INFO -- : Completed 200 OK in 105ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+I, [2014-09-24T23:19:52.747527 #4452]  INFO -- : Started GET "/welcome/test_trial.html" for 189.219.119.182 at 2014-09-24 23:19:52 -0500
+I, [2014-09-24T23:19:52.794522 #4452]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-24T23:19:52.811209 #4452]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.1ms)
+I, [2014-09-24T23:19:52.813653 #4452]  INFO -- : Completed 200 OK in 19ms (Views: 9.2ms | ActiveRecord: 0.0ms)
+I, [2014-09-25T11:03:26.719399 #4452]  INFO -- : Started GET "/" for 131.178.207.232 at 2014-09-25 11:03:26 -0500
+I, [2014-09-25T11:03:26.857686 #4452]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-25T11:03:26.935977 #4452]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (62.9ms)
+I, [2014-09-25T11:03:26.937450 #4452]  INFO -- : Completed 200 OK in 80ms (Views: 64.8ms | ActiveRecord: 0.8ms)
+I, [2014-09-25T11:03:29.039091 #4452]  INFO -- : Started GET "/welcome/test_trial.html" for 131.178.207.232 at 2014-09-25 11:03:29 -0500
+I, [2014-09-25T11:03:29.050746 #4452]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-25T11:03:29.053892 #4452]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.1ms)
+I, [2014-09-25T11:03:29.055579 #4452]  INFO -- : Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+I, [2014-09-26T16:25:25.174157 #4452]  INFO -- : Started GET "/" for 201.144.174.26 at 2014-09-26 16:25:25 -0500
+I, [2014-09-26T16:25:25.420895 #4452]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-26T16:25:25.852551 #4452]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (424.4ms)
+I, [2014-09-26T16:25:25.855492 #4452]  INFO -- : Completed 200 OK in 434ms (Views: 410.0ms | ActiveRecord: 22.2ms)
+I, [2014-09-26T16:27:10.477770 #4452]  INFO -- : Started GET "/" for 201.144.174.26 at 2014-09-26 16:27:10 -0500
+I, [2014-09-26T16:27:10.493831 #4452]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-26T16:27:10.544967 #4452]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (43.4ms)
+I, [2014-09-26T16:27:10.561597 #4452]  INFO -- : Completed 200 OK in 63ms (Views: 61.0ms | ActiveRecord: 0.5ms)
+I, [2014-09-26T23:05:47.478268 #4452]  INFO -- : Started GET "/" for 187.161.71.48 at 2014-09-26 23:05:47 -0500
+I, [2014-09-26T23:05:47.499522 #4452]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-26T23:05:47.541549 #4452]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (28.8ms)
+I, [2014-09-26T23:05:47.615627 #4452]  INFO -- : Completed 200 OK in 116ms (Views: 40.3ms | ActiveRecord: 0.6ms)
+I, [2014-09-26T23:05:51.327355 #4452]  INFO -- : Started GET "/welcome/test_trial.html" for 187.161.71.48 at 2014-09-26 23:05:51 -0500
+I, [2014-09-26T23:05:51.349851 #4452]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-26T23:05:51.398085 #4452]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.1ms)
+I, [2014-09-26T23:05:51.416966 #4452]  INFO -- : Completed 200 OK in 67ms (Views: 51.4ms | ActiveRecord: 0.0ms)
+I, [2014-09-26T23:07:41.299296 #4452]  INFO -- : Started GET "/welcome/test_trial.html" for 187.161.71.48 at 2014-09-26 23:07:41 -0500
+I, [2014-09-26T23:07:41.316814 #4452]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-26T23:07:41.342716 #4452]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.1ms)
+I, [2014-09-26T23:07:41.354982 #4452]  INFO -- : Completed 200 OK in 38ms (Views: 34.9ms | ActiveRecord: 0.0ms)
+I, [2014-09-27T15:16:21.991818 #4452]  INFO -- : Started GET "/" for 201.156.164.40 at 2014-09-27 15:16:21 -0500
+I, [2014-09-27T15:16:22.071973 #4452]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-27T15:16:22.115616 #4452]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (35.4ms)
+I, [2014-09-27T15:16:22.122941 #4452]  INFO -- : Completed 200 OK in 51ms (Views: 46.3ms | ActiveRecord: 0.7ms)
+I, [2014-09-27T15:16:29.423003 #4452]  INFO -- : Started GET "/contacto/index" for 201.156.164.40 at 2014-09-27 15:16:29 -0500
+I, [2014-09-27T15:16:31.391490 #4452]  INFO -- : Processing by ContactoController#index as HTML
+I, [2014-09-27T15:16:32.402386 #4452]  INFO -- :   Rendered contacto/index.html.erb within layouts/application (525.7ms)
+I, [2014-09-27T15:16:32.407361 #4452]  INFO -- : Completed 200 OK in 1015ms (Views: 977.7ms | ActiveRecord: 0.0ms)
+I, [2014-09-27T15:17:19.536363 #4452]  INFO -- : Started GET "/contacto/index" for 201.156.164.40 at 2014-09-27 15:17:19 -0500
+I, [2014-09-27T15:17:19.578128 #4452]  INFO -- : Processing by ContactoController#index as HTML
+I, [2014-09-27T15:17:19.620074 #4452]  INFO -- :   Rendered contacto/index.html.erb within layouts/application (21.8ms)
+I, [2014-09-27T15:17:19.621985 #4452]  INFO -- : Completed 200 OK in 44ms (Views: 33.1ms | ActiveRecord: 0.0ms)
+I, [2014-09-27T15:17:30.957436 #4452]  INFO -- : Started GET "/contacto/index" for 201.156.164.40 at 2014-09-27 15:17:30 -0500
+I, [2014-09-27T15:17:30.981059 #4452]  INFO -- : Processing by ContactoController#index as HTML
+I, [2014-09-27T15:17:31.002938 #4452]  INFO -- :   Rendered contacto/index.html.erb within layouts/application (19.7ms)
+I, [2014-09-27T15:17:31.006384 #4452]  INFO -- : Completed 200 OK in 25ms (Views: 23.4ms | ActiveRecord: 0.0ms)
+I, [2014-09-27T15:18:02.041694 #4452]  INFO -- : Started GET "/" for 201.156.164.40 at 2014-09-27 15:18:02 -0500
+I, [2014-09-27T15:18:02.058252 #4452]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-27T15:18:02.371399 #4452]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (296.3ms)
+I, [2014-09-27T15:18:02.381556 #4452]  INFO -- : Completed 200 OK in 314ms (Views: 248.8ms | ActiveRecord: 62.9ms)
+I, [2014-09-27T15:18:11.007900 #4452]  INFO -- : Started GET "/contacto/index" for 201.156.164.40 at 2014-09-27 15:18:11 -0500
+I, [2014-09-27T15:18:11.038394 #4452]  INFO -- : Processing by ContactoController#index as HTML
+I, [2014-09-27T15:18:11.059988 #4452]  INFO -- :   Rendered contacto/index.html.erb within layouts/application (11.5ms)
+I, [2014-09-27T15:18:11.062231 #4452]  INFO -- : Completed 200 OK in 23ms (Views: 14.3ms | ActiveRecord: 0.0ms)
+I, [2014-09-27T16:40:41.086971 #4452]  INFO -- : Started GET "/" for 201.156.164.40 at 2014-09-27 16:40:41 -0500
+I, [2014-09-27T16:40:41.135708 #4452]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-27T16:40:41.203215 #4452]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (33.7ms)
+I, [2014-09-27T16:40:41.212165 #4452]  INFO -- : Completed 200 OK in 52ms (Views: 51.0ms | ActiveRecord: 0.7ms)
+I, [2014-09-27T16:40:43.755163 #4452]  INFO -- : Started GET "/welcome/test_trial.html" for 201.156.164.40 at 2014-09-27 16:40:43 -0500
+I, [2014-09-27T16:40:43.762779 #4452]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-27T16:40:43.779037 #4452]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.1ms)
+I, [2014-09-27T16:40:43.798720 #4452]  INFO -- : Completed 200 OK in 35ms (Views: 23.0ms | ActiveRecord: 0.0ms)
+I, [2014-09-27T23:53:27.544740 #4452]  INFO -- : Started GET "/" for 201.172.236.51 at 2014-09-27 23:53:27 -0500
+I, [2014-09-27T23:53:27.670659 #4452]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-27T23:53:27.697184 #4452]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (10.7ms)
+I, [2014-09-27T23:53:27.699600 #4452]  INFO -- : Completed 200 OK in 29ms (Views: 10.5ms | ActiveRecord: 3.3ms)
+I, [2014-09-27T23:53:34.501329 #4452]  INFO -- : Started GET "/welcome/test_trial.html" for 201.172.236.51 at 2014-09-27 23:53:34 -0500
+I, [2014-09-27T23:53:34.533062 #4452]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-27T23:53:34.554984 #4452]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.3ms)
+I, [2014-09-27T23:53:34.569335 #4452]  INFO -- : Completed 200 OK in 31ms (Views: 10.6ms | ActiveRecord: 0.0ms)
+I, [2014-09-28T21:37:44.624687 #4452]  INFO -- : Started GET "/" for 201.172.236.157 at 2014-09-28 21:37:44 -0500
+I, [2014-09-28T21:37:44.661151 #4452]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-28T21:37:44.732154 #4452]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (42.6ms)
+I, [2014-09-28T21:37:44.752401 #4452]  INFO -- : Completed 200 OK in 91ms (Views: 67.6ms | ActiveRecord: 0.8ms)
+I, [2014-09-28T21:37:47.639725 #4452]  INFO -- : Started GET "/welcome/test_trial.html" for 201.172.236.157 at 2014-09-28 21:37:47 -0500
+I, [2014-09-28T21:37:47.644819 #4452]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-28T21:37:47.662378 #4452]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.1ms)
+I, [2014-09-28T21:37:47.676743 #4452]  INFO -- : Completed 200 OK in 31ms (Views: 14.8ms | ActiveRecord: 0.0ms)
+I, [2014-09-30T21:55:14.913348 #25541]  INFO -- : Started GET "/" for 189.219.116.57 at 2014-09-30 21:55:14 -0500
+I, [2014-09-30T21:55:15.191644 #25541]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-09-30T21:55:15.250240 #25541]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (33.0ms)
+I, [2014-09-30T21:55:15.253060 #25541]  INFO -- : Completed 200 OK in 61ms (Views: 21.6ms | ActiveRecord: 19.0ms)
+I, [2014-09-30T21:55:19.500168 #25541]  INFO -- : Started GET "/welcome/test_trial.html" for 189.219.116.57 at 2014-09-30 21:55:19 -0500
+I, [2014-09-30T21:55:19.502754 #25541]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-09-30T21:55:19.521580 #25541]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (2.3ms)
+I, [2014-09-30T21:55:19.522748 #25541]  INFO -- : Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+I, [2014-10-01T12:51:47.638642 #25541]  INFO -- : Started GET "/" for 131.178.246.48 at 2014-10-01 12:51:47 -0500
+I, [2014-10-01T12:51:49.244631 #25541]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-10-01T12:51:53.096705 #25541]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (2908.6ms)
+I, [2014-10-01T12:51:53.270160 #25541]  INFO -- : Completed 200 OK in 4014ms (Views: 3317.0ms | ActiveRecord: 253.3ms)
+I, [2014-10-01T12:51:58.763160 #25541]  INFO -- : Started GET "/welcome/test_trial.html" for 131.178.246.48 at 2014-10-01 12:51:58 -0500
+I, [2014-10-01T12:51:59.047005 #25541]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-10-01T12:51:59.291506 #25541]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (2.3ms)
+I, [2014-10-01T12:51:59.292544 #25541]  INFO -- : Completed 200 OK in 245ms (Views: 6.3ms | ActiveRecord: 0.0ms)
+I, [2014-10-01T12:53:14.061215 #25541]  INFO -- : Started GET "/welcome/test_trial.html" for 131.178.246.48 at 2014-10-01 12:53:14 -0500
+I, [2014-10-01T12:53:14.074149 #25541]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-10-01T12:53:14.080089 #25541]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.1ms)
+I, [2014-10-01T12:53:14.086169 #25541]  INFO -- : Completed 200 OK in 12ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+I, [2014-10-01T14:45:13.542430 #25541]  INFO -- : Started GET "/" for 187.188.134.93 at 2014-10-01 14:45:13 -0500
+I, [2014-10-01T14:45:13.556310 #25541]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-10-01T14:45:13.591752 #25541]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (26.6ms)
+I, [2014-10-01T14:45:13.596731 #25541]  INFO -- : Completed 200 OK in 36ms (Views: 34.8ms | ActiveRecord: 0.6ms)
+I, [2014-10-01T14:45:23.556012 #25541]  INFO -- : Started GET "/welcome/test_trial.html" for 187.188.134.93 at 2014-10-01 14:45:23 -0500
+I, [2014-10-01T14:45:23.694550 #25541]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-10-01T14:45:23.696894 #25541]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.1ms)
+I, [2014-10-01T14:45:23.697967 #25541]  INFO -- : Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+I, [2014-10-01T14:47:25.376714 #25541]  INFO -- : Started GET "/" for 187.188.134.93 at 2014-10-01 14:47:25 -0500
+I, [2014-10-01T14:47:25.388509 #25541]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-10-01T14:47:25.778374 #25541]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (363.3ms)
+I, [2014-10-01T14:47:25.781766 #25541]  INFO -- : Completed 200 OK in 381ms (Views: 371.1ms | ActiveRecord: 0.6ms)
+I, [2014-10-01T14:47:28.863179 #25541]  INFO -- : Started GET "/contacto/index" for 187.188.134.93 at 2014-10-01 14:47:28 -0500
+I, [2014-10-01T14:47:30.022793 #25541]  INFO -- : Processing by ContactoController#index as HTML
+I, [2014-10-01T14:47:30.780300 #25541]  INFO -- :   Rendered contacto/index.html.erb within layouts/application (406.0ms)
+I, [2014-10-01T14:47:30.783895 #25541]  INFO -- : Completed 200 OK in 752ms (Views: 717.6ms | ActiveRecord: 0.0ms)
+I, [2014-10-01T14:47:31.019127 #25541]  INFO -- : Started GET "/welcome/test_trial.html" for 187.188.134.93 at 2014-10-01 14:47:31 -0500
+I, [2014-10-01T14:47:31.049928 #25541]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-10-01T14:47:31.066257 #25541]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.1ms)
+I, [2014-10-01T14:47:31.068260 #25541]  INFO -- : Completed 200 OK in 12ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+I, [2014-10-01T14:47:35.282065 #25541]  INFO -- : Started GET "/welcome/test_trial.html" for 187.188.134.93 at 2014-10-01 14:47:35 -0500
+I, [2014-10-01T14:47:35.283900 #25541]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-10-01T14:47:35.286046 #25541]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.1ms)
+I, [2014-10-01T14:47:35.288251 #25541]  INFO -- : Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+I, [2014-10-01T17:47:49.520488 #6593]  INFO -- : Started GET "/" for 187.176.233.248 at 2014-10-01 17:47:49 -0500
+I, [2014-10-01T17:47:49.853814 #6593]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-10-01T17:47:49.955859 #6593]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (55.6ms)
+I, [2014-10-01T17:47:49.958963 #6593]  INFO -- : Completed 200 OK in 105ms (Views: 38.3ms | ActiveRecord: 40.4ms)
+I, [2014-10-01T17:59:36.472755 #6593]  INFO -- : Started GET "/welcome/test_trial.html" for 187.176.233.248 at 2014-10-01 17:59:36 -0500
+I, [2014-10-01T17:59:36.475518 #6593]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-10-01T17:59:36.504336 #6593]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (2.2ms)
+I, [2014-10-01T17:59:36.505600 #6593]  INFO -- : Completed 200 OK in 30ms (Views: 28.9ms | ActiveRecord: 0.0ms)
+I, [2014-10-01T18:00:46.695555 #6593]  INFO -- : Started GET "/contacto/index" for 187.176.233.248 at 2014-10-01 18:00:46 -0500
+I, [2014-10-01T18:00:46.699181 #6593]  INFO -- : Processing by ContactoController#index as HTML
+I, [2014-10-01T18:00:46.717241 #6593]  INFO -- :   Rendered contacto/index.html.erb within layouts/application (4.1ms)
+I, [2014-10-01T18:00:46.717898 #6593]  INFO -- : Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 0.0ms)
+I, [2014-10-01T18:00:50.703804 #6593]  INFO -- : Started GET "/" for 187.176.233.248 at 2014-10-01 18:00:50 -0500
+I, [2014-10-01T18:00:50.705638 #6593]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-10-01T18:00:50.710655 #6593]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (3.5ms)
+I, [2014-10-01T18:00:50.711749 #6593]  INFO -- : Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 0.6ms)
+I, [2014-10-01T19:39:07.872142 #6593]  INFO -- : Started GET "/" for 201.156.164.40 at 2014-10-01 19:39:07 -0500
+I, [2014-10-01T19:39:07.901917 #6593]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-10-01T19:39:07.906409 #6593]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (3.3ms)
+I, [2014-10-01T19:39:07.907129 #6593]  INFO -- : Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.5ms)
+I, [2014-10-01T19:39:09.763218 #6593]  INFO -- : Started GET "/welcome/test_trial.html" for 201.156.164.40 at 2014-10-01 19:39:09 -0500
+I, [2014-10-01T19:39:09.765019 #6593]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-10-01T19:39:09.766300 #6593]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.1ms)
+I, [2014-10-01T19:39:09.767124 #6593]  INFO -- : Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+I, [2014-10-01T19:41:12.964695 #6593]  INFO -- : Started GET "/" for 201.161.23.214 at 2014-10-01 19:41:12 -0500
+I, [2014-10-01T19:41:12.966249 #6593]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-10-01T19:41:12.969518 #6593]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (2.3ms)
+I, [2014-10-01T19:41:12.970053 #6593]  INFO -- : Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.4ms)
+I, [2014-10-01T19:41:22.526591 #6593]  INFO -- : Started GET "/welcome/test_trial.html" for 201.161.23.214 at 2014-10-01 19:41:22 -0500
+I, [2014-10-01T19:41:22.528436 #6593]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-10-01T19:41:22.529441 #6593]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.1ms)
+I, [2014-10-01T19:41:22.530021 #6593]  INFO -- : Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+I, [2014-10-01T20:25:20.353074 #6593]  INFO -- : Started GET "/" for 173.252.112.114 at 2014-10-01 20:25:20 -0500
+I, [2014-10-01T20:25:20.354599 #6593]  INFO -- : Processing by WelcomeController#index as */*
+I, [2014-10-01T20:25:20.374773 #6593]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (5.6ms)
+I, [2014-10-01T20:25:20.375782 #6593]  INFO -- : Completed 200 OK in 21ms (Views: 20.0ms | ActiveRecord: 0.6ms)
+I, [2014-10-02T16:16:15.819015 #6593]  INFO -- : Started GET "/" for 172.56.9.98 at 2014-10-02 16:16:15 -0500
+I, [2014-10-02T16:16:16.030577 #6593]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-10-02T16:16:16.065743 #6593]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (8.6ms)
+I, [2014-10-02T16:16:16.066308 #6593]  INFO -- : Completed 200 OK in 36ms (Views: 26.1ms | ActiveRecord: 0.7ms)
+I, [2014-10-02T16:16:31.592640 #6593]  INFO -- : Started GET "/contacto/index" for 172.56.9.98 at 2014-10-02 16:16:31 -0500
+I, [2014-10-02T16:16:31.649201 #6593]  INFO -- : Processing by ContactoController#index as HTML
+I, [2014-10-02T16:16:31.713608 #6593]  INFO -- :   Rendered contacto/index.html.erb within layouts/application (52.2ms)
+I, [2014-10-02T16:16:31.719806 #6593]  INFO -- : Completed 200 OK in 70ms (Views: 68.4ms | ActiveRecord: 0.0ms)
+I, [2014-10-03T00:36:54.006311 #7294]  INFO -- : Started GET "/" for 189.219.118.244 at 2014-10-03 00:36:54 -0500
+I, [2014-10-03T00:36:54.363060 #7294]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-10-03T00:36:54.417191 #7294]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (26.3ms)
+I, [2014-10-03T00:36:54.419256 #7294]  INFO -- : Completed 200 OK in 56ms (Views: 19.4ms | ActiveRecord: 14.2ms)
+I, [2014-10-03T00:37:01.006245 #7294]  INFO -- : Started GET "/welcome/test_trial.html" for 189.219.118.244 at 2014-10-03 00:37:01 -0500
+I, [2014-10-03T00:37:01.008641 #7294]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-10-03T00:37:01.016655 #7294]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (1.6ms)
+I, [2014-10-03T00:37:01.017444 #7294]  INFO -- : Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.0ms)
+I, [2014-10-03T00:38:07.483863 #7294]  INFO -- : Started GET "/" for 189.219.118.244 at 2014-10-03 00:38:07 -0500
+I, [2014-10-03T00:38:07.509736 #7294]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-10-03T00:38:07.514279 #7294]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (3.1ms)
+I, [2014-10-03T00:38:07.515045 #7294]  INFO -- : Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.5ms)
+I, [2014-10-03T00:38:17.089365 #7294]  INFO -- : Started GET "/welcome/test_trial.html" for 189.219.118.244 at 2014-10-03 00:38:17 -0500
+I, [2014-10-03T00:38:17.091141 #7294]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-10-03T00:38:17.092471 #7294]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.1ms)
+I, [2014-10-03T00:38:17.093362 #7294]  INFO -- : Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+I, [2014-10-03T23:05:14.272246 #7294]  INFO -- : Started GET "/" for 189.219.112.84 at 2014-10-03 23:05:14 -0500
+I, [2014-10-03T23:05:14.305405 #7294]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-10-03T23:05:14.310377 #7294]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (3.7ms)
+I, [2014-10-03T23:05:14.311345 #7294]  INFO -- : Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.7ms)
+I, [2014-10-03T23:05:16.478656 #7294]  INFO -- : Started GET "/welcome/test_trial.html" for 189.219.112.84 at 2014-10-03 23:05:16 -0500
+I, [2014-10-03T23:05:16.480298 #7294]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-10-03T23:05:16.481750 #7294]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.1ms)
+I, [2014-10-03T23:05:16.482624 #7294]  INFO -- : Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+I, [2014-10-05T12:22:19.642232 #7294]  INFO -- : Started GET "/" for 187.138.95.19 at 2014-10-05 12:22:19 -0500
+I, [2014-10-05T12:22:19.668945 #7294]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-10-05T12:22:19.686186 #7294]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (15.7ms)
+I, [2014-10-05T12:22:20.018725 #7294]  INFO -- : Completed 200 OK in 349ms (Views: 347.5ms | ActiveRecord: 1.1ms)
+I, [2014-10-05T22:11:11.543029 #7294]  INFO -- : Started GET "/" for 189.219.115.64 at 2014-10-05 22:11:11 -0500
+I, [2014-10-05T22:11:11.560839 #7294]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-10-05T22:11:11.596808 #7294]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (23.8ms)
+I, [2014-10-05T22:11:11.599159 #7294]  INFO -- : Completed 200 OK in 38ms (Views: 25.9ms | ActiveRecord: 0.6ms)
+I, [2014-10-05T22:11:17.269602 #7294]  INFO -- : Started GET "/welcome/test_trial.html" for 189.219.115.64 at 2014-10-05 22:11:17 -0500
+I, [2014-10-05T22:11:17.272866 #7294]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-10-05T22:11:17.288276 #7294]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (0.6ms)
+I, [2014-10-05T22:11:17.289778 #7294]  INFO -- : Completed 200 OK in 17ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+I, [2014-10-06T11:26:45.368555 #7294]  INFO -- : Started GET "/" for 201.172.189.199 at 2014-10-06 11:26:45 -0500
+I, [2014-10-06T11:26:45.744945 #7294]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-10-06T11:26:46.128195 #7294]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (288.7ms)
+I, [2014-10-06T11:26:46.156456 #7294]  INFO -- : Completed 200 OK in 405ms (Views: 291.1ms | ActiveRecord: 56.4ms)
+I, [2014-10-07T15:37:00.940942 #18425]  INFO -- : Started GET "/" for 74.61.55.184 at 2014-10-07 15:37:00 -0500
+I, [2014-10-07T15:37:01.237355 #18425]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-10-07T15:37:01.339966 #18425]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (39.6ms)
+I, [2014-10-07T15:37:01.342819 #18425]  INFO -- : Completed 200 OK in 105ms (Views: 53.2ms | ActiveRecord: 24.4ms)
+I, [2014-10-07T16:29:02.788847 #18425]  INFO -- : Started GET "/" for 201.156.164.40 at 2014-10-07 16:29:02 -0500
+I, [2014-10-07T16:29:02.810921 #18425]  INFO -- : Processing by WelcomeController#index as HTML
+I, [2014-10-07T16:29:02.817012 #18425]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (3.2ms)
+I, [2014-10-07T16:29:02.817688 #18425]  INFO -- : Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.4ms)
+I, [2014-10-07T16:29:05.181798 #18425]  INFO -- : Started GET "/welcome/test_trial.html" for 201.156.164.40 at 2014-10-07 16:29:05 -0500
+I, [2014-10-07T16:29:05.184051 #18425]  INFO -- : Processing by WelcomeController#test_trial as HTML
+I, [2014-10-07T16:29:05.218841 #18425]  INFO -- :   Rendered welcome/test_trial.html.erb within layouts/application (1.7ms)
+I, [2014-10-07T16:29:05.219652 #18425]  INFO -- : Completed 200 OK in 35ms (Views: 34.6ms | ActiveRecord: 0.0ms)
