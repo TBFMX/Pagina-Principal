@@ -1,6 +1,4 @@
 
-<<<<<<< HEAD
-=======
 
 Started GET "/index" for 127.0.0.1 at 2014-05-16 10:21:37 -0500
 
@@ -51299,4 +51297,4 @@ Started GET "/welcome/test_trial.html" for 127.0.0.1 at 2014-10-07 17:37:46 -050
 Processing by WelcomeController#test_trial as HTML
   Rendered welcome/test_trial.html.erb within layouts/application (1.6ms)
 Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.0ms)
->>>>>>> f5a0f26abef5229c61a199a77215b6d7bbc3a0ca
+
