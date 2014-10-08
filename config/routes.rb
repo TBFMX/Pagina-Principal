@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     delete 'welcome/index' => :destroy
     delete 'welcome/logout' => :destroy
     get 'welcome/test_trial' => :test_trial
+    get '2' => :test_trial
     #post '/' => :create
     #delete '/' => :destroy
     #delete '/logout' => :destroy

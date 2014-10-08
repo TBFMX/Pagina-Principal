@@ -4,14 +4,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authorize
   
-
   protected
   	def authorize
   		unless User.find_by(id: session[:user_id])
   			session[:lasurl]= request.original_url
   			redirect_to root_path, notice: "Please log in"
   		end
- 
   	end
 
 end

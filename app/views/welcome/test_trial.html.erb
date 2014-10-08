@@ -17,13 +17,10 @@
 <script src="../../js/THREEx.WindowResize.js"></script>
 <script src="../../js/libs/tween.min.js"></script>
 
+
 <div id="ThreeJS" style="position: absolute; left:0px; top:0px"></div>
+  
 <script>
-/*
-	Three.js "tutorials by example"
-	Author: Lee Stemkoski
-	Date: July 2013 (three.js v59dev)
-*/
 
 // MAIN
 
@@ -52,11 +49,21 @@ var tbfEvolving,
 	tbfNull;
 // pages created by tbf
 var rubyNordlock, rubyToner, rubyCedimo, rubyEym, rubyNull, rubyGAAIA;
-
+var willBeLaunched="";
 init();
 animate();
 
 // FUNCTIONS
+function initializePlane(objectName,position,whSize,texturePath){
+	var texture = THREE.ImageUtils.loadTexture(texturePath);
+	var material = new THREE.MeshBasicMaterial( { map: texture, side:THREE.DoubleSide } );
+	var plane = new THREE.PlaneGeometry(whSize.w, whSize.h);
+	var object = new THREE.Mesh(plane, material);
+	object.name = objectName;
+	object.position.set(position.x,position.y,position.z);
+	return object;
+}
+
 function init()
 {
 	// SCENE
@@ -86,171 +93,92 @@ function init()
 	var faceColorMaterial = new THREE.MeshBasicMaterial( 
 	{ color: 0xffffff, vertexColors: THREE.FaceColors } );
 	
-	//~ var pathImage = '../../images/tbfHome.jpg';
-	var homeWidth = 3;
-	var homeHeight = 3;
-	var homeWidthSegments = 3;
-	var homeHeightSegments = 3;
-
-	//~ var tbfHomeTexture = THREE.ImageUtils.loadTexture('../../images/tbfHome.jpg');
-	//~ var tbfHomeMaterial = new THREE.MeshBasicMaterial( { map: tbfHomeTexture, side:THREE.DoubleSide } );
-	//~ var tbfHomePlane = new THREE.PlaneGeometry(homeWidth, homeHeight, homeWidthSegments, homeHeightSegments);
-	//~ var tbfHome = new THREE.Mesh(tbfHomePlane, tbfHomeMaterial);
-	//~ tbfHome.name = "allTbf";
 	
-	var allWidth = 1;
-	var allHeight = 1;
-	var stepZ = 0.0;
-	var stepRuby = 1.0;
-	
-
 	///declaracion de elementos
-	var tbfEvolvingTexture = THREE.ImageUtils.loadTexture('../../images/tbfEvolving.jpg');
-	var tbfEvolvingMaterial = new THREE.MeshBasicMaterial( { map: tbfEvolvingTexture, side:THREE.DoubleSide } );
-	var tbfEvolvingPlane = new THREE.PlaneGeometry(allWidth, allHeight);
-	tbfEvolving = new THREE.Mesh(tbfEvolvingPlane, tbfEvolvingMaterial);
-	tbfEvolving.name = "evolvingConcepts";
-	tbfEvolving.position.set(-1.0,1.0,stepZ);
+	var texturePath = '../../images/tbfEvolving.jpg';
+	tbfEvolving = initializePlane("evolvingConcepts",{x:-1,y:1.0,z:0.0},{w:1.0, h:1.0},texturePath);
+	tbfEvolving.rotation.set(0,0,0);
 	
-	var tbfLoginTexture = THREE.ImageUtils.loadTexture('../../images/tbfLogin.jpg');
-	var tbfLoginMaterial = new THREE.MeshBasicMaterial( { map: tbfLoginTexture, side:THREE.DoubleSide } );
-	var tbfLoginPlane = new THREE.PlaneGeometry(allWidth, allHeight);
-	tbfLogin = new THREE.Mesh(tbfLoginPlane, tbfLoginMaterial);
-	tbfLogin.name = "login";
-	tbfLogin.position.set(0.0,1.0,stepZ);
+	var texturePath_login = '../../images/tbfLogin.jpg';
+	tbfLogin = initializePlane("login",{x:0.0,y:1.0,z:0.0},{w:1.0, h:1.0},texturePath_login);
 	
-	var tbfDatosTexture = THREE.ImageUtils.loadTexture('../../images/tbfDatos.jpg');
-	var tbfDatosMaterial = new THREE.MeshBasicMaterial( { map: tbfDatosTexture, side:THREE.DoubleSide } );
-	var tbfDatosPlane = new THREE.PlaneGeometry(allWidth, allHeight);
-	tbfDatos = new THREE.Mesh(tbfDatosPlane, tbfDatosMaterial);
-	tbfDatos.name = "tbfDatos";
-	tbfDatos.position.set(1.0,1.0,stepZ);
+	var texturePath_datos = '../../images/tbfDatos.jpg';
+	tbfDatos = initializePlane("tbfDatos",{x:1.0,y:1.0,z:0.0},{w:1.0, h:1.0},texturePath_datos);
+	//rails
+	var texturePath_rails = '../../images/rubyonrails.jpg';
+	tbfRails = initializePlane("Ruby On Rails",{x:-1.0,y:0.0,z:0.0},{w:1.0, h:1.0},texturePath_rails);
 	
-	var tbfRailsTexture = THREE.ImageUtils.loadTexture('../../images/tbfRails.jpg');
-	var tbfRailsMaterial = new THREE.MeshBasicMaterial( { map: tbfRailsTexture, side:THREE.DoubleSide } );
-	var tbfRailsPlane = new THREE.PlaneGeometry(allWidth, allHeight);
-	tbfRails = new THREE.Mesh(tbfRailsPlane, tbfRailsMaterial);
-	tbfRails.name = "rubyRails";
-	tbfRails.position.set(-1.0,0.0,stepZ);
+	var texturePath_realidad = '../../images/moblieapps.jpg';
+	tbfMoblie = initializePlane("Moblie Apps",{x:0.0,y:0.0,z:0.0},{w:1.0, h:1.0},texturePath_realidad);
 	
-	var tbfRealidadTexture = THREE.ImageUtils.loadTexture('../../images/tbfRealidad.jpg');
-	var tbfRealidadMaterial = new THREE.MeshBasicMaterial( { map: tbfRealidadTexture, side:THREE.DoubleSide } );
-	var tbfRealidadPlane = new THREE.PlaneGeometry(allWidth, allHeight);
-	tbfRealidad = new THREE.Mesh(tbfRealidadPlane, tbfRealidadMaterial);
-	tbfRealidad.name = "augmentedReality";
-	tbfRealidad.position.set(0.0,0.0,stepZ);
+	var texturePath_interactive = '../../images/apidevelopment.jpg';
+	tbfApi = initializePlane("Api Development",{x:1.0,y:0.0,z:0.0},{w:1.0, h:1.0},texturePath_interactive);
 	
-	var tbfInteractiveTexture = THREE.ImageUtils.loadTexture('../../images/tbfInteractive.jpg');
-	var tbfInteractiveMaterial = new THREE.MeshBasicMaterial( { map: tbfInteractiveTexture, side:THREE.DoubleSide } );
-	var tbfInteractivePlane = new THREE.PlaneGeometry(allWidth, allHeight);
-	tbfInteractive = new THREE.Mesh(tbfInteractivePlane, tbfInteractiveMaterial);
-	tbfInteractive.name = "ModulosInteractivos";
-	tbfInteractive.position.set(1.0,0.0,stepZ);
+	var texturePath_mapping = '../../images/ecommerce.jpg';
+	tbfEcommerce = initializePlane("Ecommerce",{x:-1.0,y:-1.0,z:0.0},{w:1.0, h:1.0},texturePath_mapping);
 	
-	var tbfMappingTexture = THREE.ImageUtils.loadTexture('../../images/tbfMapping.jpg');
-	var tbfMappingMaterial = new THREE.MeshBasicMaterial( { map: tbfMappingTexture, side:THREE.DoubleSide } );
-	var tbfMappingPlane = new THREE.PlaneGeometry(allWidth, allHeight);
-	tbfMapping = new THREE.Mesh(tbfMappingPlane, tbfMappingMaterial);
-	tbfMapping.name = "videoMapping";
-	tbfMapping.position.set(-1.0,-1.0,stepZ);
+	var texturePath_videojuegos = '../../images/videogames.jpg';
+	tbfVJ = initializePlane("Video Juegos",{x:0.0,y:-1.0,z:0.0},{w:1.0, h:1.0},texturePath_videojuegos);
 	
-	var tbf360Texture = THREE.ImageUtils.loadTexture('../../images/tbf360.jpg');
-	var tbf360Material = new THREE.MeshBasicMaterial( { map: tbf360Texture, side:THREE.DoubleSide } );
-	var tbf360Plane = new THREE.PlaneGeometry(allWidth, allHeight);
-	tbf360 = new THREE.Mesh(tbf360Plane, tbf360Material);
-	tbf360.name = "tbf360";
-	tbf360.position.set(0.0,-1.0,stepZ);
-	
-	var tbfNullTexture = THREE.ImageUtils.loadTexture('../../images/tbfNull.jpg');
-	var tbfNullMaterial = new THREE.MeshBasicMaterial( { map: tbfNullTexture, side:THREE.DoubleSide } );
-	var tbfNullPlane = new THREE.PlaneGeometry(allWidth, allHeight);
-	tbfNull = new THREE.Mesh(tbfNullPlane, tbfNullMaterial);
-	tbfNull.name = "tbfNull";
-	tbfNull.position.set(1.0,-1.0,stepZ);
-	////
+	var texturePath_sites = '../../images/personalizedsites.jpg';
+	tbfSites = initializePlane("Sitio Personalizados",{x:1.0,y:-1.0,z:0.0},{w:1.0, h:1.0},texturePath_sites);
+
+
 
 	//variables de control
-	var actual_page_out = ""
+	var actual_page_out = "";
 
+	//se dibujan las imagenes
 	//~ scene.add(tbfHome);
 	scene.add(tbfEvolving);
 	scene.add(tbfLogin);
 	scene.add(tbfDatos);
 	scene.add(tbfRails);
-	scene.add(tbfRealidad);
-	scene.add(tbfInteractive);
-	scene.add(tbfMapping);
-	scene.add(tbf360);
-	scene.add(tbfNull);
+	scene.add(tbfMoblie);
+	scene.add(tbfApi);
+	scene.add(tbfEcommerce);
+	scene.add(tbfVJ);
+	scene.add(tbfSites);
 	
 	// our created pages
-	var nordlockTexture = THREE.ImageUtils.loadTexture('../../images/nordlock.jpg');
-	var nordlockMaterial = new THREE.MeshBasicMaterial( { map: nordlockTexture, side:THREE.DoubleSide } );
-	var nordlockPlane = new THREE.PlaneGeometry(allWidth, allHeight);
-	rubyNordlock = new THREE.Mesh(nordlockPlane, nordlockMaterial);
-	rubyNordlock.name = "nordlock";
-	rubyNordlock.position.set(-1,0,0.1);
+	
+	texturePath = '../../images/nordlock.jpg';
+	rubyNordlock = initializePlane("nordlock",{x:1.0,y:-1.0,z:0.0},{w:1.0, h:1.0},texturePath);
 	rubyNordlock.rotation.set(0,0,0);
 	rubyNordlock.scale.set(0.1,0.1,0.1);
-	//~ rubyNordlock.position.set(-0.75,0.75,stepRuby);
 	
-	var tonerDepotTexture = THREE.ImageUtils.loadTexture('../../images/tonerDepot.jpg');
-	var tonerDepotMaterial = new THREE.MeshBasicMaterial( { map: tonerDepotTexture, side:THREE.DoubleSide } );
-	var tonerDepotPlane = new THREE.PlaneGeometry(allWidth, allHeight);
-	rubyToner = new THREE.Mesh(tonerDepotPlane, tonerDepotMaterial);
-	rubyToner.name = "tonerDepot";
-	rubyToner.position.set(-1,0,0.1);
+	texturePath = '../../images/tonerDepot.jpg';
+	rubyToner = initializePlane("tonerDepot",{x:1.0,y:-1.0,z:0.0},{w:1.0, h:1.0},texturePath);
 	rubyToner.rotation.set(0,0,0);
 	rubyToner.scale.set(0.1,0.1,0.1);
-	//~ rubyToner.position.set(0.75,0.75,stepRuby);
 	
-	var cedimoTexture = THREE.ImageUtils.loadTexture('../../images/cedimo.jpg');
-	var cedimoMaterial = new THREE.MeshBasicMaterial( { map: cedimoTexture, side:THREE.DoubleSide } );
-	var cedimoPlane = new THREE.PlaneGeometry(allWidth, allHeight);
-	rubyCedimo = new THREE.Mesh(cedimoPlane, cedimoMaterial);
-	rubyCedimo.name = "cedimo";
-	rubyCedimo.position.set(-1,0,0.1);
+	texturePath = '../../images/cedimo.jpg';
+	rubyCedimo = initializePlane("cedimo",{x:1.0,y:-1.0,z:0.0},{w:1.0, h:1.0},texturePath);
 	rubyCedimo.rotation.set(0,0,0);
 	rubyCedimo.scale.set(0.1,0.1,0.1);
-	//~ rubyCedimo.position.set(-0.75,-0.75,stepRuby);
 	
-	var eymTexture = THREE.ImageUtils.loadTexture('../../images/eym.jpg');
-	var eymMaterial = new THREE.MeshBasicMaterial( { map: eymTexture, side:THREE.DoubleSide } );
-	var eymPlane = new THREE.PlaneGeometry(allWidth, allHeight);
-	rubyEym = new THREE.Mesh(eymPlane, eymMaterial);
-	rubyEym.name = "eym";
-	rubyEym.position.set(-1,0,0.1);
+	texturePath = '../../images/eym.jpg';
+	rubyEym = initializePlane("eym",{x:1.0,y:-1.0,z:0.0},{w:1.0, h:1.0},texturePath);
 	rubyEym.rotation.set(0,0,0);
 	rubyEym.scale.set(0.1,0.1,0.1);
-	//~ rubyEym.position.set(0.75,-0.75,stepRuby);
 	
-	var rubyNullTexture = THREE.ImageUtils.loadTexture('../../images/rubyNull.jpg');
-	var rubyNullMaterial = new THREE.MeshBasicMaterial( { map: rubyNullTexture, side:THREE.DoubleSide } );
-	var rubyNullPlane = new THREE.PlaneGeometry(homeWidth, homeHeight);
-	rubyNull = new THREE.Mesh(rubyNullPlane, rubyNullMaterial);
-	rubyNull.name = "rubyNull";
-	rubyNull.position.set(-1,0,0.1);
+	var sizingFactor = 4;
+	texturePath = '../../images/rubyNull.jpg';
+	//~ rubyNull = initializePlane("rubyNull",{x:1.0,y:-1.0,z:0.0},{w:3.0, h:3.0},texturePath);
+	rubyNull = initializePlane("rubyNull",{x:1.0,y:-1.0,z:0.0},{w:sizingFactor*ASPECT, h:sizingFactor},texturePath);
 	rubyNull.rotation.set(0,0,0);
 	rubyNull.scale.set(0.1,0.1,0.1);
-	//~ rubyNull.position.set(0.0,0.0,stepRuby*0.9);
 
 	//---------ADD A VIDEO------------------
 	// create the video element
 	video = document.createElement( 'video' );
-	// video.id = 'video';
-	// video.type = ' video/ogg; codecs="theora, vorbis" ';
-	video.src = "videos/tbffinal.ogv";
-	//~ video.src = "videos/tbffinal.mp4";
-	//~ video.load(); // must call after setting/changing source
-	//~ video.play();
 	
-	// alternative method -- 
-	// create DIV in HTML:
-	// <video id="myVideo" autoplay style="display:none">
-	//		<source src="videos/sintel.ogv" type='video/ogg; codecs="theora, vorbis"'>
-	// </video>
-	// and set JS variable:
-	// video = document.getElementById( 'myVideo' );
+	if(video.canPlayType('video/mp4'))
+		video.src = "videos/tbffinal.mp4";
+	else if(video.canPlayType('video/webm'))
+		video.src = "videos/tbffinal.webm";
+	else if(video.canPlayType('video/ogg'))
+		video.src = "videos/tbffinal.ogv";
 	
 	videoImage = document.createElement( 'canvas' );
 	videoImage.width = 960;
@@ -272,6 +200,7 @@ function init()
 	movieScreen = new THREE.Mesh( movieGeometry, movieMaterial );
 	movieScreen.position.set(-1,1,0);
 	movieScreen.scale.set(0.1,0.1,0.1);
+	movieScreen.rotation.set(Math.PI/2.0,0,0);
 	movieScreen.name = "movieScreen";
 	//~ scene.add(movieScreen);
 	//////////////////////////////////////////////////////////////////////
@@ -295,7 +224,7 @@ function init()
     context1.fillText('Hello, world!', 0, 20);
     
 	// canvas contents will be used for a texture
-	texture1 = new THREE.Texture(canvas1) 
+	texture1 = new THREE.Texture(canvas1);
 	texture1.needsUpdate = true;
 	
 	////////////////////////////////////////
@@ -353,55 +282,83 @@ function onDocumentMouseDown( event )
 		// change the color of the closest face.
 
 		var selectedObject = intersects[ 0 ].object.name;
-		if(selectedObject == "evolvingConcepts"){
+		switch(selectedObject){
+		/*	
+		case "augmentedReality":
 			//~ document.location.href = "http://tbf.mx";
+			tweenSpinDown(tbfEvolving,500);
+			awayFromTbf(500);
 			scene.add(movieScreen);
-			videoOut(movieScreen,1000);
+			videoOut(movieScreen,500);
+			tweenSpinDown(tbfEvolving,500);
+			translateTo(tbfEvolving,{x:0,y:0,z:0},500);
+			setTimeout(tweenSpinUp(movieScreen,500),1000);
+			setTimeout(tweenSpinUp(tbfEvolving,500),1000);
+			setTimeout(translateTo(tbfEvolving,{x:-3,y:0,z:0},500),1000);
 			video.load(); // must call after setting/changing source
 			video.play();
 			
 			if ( video.readyState === video.HAVE_ENOUGH_DATA )
 			{
 				videoImageContext.drawImage( video, 0, 0 );
-				if ( videoTexture ) 
+				if ( videoTexture )
 					videoTexture.needsUpdate = true;
 			}
 			
 			videoTexture.needsUpdate = true;
-		}else if(selectedObject == "tbfDatos"){
+			break;
+		*/	
+		case "Moblie Apps":
+			video.pause();
+			video.currentTime = 0;
+			videoIn(movieScreen,500);
+			setTimeout(hideVideo,500);
+			nearToTbf(500);
+			break;
+		case "tbfDatos":
 			//~ tweenHomeFade(3000,0);
-			setTimeout(document.location.href = "http://tbf.mx/contacto/index",2000);
-			
-		}else if(selectedObject == "movieScreen"){
+			willBeLaunched = "tbfDatos";
+			break;
+		case "movieScreen":
 			video.pause();
 			video.currentTime = 0;
 			videoIn(movieScreen,1000);
 			setTimeout(hideVideo,1000);
-		}else if(selectedObject == "tbfNull"){
+			nearToTbf(1000);
+			break;
+		case "tbfNull":
 			//~ tweenHomeTogether(3000,0);
-		}else if(selectedObject == "rubyRails"){
+			break;
+		case "Sitio Personalizados":
 			//~ tweenHomeFade(500);
 			//~ setTimeout(tweenHomeTogether(500),500);
+			
 			showRuby();
 			//~ setTimeout(tweenRubyTogether(500),500);
 			tweenRightSpinRuby(1000,'z',0);
 			//~ tweenHomeTogether();
-		}else if(selectedObject == "rubyNull"){
+			break;
+		case "rubyNull":
 			tweenLeftSpinRuby(1000,'z',0);
 			//~ tweenHomeTogether(1000,1000);
 			setTimeout(hideRuby,1000);
-		}else if(selectedObject == "nordlock"){
-			pageOut(rubyNordlock,1000);
-			setTimeout(launchPage("http://www.nordlock.mx"),3000);
-		}else if(selectedObject == "tonerDepot"){
-			pageOut(rubyToner,1000);
-			setTimeout(launchPage("http://toner.tbf.mx"),3000);
-		}else if(selectedObject == "cedimo"){
-			pageOut(rubyCedimo,1000);
-			setTimeout(launchPage("http://cedimo.com.mx"),3000);
-		}else if(selectedObject == "eym"){
-			pageOut(rubyEym,1000);
-			setTimeout(launchPage("http://eym.tbf.mx"),3000);
+			break;
+		case "nordlock":
+			//~ pageOut(rubyNordlock,1000);
+			willBeLaunched = "nordlock";
+			break;
+		case "tonerDepot":
+			//~ pageOut(rubyToner,1000);
+			willBeLaunched = "tonerDepot";
+			break;
+		case "cedimo":
+			//~ pageOut(rubyCedimo,1000);
+			willBeLaunched = "cedimo";
+			break;
+		case "eym":
+			//~ pageOut(rubyEym,1000);
+			willBeLaunched = "eym";
+			break;
 		}
 		intersects[ 0 ].object.geometry.colorsNeedUpdate = true;
 	}
@@ -427,63 +384,79 @@ function hideRuby(){//rubyNordlock, rubyToner, rubyCedimo, rubyEyM, rubyGAAIA
 function hideVideo(){
 	scene.remove(movieScreen);
 }
-//~ function tweenHomeTogether(joinTime,delay){
-	//~ tweenJoin(tbfEvolving,{x:-1.0,y:1.0,z:0.0},joinTime,delay);
-	//~ tweenJoin(tbfLogin,{x:0.0,y:1.0,z:0.0},joinTime,delay);
-	//~ tweenJoin(tbfDatos,{x:1.0,y:1.0,z:0.0},joinTime,delay);
-	//~ tweenJoin(tbfRails,{x:-1.0,y:0.0,z:0.0},joinTime,delay);
-	//~ tweenJoin(tbfRealidad,{x:0.0,y:0.0,z:0.0},joinTime,delay);
-	//~ tweenJoin(tbfInteractive,{x:1.0,y:0.0,z:0.0},joinTime,delay);
-	//~ tweenJoin(tbfMapping,{x:-1.0,y:-1.0,z:0.0},joinTime,delay);
-	//~ tweenJoin(tbf360,{x:0.0,y:-1.0,z:0.0},joinTime,delay);
-	//~ tweenJoin(tbfNull,{x:1.0,y:-1.0,z:0.0},joinTime,delay);
-//~ }
-
-//~ function tweenHomeFade(fadeTime,delay){
-	//~ tweenFade(tbfEvolving,fadeTime,delay);
-	//~ tweenFade(tbfLogin,fadeTime,delay);
-	//~ tweenFade(tbfDatos,fadeTime,delay);
-	//~ tweenFade(tbfRails,fadeTime,delay);
-	//~ tweenFade(tbfRealidad,fadeTime,delay);
-	//~ tweenFade(tbfInteractive,fadeTime,delay);
-	//~ tweenFade(tbfMapping,fadeTime,delay);
-	//~ tweenFade(tbf360,fadeTime,delay);
-	//~ tweenFade(tbfNull,fadeTime,delay);
-//~ }
-
 
 function tweenRightSpinRuby(spinTime,axis,delay){
-	setTimeout ( tweenSpinRight(rubyNordlock,{x:-0.75,y:0.75,z:1.5},spinTime,axis) , delay);
-	setTimeout ( tweenSpinRight(rubyToner,{x:0.75,y:0.75,z:1.5},spinTime,axis) , delay);
-	setTimeout ( tweenSpinRight(rubyCedimo,{x:-0.75,y:-0.75,z:1.5},spinTime,axis) , delay);
-	setTimeout ( tweenSpinRight(rubyEym,{x:0.75,y:-0.75,z:1.5},spinTime,axis) , delay);
-	setTimeout ( tweenSpinRight(rubyNull,{x:0.0,y:0.0,z:1.0},spinTime,axis) , delay);
+	setTimeout ( tweenSpinRight(rubyNordlock,{x:-0.75,y:0.75,z:1.3},spinTime,axis) , delay);
+	setTimeout ( tweenSpinRight(rubyToner,{x:0.75,y:0.75,z:1.3},spinTime,axis) , delay);
+	setTimeout ( tweenSpinRight(rubyCedimo,{x:-0.75,y:-0.75,z:1.3},spinTime,axis) , delay);
+	setTimeout ( tweenSpinRight(rubyEym,{x:0.75,y:-0.75,z:1.3},spinTime,axis) , delay);
+	setTimeout ( tweenSpinRight(rubyNull,{x:0.0,y:0.0,z:0.9},spinTime,axis) , delay);
 }
 
 function tweenLeftSpinRuby(spinTime,axis,delay){
-	setTimeout ( tweenSpinLeft(rubyNordlock,{x:-1,y:0,z:0.1},spinTime,axis) , delay);
-	setTimeout ( tweenSpinLeft(rubyToner,{x:-1,y:0,z:0.1},spinTime,axis) , delay);
-	setTimeout ( tweenSpinLeft(rubyCedimo,{x:-1,y:0,z:0.1},spinTime,axis) , delay);
-	setTimeout ( tweenSpinLeft(rubyEym,{x:-1,y:0,z:0.1},spinTime,axis) , delay);
-	setTimeout ( tweenSpinLeft(rubyNull,{x:-1,y:0,z:0.1},spinTime,axis) , delay);
+	setTimeout ( tweenSpinLeft(rubyNordlock,{x:1.0,y:-1.0,z:0.0},spinTime,axis) , delay);
+	setTimeout ( tweenSpinLeft(rubyToner,{x:1.0,y:-1.0,z:0.0},spinTime,axis) , delay);
+	setTimeout ( tweenSpinLeft(rubyCedimo,{x:1.0,y:-1.0,z:0.0},spinTime,axis) , delay);
+	setTimeout ( tweenSpinLeft(rubyEym,{x:1.0,y:-1.0,z:0.0},spinTime,axis) , delay);
+	setTimeout ( tweenSpinLeft(rubyNull,{x:1.0,y:-1.0,z:0.0},spinTime,axis) , delay);
 }
 
-//~ function tweenFade(aObject,fadeTime,delay){
-	//~ setTimeout(
-	//~ new TWEEN.Tween(aObject.position).to( {
-						//~ x: Math.random() * 12 - 6,
-						//~ y: Math.random() * 12 - 6,
-						//~ z: Math.random() * 12 - 6}, fadeTime)
-					//~ .easing( TWEEN.Easing.Elastic.Out).start(),
-	//~ delay);
-	//~ setTimeout(
-	//~ new TWEEN.Tween(aObject.rotation ).to( {
-						//~ x: Math.random() * 2 * Math.PI,
-						//~ y: Math.random() * 2 * Math.PI,
-						//~ z: Math.random() * 2 * Math.PI }, fadeTime)
-					//~ .easing( TWEEN.Easing.Elastic.Out).start(),
-	//~ delay);
-//~ }
+function tweenSpinDown(aObject,spinTime){
+	var tweenRotation = new TWEEN.Tween(aObject.rotation).to( {
+						x: Math.PI / 2.0,
+						y: 0,
+						z: 0}, spinTime)
+					.easing( TWEEN.Easing.Quadratic.In).start();
+}
+
+function tweenSpinUp(aObject,spinTime){
+	
+	var tweenRotation = new TWEEN.Tween(aObject.rotation ).to( {
+						x: 0,
+						y: 0,
+						z: 0}, spinTime)
+					.easing( TWEEN.Easing.Quadratic.In).start();
+}
+
+function translateAway(aObject,awayTime){
+	var tweenTranslation = new TWEEN.Tween(aObject.position).to( {
+						x: aObject.position.x,
+						y: aObject.position.y,
+						z: -128}, awayTime)
+					.easing( TWEEN.Easing.Quadratic.Out).start();
+}
+
+function translateTo(aObject,position, awayTime){
+	var tweenTranslation = new TWEEN.Tween(aObject.position).to( {
+						x: position.x,
+						y: position.y,
+						z: position.z}, awayTime)
+					.easing( TWEEN.Easing.Quadratic.In).start();
+}
+
+function awayFromTbf(awayTime){
+	translateAway(tbfEvolving,awayTime);
+	translateAway(tbfLogin,awayTime);
+	translateAway(tbfDatos,awayTime);
+	translateAway(tbfRails,awayTime);
+	translateAway(tbfRealidad,awayTime);
+	translateAway(tbfInteractive,awayTime);
+	translateAway(tbfMapping,awayTime);
+	translateAway(tbf360,awayTime);
+	translateAway(tbfNull,awayTime);
+}
+	
+function nearToTbf(nearTime){
+	translateTo(tbfEvolving,{x:-1,y:1.0,z:0.0},nearTime);
+	translateTo(tbfLogin,{x:0.0,y:1.0,z:0.0},nearTime);
+	translateTo(tbfDatos,{x:1.0,y:1.0,z:0.0},nearTime);
+	translateTo(tbfRails,{x:-1.0,y:0.0,z:0.0},nearTime);
+	translateTo(tbfRealidad,{x:0.0,y:0.0,z:0.0},nearTime);
+	translateTo(tbfInteractive,{x:1.0,y:0.0,z:0.0},nearTime);
+	translateTo(tbfMapping,{x:-1.0,y:-1.0,z:0.0},nearTime);
+	translateTo(tbf360,{x:0.0,y:-1.0,z:0.0},nearTime);
+	translateTo(tbfNull,{x:1.0,y:-1.0,z:0.0},nearTime);
+}
 
 function tweenSpinRight(aObject,position,spinTime,axis){
 	var tweenTranslation = new TWEEN.Tween(aObject.position).to( {
@@ -519,7 +492,7 @@ function tweenSpinRight(aObject,position,spinTime,axis){
 					.easing( TWEEN.Easing.Linear.None).start();
 }
 
-function tweenSpinLeft(aObject,position,spinTime,axis,delay){
+function tweenSpinLeft(aObject,position,spinTime,axis){
 	var tweenTranslation = new TWEEN.Tween(aObject.position).to( {
 						x: position.x,
 						y: position.y,
@@ -546,11 +519,11 @@ function tweenSpinLeft(aObject,position,spinTime,axis,delay){
 }
 
 function videoIn(aObject,inTime){
-	screenIn(aObject,{x:-1,y:1,z:0},inTime);
+	screenIn(aObject,{x:0,y:0,z:0},inTime);
 }
 
 function videoOut(aObject,outTime){
-	screenOut(aObject,{x:0,y:0,z:1},outTime);
+	screenOut(aObject,{x:0,y:0,z:0},outTime);
 }
 
 function pageOut(aObject,outTime){
@@ -558,7 +531,7 @@ function pageOut(aObject,outTime){
 }
 
 function launchPage(page){
-	//document.location.href = page;
+	// document.location.href = page;
 	var win = window.open(page, '_blank');
   	win.focus();
 }
@@ -572,6 +545,12 @@ function tweenPageOut(aObject,position,outTime){
 }
 
 function screenIn(aObject,position,inTime){
+	var tweenRotation = new TWEEN.Tween(aObject.rotation ).to( {
+						x: Math.PI/2.0,
+						y: 0,
+						z: 0}, inTime)
+					.easing( TWEEN.Easing.Quadratic.In).start();
+	
 	var tweenTranslation = new TWEEN.Tween(aObject.position).to( {
 						x: position.x,
 						y: position.y,
@@ -601,7 +580,7 @@ function screenOut(aObject,position,outTime){
 
 function toString(v) { return "[ " + v.x + ", " + v.y + ", " + v.z + " ]"; }
 
-function onDocumentMouseMove( event ) 
+function onDocumentMouseMove( event )
 {
 	// the following line would stop any other event handler from firing
 	// (such as the mouse's TrackballControls)
@@ -625,6 +604,40 @@ function onDocumentMouseUp( event ) {
 		SELECTED = null;
 	}
 	container.style.cursor = 'auto';
+	
+	switch(willBeLaunched){
+	case "tbfDatos":
+		willBeLaunched = "";
+		launchPage("http://tbf.mx/contacto/index");
+		break;
+	case "nordlock":
+		//~ pageOut(rubyNordlock,1000);
+		willBeLaunched = "";
+		launchPage("http://www.nordlock.mx");
+		
+		break;
+	case "tonerDepot":
+		//~ pageOut(rubyToner,1000);
+		willBeLaunched = "";
+		launchPage("http://toner.tbf.mx");
+		
+		break;
+	case "cedimo":
+		//~ pageOut(rubyCedimo,1000);
+		willBeLaunched = "";
+		launchPage("http://cedimo.com.mx");
+		
+		break;
+	case "eym":
+		//~ pageOut(rubyEym,1000);
+		willBeLaunched = "";
+		launchPage("http://eym.tbf.mx");
+		break;	
+	default:
+		willBeLaunched = "";
+		break;
+	}
+	
 }
 
 function animate()
@@ -683,17 +696,131 @@ function update()
 			// update text, if it has a "name" field.
 			if ( intersects[ 0 ].object.name )
 			{
-			    context1.clearRect(0,0,640,480);
-				var message = intersects[ 0 ].object.name;
-				var metrics = context1.measureText(message);
-				var width = metrics.width;
-				context1.fillStyle = "rgba(0,0,0,0.95)"; // black border
-				context1.fillRect( 0,0, width+8,20+8);
-				context1.fillStyle = "rgba(255,255,255,0.95)"; // white filler
-				context1.fillRect( 2,2, width+4,20+4 );
-				context1.fillStyle = "rgba(0,0,0,1)"; // text color
-				context1.fillText( message, 4,20 );
-				texture1.needsUpdate = true;
+				if(intersects[ 0 ].object.name != "rubyNull"){
+				    context1.clearRect(0,0,640,480);
+					var message = intersects[ 0 ].object.name;
+					var metrics = context1.measureText(message);
+					var width = metrics.width;
+					context1.fillStyle = "rgba(0,0,0,0.95)"; // black border
+					context1.fillRect( 0,0, width+8,20+8);
+					context1.fillStyle = "rgba(255,255,255,0.95)"; // white filler
+					context1.fillRect( 2,2, width+4,20+4 );
+					context1.fillStyle = "rgba(0,0,0,1)"; // text color
+					context1.fillText( message, 4,20 );
+					//aqui es
+					
+					var texture_alt;
+					var nombre = intersects[ 0 ].object.name
+					switch(nombre){
+
+					case "Ruby On Rails":
+						
+						context1.clearRect(0,0,640,480);
+						var message = intersects[ 0 ].object.name;
+						var metrics = context1.measureText(message);
+						var width = metrics.width;
+						context1.fillStyle = "rgba(0,0,0,0.95)"; // black border
+						context1.fillRect( 0,0, width+8,20+8);
+						context1.fillStyle = "rgba(255,255,255,0.95)"; // white filler
+						context1.fillRect( 2,2, width+4,20+4 );
+						context1.fillStyle = "rgba(0,0,0,1)"; // text color
+						context1.fillText( message, 4,20 );
+						texture_alt = THREE.ImageUtils.loadTexture('../../images/rubyonrails_on.jpg');
+						//intersects[ 0 ].object.material.map(texture_alt);
+						intersects[ 0 ].object.material.map.image.src = '../../images/rubyonrails_on.jpg'
+						texture1.needsUpdate = true;
+						break;
+					case "Moblie Apps":
+						texture_alt = THREE.ImageUtils.loadTexture('../../images/moblieapps_on.jpg');
+						intersects[ 0 ].object.material.map.image.src = '../../images/moblieapps_on.jpg';
+						context1.clearRect(0,0,640,480);
+						var message = intersects[ 0 ].object.name;
+						var metrics = context1.measureText(message);
+						var width = metrics.width;
+						context1.fillStyle = "rgba(0,0,0,0.95)"; // black border
+						context1.fillRect( 0,0, width+8,20+8);
+						context1.fillStyle = "rgba(255,255,255,0.95)"; // white filler
+						context1.fillRect( 2,2, width+4,20+4 );
+						context1.fillStyle = "rgba(0,0,0,1)"; // text color
+						context1.fillText( message, 4,20 );
+						texture1.needsUpdate = true;
+						break;
+					case "Api Development":
+						texture_alt = THREE.ImageUtils.loadTexture('../../images/apidevelopment_on.jpg');
+						intersects[ 0 ].object.material.map.image.src = '../../images/apidevelopment_on.jpg'
+						context1.clearRect(0,0,640,480);
+						var message = intersects[ 0 ].object.name;
+						var metrics = context1.measureText(message);
+						var width = metrics.width;
+						context1.fillStyle = "rgba(0,0,0,0.95)"; // black border
+						context1.fillRect( 0,0, width+8,20+8);
+						context1.fillStyle = "rgba(255,255,255,0.95)"; // white filler
+						context1.fillRect( 2,2, width+4,20+4 );
+						context1.fillStyle = "rgba(0,0,0,1)"; // text color
+						context1.fillText( message, 4,20 );
+						texture1.needsUpdate = true;
+						break;
+					case "Ecommerce":
+						texture_alt = THREE.ImageUtils.loadTexture('../../images/ecommerce_on.jpg');
+						intersects[ 0 ].object.material.map.image.src = '../../images/ecommerce_on.jpg'
+						context1.clearRect(0,0,640,480);
+						var message = intersects[ 0 ].object.name;
+						var metrics = context1.measureText(message);
+						var width = metrics.width;
+						context1.fillStyle = "rgba(0,0,0,0.95)"; // black border
+						context1.fillRect( 0,0, width+8,20+8);
+						context1.fillStyle = "rgba(255,255,255,0.95)"; // white filler
+						context1.fillRect( 2,2, width+4,20+4 );
+						context1.fillStyle = "rgba(0,0,0,1)"; // text color
+						context1.fillText( message, 4,20 );
+						texture1.needsUpdate = true;
+						break;
+					case "Video Juegos":
+						texture_alt = THREE.ImageUtils.loadTexture('../../images/videogames_on.jpg');
+						intersects[ 0 ].object.material.map.image.src = '../../images/videogames_on.jpg'
+						context1.clearRect(0,0,640,480);
+						var message = intersects[ 0 ].object.name;
+						var metrics = context1.measureText(message);
+						var width = metrics.width;
+						context1.fillStyle = "rgba(0,0,0,0.95)"; // black border
+						context1.fillRect( 0,0, width+8,20+8);
+						context1.fillStyle = "rgba(255,255,255,0.95)"; // white filler
+						context1.fillRect( 2,2, width+4,20+4 );
+						context1.fillStyle = "rgba(0,0,0,1)"; // text color
+						context1.fillText( message, 4,20 );
+						texture1.needsUpdate = true;
+						break;
+					case "Sitio Personalizados":
+						texture_alt = THREE.ImageUtils.loadTexture('../../images/personalizedsites_on.jpg');
+						intersects[ 0 ].object.material.map.image.src = '../../images/personalizedsites_on.jpg'
+						context1.clearRect(0,0,640,480);
+						var message = intersects[ 0 ].object.name;
+						var metrics = context1.measureText(message);
+						var width = metrics.width;
+						context1.fillStyle = "rgba(0,0,0,0.95)"; // black border
+						context1.fillRect( 0,0, width+8,20+8);
+						context1.fillStyle = "rgba(255,255,255,0.95)"; // white filler
+						context1.fillRect( 2,2, width+4,20+4 );
+						context1.fillStyle = "rgba(0,0,0,1)"; // text color
+						context1.fillText( message, 4,20 );
+						texture1.needsUpdate = true;
+						break;
+					
+					default:
+						//intersects[ 0 ].object.material.map(texture_alt);
+						
+
+						break;
+					}
+
+					
+					texture1.needsUpdate = true;
+				}
+				else{
+					context1.clearRect(0,0,300,300);
+					//aqui sera
+					texture1.needsUpdate = true;
+				}
 			}
 			else
 			{
