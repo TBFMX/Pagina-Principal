@@ -2,6 +2,7 @@ body
 {
 	font-family: Monospace;
 	font-weight: bold;
+	background-image: url('../images/BG-03.jpg');
 	/*background-color: #ccccff;*/
 	margin: 0px;
 	overflow: hidden;

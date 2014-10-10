@@ -140,7 +140,7 @@ function init()
 	scene.add(tbfVJ);
 	scene.add(tbfSites);
 	
-	// our created pages
+	// declaracion de sitios
 	
 	texturePath = '../../images/nordlock.jpg';
 	rubyNordlock = initializePlane("nordlock",{x:1.0,y:-1.0,z:0.0},{w:1.0, h:1.0},texturePath);
@@ -163,11 +163,25 @@ function init()
 	rubyEym.scale.set(0.1,0.1,0.1);
 	
 	var sizingFactor = 4;
-	texturePath = '../../images/rubyNull.jpg';
+	texturePath = '../../images/BG-01.jpg';
 	//~ rubyNull = initializePlane("rubyNull",{x:1.0,y:-1.0,z:0.0},{w:3.0, h:3.0},texturePath);
 	rubyNull = initializePlane("rubyNull",{x:1.0,y:-1.0,z:0.0},{w:sizingFactor*ASPECT, h:sizingFactor},texturePath);
 	rubyNull.rotation.set(0,0,0);
 	rubyNull.scale.set(0.1,0.1,0.1);
+
+	//declaracion de flechas
+	texturePath = '../../images/arrow_up.png';
+	rubyArriba = initializePlane("Siguiente",{x:1.0,y:-1.0,z:0.0},{w:0.50, h:0.50},texturePath);
+	rubyArriba.rotation.set(0,0,0);
+	rubyArriba.scale.set(0.1,0.1,0.1);
+
+	texturePath = '../../images/arrow_down.png';
+	rubyAbajo = initializePlane("Anterior",{x:1.0,y:-1.0,z:0.0},{w:0.50, h:0.50},texturePath);
+	rubyAbajo.rotation.set(0,0,0);
+	rubyAbajo.scale.set(0.1,0.1,0.1);
+	//
+
+
 
 	//---------ADD A VIDEO------------------
 	// create the video element
@@ -359,6 +373,16 @@ function onDocumentMouseDown( event )
 			//~ pageOut(rubyEym,1000);
 			willBeLaunched = "eym";
 			break;
+		case "Anterior":
+
+			break;
+		case "Siguiente":
+			//mover elementos del carrusel
+			carruselup(rubyNordlock,100);
+			carruselup(rubyToner,100);
+			carruselup(rubyCedimo,100);
+			carruselup(rubyEym,100);
+			break;	
 		}
 		intersects[ 0 ].object.geometry.colorsNeedUpdate = true;
 	}
@@ -371,6 +395,9 @@ function showRuby(){//rubyNordlock, rubyToner, rubyCedimo, rubyEyM, rubyGAAIA
 	scene.add(rubyToner);
 	scene.add(rubyCedimo);
 	scene.add(rubyEym);
+	scene.add(rubyArriba);
+	scene.add(rubyAbajo);
+	
 }
 
 function hideRuby(){//rubyNordlock, rubyToner, rubyCedimo, rubyEyM, rubyGAAIA
@@ -379,6 +406,8 @@ function hideRuby(){//rubyNordlock, rubyToner, rubyCedimo, rubyEyM, rubyGAAIA
 	scene.remove(rubyToner);
 	scene.remove(rubyCedimo);
 	scene.remove(rubyEym);
+	scene.remove(rubyArriba);
+	scene.remove(rubyAbajo);
 }
 
 function hideVideo(){
@@ -386,10 +415,12 @@ function hideVideo(){
 }
 
 function tweenRightSpinRuby(spinTime,axis,delay){
-	setTimeout ( tweenSpinRight(rubyNordlock,{x:-0.75,y:0.75,z:1.3},spinTime,axis) , delay);
-	setTimeout ( tweenSpinRight(rubyToner,{x:0.75,y:0.75,z:1.3},spinTime,axis) , delay);
-	setTimeout ( tweenSpinRight(rubyCedimo,{x:-0.75,y:-0.75,z:1.3},spinTime,axis) , delay);
-	setTimeout ( tweenSpinRight(rubyEym,{x:0.75,y:-0.75,z:1.3},spinTime,axis) , delay);
+	setTimeout ( tweenSpinRight(rubyNordlock,{x:0.0,y:0.0,z:1.4},spinTime,axis) , delay);
+	setTimeout ( tweenSpinRight(rubyToner,{x:0.0,y:0.50,z:1.3},spinTime,axis) , delay);
+	setTimeout ( tweenSpinRight(rubyCedimo,{x:0.0,y:0.0,z:1.2},spinTime,axis) , delay);
+	setTimeout ( tweenSpinRight(rubyEym,{x:0.00,y:-0.50,z:1.3},spinTime,axis) , delay);
+	setTimeout ( tweenSpinRight(rubyArriba,{x:0.90,y:0.50,z:1.4},spinTime,axis) , delay);
+	setTimeout ( tweenSpinRight(rubyAbajo,{x:0.900,y:-0.50,z:1.4},spinTime,axis) , delay);
 	setTimeout ( tweenSpinRight(rubyNull,{x:0.0,y:0.0,z:0.9},spinTime,axis) , delay);
 }
 
@@ -425,7 +456,49 @@ function translateAway(aObject,awayTime){
 						z: -128}, awayTime)
 					.easing( TWEEN.Easing.Quadratic.Out).start();
 }
+function carruselup(aObject,awayTime){
+	var positionY;
+	var positionZ = aObject.position.z;
+	switch (aObject.position.y)
+	{
+		case 0:
+			if(aObject.position.z < 1.3){
+				positionZ = positionZ + 0.1;
+				positionY = aObject.position.y - 0.5;
+			}
+			if(aObject.position.z > 1.3){
+				positionZ = positionZ - 0.1;
+				positionY = aObject.position.y + 0.5;
+			}
+		break;
 
+		case 0.50:
+			positionZ = positionZ - 0.1;
+			positionY = aObject.position.y - 0.5;
+		break;
+
+		case -0.50:
+			positionZ = positionZ + 0.1;
+			positionY = aObject.position.y + 0.5;
+		break;
+	} 
+	// TWEEN.Tween("posicion actual").to({"destino"},"en tiempo") mover a un objeto a...
+	var tweenTranslation = new TWEEN.Tween(aObject.position).to( {
+						x: aObject.position.x,
+						y: aObject.position.y,
+						z: aObject.position.z}, awayTime)
+					.easing( TWEEN.Easing.Quadratic.Out).start();
+
+}
+function carruseldown(aObject,awayTime){
+
+	var tweenTranslation = new TWEEN.Tween(aObject.position).to( {
+						x: aObject.position.x,
+						y: aObject.position.y,
+						z: aObject.position.z}, awayTime)
+					.easing( TWEEN.Easing.Quadratic.Out).start();
+	
+}
 function translateTo(aObject,position, awayTime){
 	var tweenTranslation = new TWEEN.Tween(aObject.position).to( {
 						x: position.x,
@@ -632,7 +705,7 @@ function onDocumentMouseUp( event ) {
 		//~ pageOut(rubyEym,1000);
 		willBeLaunched = "";
 		launchPage("http://eym.tbf.mx");
-		break;	
+		break;			
 	default:
 		willBeLaunched = "";
 		break;
@@ -709,6 +782,7 @@ function update()
 					context1.fillText( message, 4,20 );
 					//aqui es
 					
+					/*
 					var texture_alt;
 					var nombre = intersects[ 0 ].object.name
 					switch(nombre){
@@ -812,7 +886,7 @@ function update()
 
 						break;
 					}
-
+					*/
 					
 					texture1.needsUpdate = true;
 				}
