@@ -374,14 +374,18 @@ function onDocumentMouseDown( event )
 			willBeLaunched = "eym";
 			break;
 		case "Anterior":
+			setTimeout (carruseldown(rubyNordlock,500),502);
+			setTimeout (carruseldown(rubyToner,500),502);
+			setTimeout (carruseldown(rubyCedimo,500),502);
+			setTimeout (carruseldown(rubyEym,500),502);
 
 			break;
 		case "Siguiente":
 			//mover elementos del carrusel
-			carruselup(rubyNordlock,100);
-			carruselup(rubyToner,100);
-			carruselup(rubyCedimo,100);
-			carruselup(rubyEym,100);
+			setTimeout (carruselup(rubyNordlock,500),1000);
+			setTimeout (carruselup(rubyToner,500),1000);
+			setTimeout (carruselup(rubyCedimo,500),1000);
+			setTimeout (carruselup(rubyEym,500),1000);
 			break;	
 		}
 		intersects[ 0 ].object.geometry.colorsNeedUpdate = true;
@@ -485,19 +489,44 @@ function carruselup(aObject,awayTime){
 	// TWEEN.Tween("posicion actual").to({"destino"},"en tiempo") mover a un objeto a...
 	var tweenTranslation = new TWEEN.Tween(aObject.position).to( {
 						x: aObject.position.x,
-						y: aObject.position.y,
-						z: aObject.position.z}, awayTime)
+						y: positionY,
+						z: positionZ}, awayTime)
 					.easing( TWEEN.Easing.Quadratic.Out).start();
+
 
 }
 function carruseldown(aObject,awayTime){
+	var positionY;
+	var positionZ = aObject.position.z;
+	switch (aObject.position.y)
+	{
+		case 0:
+			if(aObject.position.z < 1.3){
+				positionZ = positionZ + 0.1;
+				positionY = aObject.position.y + 0.5;
+			}
+			if(aObject.position.z > 1.3){
+				positionZ = positionZ - 0.1;
+				positionY = aObject.position.y - 0.5;
+			}
+		break;
 
+		case 0.50:
+			positionZ = positionZ + 0.1;
+			positionY = aObject.position.y - 0.5;
+		break;
+
+		case -0.50:
+			positionZ = positionZ - 0.1;
+			positionY = aObject.position.y + 0.5;
+		break;
+	} 
+	// TWEEN.Tween("posicion actual").to({"destino"},"en tiempo") mover a un objeto a...
 	var tweenTranslation = new TWEEN.Tween(aObject.position).to( {
 						x: aObject.position.x,
-						y: aObject.position.y,
-						z: aObject.position.z}, awayTime)
+						y: positionY,
+						z: positionZ}, awayTime)
 					.easing( TWEEN.Easing.Quadratic.Out).start();
-	
 }
 function translateTo(aObject,position, awayTime){
 	var tweenTranslation = new TWEEN.Tween(aObject.position).to( {
@@ -668,7 +697,6 @@ function onDocumentMouseMove( event )
 }
 
 function onDocumentMouseUp( event ) {
-
 	event.preventDefault();
 	controls.enabled = true;
 
@@ -710,7 +738,6 @@ function onDocumentMouseUp( event ) {
 		willBeLaunched = "";
 		break;
 	}
-	
 }
 
 function animate()
