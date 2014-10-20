@@ -142,8 +142,8 @@ function init()
 	
 	// declaracion de sitios
 	
-	texturePath = '../../images/nordlock.jpg';
-	rubyNordlock = initializePlane("nordlock",{x:1.0,y:-1.0,z:0.0},{w:1.0, h:1.0},texturePath);
+	texturePath = '../../images/nordlock_bannerhd.png';
+	rubyNordlock = initializePlane("nordlock",{x:1.0,y:-1.0,z:0.0},{w:2.25, h:0.76},texturePath);
 	rubyNordlock.rotation.set(0,0,0);
 	rubyNordlock.scale.set(0.1,0.1,0.1);
 	
@@ -152,13 +152,13 @@ function init()
 	rubyToner.rotation.set(0,0,0);
 	rubyToner.scale.set(0.1,0.1,0.1);
 	
-	texturePath = '../../images/cedimo.jpg';
-	rubyCedimo = initializePlane("cedimo",{x:1.0,y:-1.0,z:0.0},{w:1.0, h:1.0},texturePath);
+	texturePath = '../../images/cedimo_bannerhd.png';
+	rubyCedimo = initializePlane("cedimo",{x:1.0,y:-1.0,z:0.0},{w:2.25, h:0.76},texturePath);
 	rubyCedimo.rotation.set(0,0,0);
 	rubyCedimo.scale.set(0.1,0.1,0.1);
 	
-	texturePath = '../../images/eym.jpg';
-	rubyEym = initializePlane("eym",{x:1.0,y:-1.0,z:0.0},{w:1.0, h:1.0},texturePath);
+	texturePath = '../../images/eym_bannerhd.png';
+	rubyEym = initializePlane("eym",{x:1.0,y:-1.0,z:0.0},{w:2.25, h:0.76},texturePath);
 	rubyEym.rotation.set(0,0,0);
 	rubyEym.scale.set(0.1,0.1,0.1);
 	
@@ -170,15 +170,20 @@ function init()
 	rubyNull.scale.set(0.1,0.1,0.1);
 
 	//declaracion de flechas
-	texturePath = '../../images/arrow_up.png';
-	rubyArriba = initializePlane("Siguiente",{x:1.0,y:-1.0,z:0.0},{w:0.50, h:0.50},texturePath);
+	texturePath = '../../images/flecha_arriba.png';
+	rubyArriba = initializePlane("Siguiente",{x:1.0,y:-1.0,z:0.0},{w:0.10, h:0.10},texturePath);
 	rubyArriba.rotation.set(0,0,0);
 	rubyArriba.scale.set(0.1,0.1,0.1);
 
-	texturePath = '../../images/arrow_down.png';
-	rubyAbajo = initializePlane("Anterior",{x:1.0,y:-1.0,z:0.0},{w:0.50, h:0.50},texturePath);
+	texturePath = '../../images/flecha_abajo.png';
+	rubyAbajo = initializePlane("Anterior",{x:1.0,y:-1.0,z:0.0},{w:0.10, h:0.10},texturePath);
 	rubyAbajo.rotation.set(0,0,0);
 	rubyAbajo.scale.set(0.1,0.1,0.1);
+
+	texturePath = '../../images/flecha_salir.png';
+	rubySalir = initializePlane("Salir",{x:1.0,y:-1.0,z:0.0},{w:0.10, h:0.10},texturePath);
+	rubySalir.rotation.set(0,0,0);
+	rubySalir.scale.set(0.1,0.1,0.1);
 	//
 
 
@@ -374,18 +379,18 @@ function onDocumentMouseDown( event )
 			willBeLaunched = "eym";
 			break;
 		case "Anterior":
-			setTimeout (carruseldown(rubyNordlock,500),502);
-			setTimeout (carruseldown(rubyToner,500),502);
-			setTimeout (carruseldown(rubyCedimo,500),502);
-			setTimeout (carruseldown(rubyEym,500),502);
+			setTimeout (carruseldown(rubyNordlock,100),100);
+			setTimeout (carruseldown(rubyToner,100),100);
+			setTimeout (carruseldown(rubyCedimo,100),100);
+			setTimeout (carruseldown(rubyEym,100),100);
 
 			break;
 		case "Siguiente":
 			//mover elementos del carrusel
-			setTimeout (carruselup(rubyNordlock,500),1000);
-			setTimeout (carruselup(rubyToner,500),1000);
-			setTimeout (carruselup(rubyCedimo,500),1000);
-			setTimeout (carruselup(rubyEym,500),1000);
+			setTimeout (carruselup(rubyNordlock,100),100);
+			setTimeout (carruselup(rubyToner,100),100);
+			setTimeout (carruselup(rubyCedimo,100),100);
+			setTimeout (carruselup(rubyEym,100),100);
 			break;	
 		}
 		intersects[ 0 ].object.geometry.colorsNeedUpdate = true;
@@ -401,7 +406,7 @@ function showRuby(){//rubyNordlock, rubyToner, rubyCedimo, rubyEyM, rubyGAAIA
 	scene.add(rubyEym);
 	scene.add(rubyArriba);
 	scene.add(rubyAbajo);
-	
+	scene.add(rubySalir);	
 }
 
 function hideRuby(){//rubyNordlock, rubyToner, rubyCedimo, rubyEyM, rubyGAAIA
@@ -423,8 +428,9 @@ function tweenRightSpinRuby(spinTime,axis,delay){
 	setTimeout ( tweenSpinRight(rubyToner,{x:0.0,y:0.50,z:1.3},spinTime,axis) , delay);
 	setTimeout ( tweenSpinRight(rubyCedimo,{x:0.0,y:0.0,z:1.2},spinTime,axis) , delay);
 	setTimeout ( tweenSpinRight(rubyEym,{x:0.00,y:-0.50,z:1.3},spinTime,axis) , delay);
-	setTimeout ( tweenSpinRight(rubyArriba,{x:0.90,y:0.50,z:1.4},spinTime,axis) , delay);
-	setTimeout ( tweenSpinRight(rubyAbajo,{x:0.900,y:-0.50,z:1.4},spinTime,axis) , delay);
+	setTimeout ( tweenSpinRight(rubyArriba,{x:1.20,y:0.05,z:1.4},spinTime,axis) , delay);
+	setTimeout ( tweenSpinRight(rubyAbajo,{x:1.20,y:-0.05,z:1.4},spinTime,axis) , delay);
+	setTimeout ( tweenSpinRight(rubySalir,{x:1.20,y:0.15,z:1.4},spinTime,axis) , delay);
 	setTimeout ( tweenSpinRight(rubyNull,{x:0.0,y:0.0,z:0.9},spinTime,axis) , delay);
 }
 
@@ -433,6 +439,9 @@ function tweenLeftSpinRuby(spinTime,axis,delay){
 	setTimeout ( tweenSpinLeft(rubyToner,{x:1.0,y:-1.0,z:0.0},spinTime,axis) , delay);
 	setTimeout ( tweenSpinLeft(rubyCedimo,{x:1.0,y:-1.0,z:0.0},spinTime,axis) , delay);
 	setTimeout ( tweenSpinLeft(rubyEym,{x:1.0,y:-1.0,z:0.0},spinTime,axis) , delay);
+	setTimeout ( tweenSpinLeft(rubyArriba,{x:1.0,y:-1.0,z:0.0},spinTime,axis) , delay);
+	setTimeout ( tweenSpinLeft(rubyAbajo,{x:1.0,y:-1.0,z:0.0},spinTime,axis) , delay);
+	setTimeout ( tweenSpinLeft(rubySalir,{x:1.0,y:-1.0,z:0.0},spinTime,axis) , delay);
 	setTimeout ( tweenSpinLeft(rubyNull,{x:1.0,y:-1.0,z:0.0},spinTime,axis) , delay);
 }
 
@@ -445,7 +454,6 @@ function tweenSpinDown(aObject,spinTime){
 }
 
 function tweenSpinUp(aObject,spinTime){
-	
 	var tweenRotation = new TWEEN.Tween(aObject.rotation ).to( {
 						x: 0,
 						y: 0,
@@ -492,8 +500,6 @@ function carruselup(aObject,awayTime){
 						y: positionY,
 						z: positionZ}, awayTime)
 					.easing( TWEEN.Easing.Quadratic.Out).start();
-
-
 }
 function carruseldown(aObject,awayTime){
 	var positionY;
@@ -709,7 +715,7 @@ function onDocumentMouseUp( event ) {
 	switch(willBeLaunched){
 	case "tbfDatos":
 		willBeLaunched = "";
-		launchPage("http://tbf.mx/contacto/index");
+		launchPage("/contacto/index");//http://tbf.mx/contacto/index //<%= contacto_path %>
 		break;
 	case "nordlock":
 		//~ pageOut(rubyNordlock,1000);
