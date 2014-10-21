@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-  skip_before_action :authorize
+  skip_before_action :authorize , only: [:create, :destroy, :test_trial, :index, :new] 
   def index
   end
 
@@ -44,7 +44,64 @@ class WelcomeController < ApplicationController
 
   def test_trial
     
-  end   
+  end
+  def pagos
+      
+  end
+
+  def pago_correcto
+    require 'mail'
+      Mail.defaults do
+        delivery_method :smtp, { :address   => "smtp.sendgrid.net",
+                                 :port      => 587,
+                                 :domain    => "tbf.mx",
+                                 :user_name => "davidzu",
+                                 :password => "Mictlan9",
+                                 :authentication => :login,
+                                 :enable_starttls_auto => true }
+      end
+
+      mail = Mail.deliver do
+        to 'david@tbf.mx' #'sebastian@tbf.mx' #mail del webmaster
+        from 'Servicios del Server <servidor@tbf.mx>'
+        subject 'pagos a TBF'
+        text_part do
+          body 'el pago se realizo con exito'
+        end
+        html_part do
+          content_type 'text/html; charset=UTF-8'
+          body 'el pago se realizo con exito'
+        end
+      end
+      redirect_to root_path 
+  end  
+
+  def pago_cancelado
+    require 'mail'
+      Mail.defaults do
+        delivery_method :smtp, { :address   => "smtp.sendgrid.net",
+                                 :port      => 587,
+                                 :domain    => "tbf.mx",
+                                 :user_name => "davidzu",
+                                 :password => "Mictlan9",
+                                 :authentication => :login,
+                                 :enable_starttls_auto => true }
+      end
+
+      mail = Mail.deliver do
+        to 'david@tbf.mx' #'sebastian@tbf.mx' #mail del webmaster
+        from 'Servicios del Server <servidor@tbf.mx>'
+        subject 'pagos a TBF'
+        text_part do
+          body 'el pago se cancelo'
+        end
+        html_part do
+          content_type 'text/html; charset=UTF-8'
+          body 'el pago se cancelo'
+        end
+      end
+      redirect_to root_path
+  end  
 
 
 end

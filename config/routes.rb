@@ -66,6 +66,10 @@ Rails.application.routes.draw do
 
   get 'contacto/success'
 
+  get 'pagos' => "welcome#pagos"
+  get 'correcto' => "welcome#pago_correcto"
+  get 'cancelado' => "welcome#pago_cancelado"
+
   resources :contacto
 
   controller :contacto do 

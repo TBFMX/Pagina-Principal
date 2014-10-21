@@ -34,7 +34,7 @@ class Mailer < ActionMailer::Base
 
   def create_user(user)
     @user = user
-    mail :to => user.email, :subject => "Se creo su usuario", :from => "\"Conserje\"<info@tbf.mx>", :reply_to =>"conserje@tbf.com"
+    mail :to => user.email, :subject => "Se creo su usuario", :from => "\"System\"<info@tbf.mx>", :reply_to =>"david@tbf.com"
   end
 
   def destroy_user(user)
@@ -46,7 +46,7 @@ class Mailer < ActionMailer::Base
     @greeting = "Hi"
     @datos = datos
 
-    mail(:to => "miguel@tbf.mx", :subject => "Nuevo Mensaje de Contacto", :from => "\"Conserje\" <info@tbf.mx>", :reply_to =>"conserje@tbf.com")
+    mail(:to => "david@tbf.mx", :subject => "Nuevo Mensaje de Contacto", :from => "\"Conserje\" <info@tbf.mx>", :reply_to =>"conserje@tbf.com")
     #mail to: "hugo@tbf.mx"
   end
   
