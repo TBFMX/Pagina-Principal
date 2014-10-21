@@ -53243,3 +53243,19 @@ Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-21 16:23:5
   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rols"
   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+
+
+Started GET "/pagos" for 127.0.0.1 at 2014-10-21 17:20:51 -0500
+Processing by WelcomeController#pagos as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mRol Load (0.1ms)[0m  SELECT  "rols".* FROM "rols"  WHERE "rols"."id" = ? LIMIT 1  [["id", 1]]
+Completed 500 Internal Server Error in 30ms
+
+NoMethodError (undefined method `name' for #<Rol:0x007fdc40115908>):
+  app/controllers/welcome_controller.rb:50:in `pagos'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.4ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.7ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.9ms)

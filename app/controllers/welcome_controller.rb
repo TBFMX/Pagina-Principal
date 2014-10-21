@@ -46,10 +46,7 @@ class WelcomeController < ApplicationController
     
   end
   def pagos
-    @rol = Rol.find(session[:rol_id])
-    unless @rol.name == "cliente"
-      redirect_to root_url
-    end  
+    
       
   end
 
