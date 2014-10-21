@@ -46,6 +46,10 @@ class WelcomeController < ApplicationController
     
   end
   def pagos
+    @rol = Rol.find(session[:rol_id])
+    unless @rol.name == "cliente"
+      redirect_to root_url
+    end  
       
   end
 
@@ -66,11 +70,11 @@ class WelcomeController < ApplicationController
         from 'Servicios del Server <servidor@tbf.mx>'
         subject 'pagos a TBF'
         text_part do
-          body 'el pago se realizo con exito'
+          body 'el pago se realizo con exito por el usuario' + session[:uname]
         end
         html_part do
           content_type 'text/html; charset=UTF-8'
-          body 'el pago se realizo con exito'
+          body 'el pago se realizo con exito por el usuario' + session[:uname]
         end
       end
       redirect_to root_path 
@@ -93,11 +97,11 @@ class WelcomeController < ApplicationController
         from 'Servicios del Server <servidor@tbf.mx>'
         subject 'pagos a TBF'
         text_part do
-          body 'el pago se cancelo'
+          body 'el pago se cancelo por el usuario' + session[:uname]
         end
         html_part do
           content_type 'text/html; charset=UTF-8'
-          body 'el pago se cancelo'
+          body 'el pago se cancelo por el usuario' + session[:uname]
         end
       end
       redirect_to root_path

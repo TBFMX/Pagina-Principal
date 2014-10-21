@@ -21,9 +21,10 @@ test:
   database: db/test.sqlite3
 
 production:
-  adapter: postgresql
-  encoding: unicode
-  database: demo
+  adapter: mysql2
+  encoding: utf8
+  database: creta
   pool: 5
-  username: demo
-  password: demo
+  username: root
+  password: c008
+  host: localhost

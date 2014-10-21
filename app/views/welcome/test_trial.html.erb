@@ -341,6 +341,10 @@ function onDocumentMouseDown( event )
 			//~ tweenHomeFade(3000,0);
 			willBeLaunched = "tbfDatos";
 			break;
+		case "login":
+			//~ tweenHomeFade(3000,0);
+			willBeLaunched = "login";
+			break;	
 		case "movieScreen":
 			video.pause();
 			video.currentTime = 0;
@@ -750,7 +754,11 @@ function onDocumentMouseUp( event ) {
 		//~ pageOut(rubyEym,1000);
 		willBeLaunched = "";
 		launchPage("http://eym.tbf.mx");
-		break;			
+		break;
+	case "login":
+		willBeLaunched = "";
+		launchPage("/login");
+		break;				
 	default:
 		willBeLaunched = "";
 		break;
