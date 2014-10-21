@@ -162,12 +162,15 @@ function init()
 	rubyEym.rotation.set(0,0,0);
 	rubyEym.scale.set(0.1,0.1,0.1);
 	
+	/*
 	var sizingFactor = 4;
 	texturePath = '../../images/BG-01.jpg';
 	//~ rubyNull = initializePlane("rubyNull",{x:1.0,y:-1.0,z:0.0},{w:3.0, h:3.0},texturePath);
 	rubyNull = initializePlane("rubyNull",{x:1.0,y:-1.0,z:0.0},{w:sizingFactor*ASPECT, h:sizingFactor},texturePath);
 	rubyNull.rotation.set(0,0,0);
 	rubyNull.scale.set(0.1,0.1,0.1);
+	*/
+
 
 	//declaracion de flechas
 	texturePath = '../../images/flecha_arriba.png';
@@ -357,7 +360,7 @@ function onDocumentMouseDown( event )
 			tweenRightSpinRuby(1000,'z',0);
 			//~ tweenHomeTogether();
 			break;
-		case "rubyNull":
+		case "Salir":
 			tweenLeftSpinRuby(1000,'z',0);
 			//~ tweenHomeTogether(1000,1000);
 			setTimeout(hideRuby,1000);
@@ -399,7 +402,7 @@ function onDocumentMouseDown( event )
 
 
 function showRuby(){//rubyNordlock, rubyToner, rubyCedimo, rubyEyM, rubyGAAIA
-	scene.add(rubyNull);
+	//scene.add(rubyNull);
 	scene.add(rubyNordlock);
 	scene.add(rubyToner);
 	scene.add(rubyCedimo);
@@ -410,7 +413,7 @@ function showRuby(){//rubyNordlock, rubyToner, rubyCedimo, rubyEyM, rubyGAAIA
 }
 
 function hideRuby(){//rubyNordlock, rubyToner, rubyCedimo, rubyEyM, rubyGAAIA
-	scene.remove(rubyNull);
+	//scene.remove(rubyNull);
 	scene.remove(rubyNordlock);
 	scene.remove(rubyToner);
 	scene.remove(rubyCedimo);
@@ -424,14 +427,22 @@ function hideVideo(){
 }
 
 function tweenRightSpinRuby(spinTime,axis,delay){
-	setTimeout ( tweenSpinRight(rubyNordlock,{x:0.0,y:0.0,z:1.4},spinTime,axis) , delay);
-	setTimeout ( tweenSpinRight(rubyToner,{x:0.0,y:0.50,z:1.3},spinTime,axis) , delay);
-	setTimeout ( tweenSpinRight(rubyCedimo,{x:0.0,y:0.0,z:1.2},spinTime,axis) , delay);
-	setTimeout ( tweenSpinRight(rubyEym,{x:0.00,y:-0.50,z:1.3},spinTime,axis) , delay);
-	setTimeout ( tweenSpinRight(rubyArriba,{x:1.20,y:0.05,z:1.4},spinTime,axis) , delay);
-	setTimeout ( tweenSpinRight(rubyAbajo,{x:1.20,y:-0.05,z:1.4},spinTime,axis) , delay);
-	setTimeout ( tweenSpinRight(rubySalir,{x:1.20,y:0.15,z:1.4},spinTime,axis) , delay);
-	setTimeout ( tweenSpinRight(rubyNull,{x:0.0,y:0.0,z:0.9},spinTime,axis) , delay);
+
+	//sitios:
+	//sitio ancla
+	setTimeout ( tweenSpinRight(rubyNordlock,{x:0.0,y:0.0,z:1.6},spinTime,axis) , delay);
+	//otros sitios
+	setTimeout ( tweenSpinRight(rubyToner,{x:0.0,y:0.80,z:1.2},spinTime,axis) , delay);
+	setTimeout ( tweenSpinRight(rubyCedimo,{x:0.0,y:0.0,z:0.8},spinTime,axis) , delay);
+	setTimeout ( tweenSpinRight(rubyEym,{x:0.00,y:-0.80,z:1.2},spinTime,axis) , delay);
+ 
+
+
+	//flechas
+	setTimeout ( tweenSpinRight(rubyArriba,{x:1.20,y:0.07,z:1.6},spinTime,axis) , delay);
+	setTimeout ( tweenSpinRight(rubyAbajo,{x:1.20,y:-0.07,z:1.6},spinTime,axis) , delay);
+	setTimeout ( tweenSpinRight(rubySalir,{x:1.20,y:0.19,z:1.6},spinTime,axis) , delay);
+	//setTimeout ( tweenSpinRight(rubyNull,{x:0.0,y:0.0,z:0.9},spinTime,axis) , delay);
 }
 
 function tweenLeftSpinRuby(spinTime,axis,delay){
@@ -442,7 +453,7 @@ function tweenLeftSpinRuby(spinTime,axis,delay){
 	setTimeout ( tweenSpinLeft(rubyArriba,{x:1.0,y:-1.0,z:0.0},spinTime,axis) , delay);
 	setTimeout ( tweenSpinLeft(rubyAbajo,{x:1.0,y:-1.0,z:0.0},spinTime,axis) , delay);
 	setTimeout ( tweenSpinLeft(rubySalir,{x:1.0,y:-1.0,z:0.0},spinTime,axis) , delay);
-	setTimeout ( tweenSpinLeft(rubyNull,{x:1.0,y:-1.0,z:0.0},spinTime,axis) , delay);
+	//setTimeout ( tweenSpinLeft(rubyNull,{x:1.0,y:-1.0,z:0.0},spinTime,axis) , delay);
 }
 
 function tweenSpinDown(aObject,spinTime){
@@ -474,24 +485,24 @@ function carruselup(aObject,awayTime){
 	switch (aObject.position.y)
 	{
 		case 0:
-			if(aObject.position.z < 1.3){
-				positionZ = positionZ + 0.1;
-				positionY = aObject.position.y - 0.5;
+			if(aObject.position.z < 1.2){
+				positionZ = positionZ + 0.4;
+				positionY = aObject.position.y - 0.8;
 			}
-			if(aObject.position.z > 1.3){
-				positionZ = positionZ - 0.1;
-				positionY = aObject.position.y + 0.5;
+			if(aObject.position.z > 1.2){
+				positionZ = positionZ - 0.4;
+				positionY = aObject.position.y + 0.8;
 			}
 		break;
 
-		case 0.50:
-			positionZ = positionZ - 0.1;
-			positionY = aObject.position.y - 0.5;
+		case 0.80:
+			positionZ = positionZ - 0.4;
+			positionY = aObject.position.y - 0.8;
 		break;
 
-		case -0.50:
-			positionZ = positionZ + 0.1;
-			positionY = aObject.position.y + 0.5;
+		case -0.80:
+			positionZ = positionZ + 0.4;
+			positionY = aObject.position.y + 0.8;
 		break;
 	} 
 	// TWEEN.Tween("posicion actual").to({"destino"},"en tiempo") mover a un objeto a...
@@ -507,24 +518,24 @@ function carruseldown(aObject,awayTime){
 	switch (aObject.position.y)
 	{
 		case 0:
-			if(aObject.position.z < 1.3){
-				positionZ = positionZ + 0.1;
-				positionY = aObject.position.y + 0.5;
+			if(aObject.position.z < 1.2){
+				positionZ = positionZ + 0.4;
+				positionY = aObject.position.y + 0.8;
 			}
-			if(aObject.position.z > 1.3){
-				positionZ = positionZ - 0.1;
-				positionY = aObject.position.y - 0.5;
+			if(aObject.position.z > 1.2){
+				positionZ = positionZ - 0.4;
+				positionY = aObject.position.y - 0.8;
 			}
 		break;
 
-		case 0.50:
-			positionZ = positionZ + 0.1;
-			positionY = aObject.position.y - 0.5;
+		case 0.80:
+			positionZ = positionZ + 0.4;
+			positionY = aObject.position.y - 0.8;
 		break;
 
-		case -0.50:
-			positionZ = positionZ - 0.1;
-			positionY = aObject.position.y + 0.5;
+		case -0.80:
+			positionZ = positionZ - 0.4;
+			positionY = aObject.position.y + 0.8;
 		break;
 	} 
 	// TWEEN.Tween("posicion actual").to({"destino"},"en tiempo") mover a un objeto a...
@@ -551,7 +562,7 @@ function awayFromTbf(awayTime){
 	translateAway(tbfInteractive,awayTime);
 	translateAway(tbfMapping,awayTime);
 	translateAway(tbf360,awayTime);
-	translateAway(tbfNull,awayTime);
+	//translateAway(tbfNull,awayTime);
 }
 	
 function nearToTbf(nearTime){
@@ -563,7 +574,7 @@ function nearToTbf(nearTime){
 	translateTo(tbfInteractive,{x:1.0,y:0.0,z:0.0},nearTime);
 	translateTo(tbfMapping,{x:-1.0,y:-1.0,z:0.0},nearTime);
 	translateTo(tbf360,{x:0.0,y:-1.0,z:0.0},nearTime);
-	translateTo(tbfNull,{x:1.0,y:-1.0,z:0.0},nearTime);
+	//translateTo(tbfNull,{x:1.0,y:-1.0,z:0.0},nearTime);
 }
 
 function tweenSpinRight(aObject,position,spinTime,axis){
@@ -802,7 +813,7 @@ function update()
 			// update text, if it has a "name" field.
 			if ( intersects[ 0 ].object.name )
 			{
-				if(intersects[ 0 ].object.name != "rubyNull"){
+				if(intersects[ 0 ].object.name != "Salir"){ 
 				    context1.clearRect(0,0,640,480);
 					var message = intersects[ 0 ].object.name;
 					var metrics = context1.measureText(message);
@@ -813,7 +824,7 @@ function update()
 					context1.fillRect( 2,2, width+4,20+4 );
 					context1.fillStyle = "rgba(0,0,0,1)"; // text color
 					context1.fillText( message, 4,20 );
-					//aqui es
+					
 					
 					/*
 					var texture_alt;
