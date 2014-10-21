@@ -14,6 +14,7 @@ a:active 	{color:#FFFFFF;}  /* selected link */
 	background-color:#000000;
 	width:60em;
 	margin:0 auto 0 auto;
+	margin-top: 71px;
 	font-family:Arial, Helvetica, sans-serif;
 }
 
@@ -134,7 +135,7 @@ input[type="submit"]:hover{
 }
 #bloque_5{
 	background-color:#A17653;
-	background-image:url(../../images/TBF_branding_20_320.jpg);	
+	background-image:url(../../images/moblieapps.jpg);	
 	-webkit-transform: translate(20em,20em);	
 	-moz-transform: translate(20em,20em);	
 	-ms-transform: translate(20em,20em);
@@ -152,7 +153,7 @@ input[type="submit"]:hover{
 }
 #bloque_7{
 	background-color:#D08158;
-	background-image:url(../../images/TBF_branding_22_320.jpg);		
+	background-image:url(../../images/ecommerce.jpg);		
 	-webkit-transform: translate(0,40em);	
 	-moz-transform: translate(0,40em);	
 	-ms-transform: translate(0,40em);
@@ -161,6 +162,8 @@ input[type="submit"]:hover{
 }
 #bloque_8{
 	background-color:#79B1D2;
+	background-image:url(../../images/videogames.jpg);
+	
 	-webkit-transform: translate(20em,40em);
 	-moz-transform: translate(20em,40em);	
 	-ms-transform: translate(20em,40em);
@@ -168,7 +171,8 @@ input[type="submit"]:hover{
 	transform: translate(20em,40em);	
 }
 #bloque_9{
-	background-color:#AEC3C6;	
+	background-color:#AEC3C6;
+	background-image:url(../../images/personalizedsites.jpg);	
 	-webkit-transform: translate(40em,40em);	
 	-moz-transform: translate(40em,40em);	
 	-ms-transform: translate(40em,40em);

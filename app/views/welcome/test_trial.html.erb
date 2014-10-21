@@ -1,0 +1,977 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>TBF swing</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<link rel=stylesheet href="../../css/base.css"/>
+</head>
+<body>
+
+<script src="../../js/Three.js"></script>
+<script src="../../js/Detector.js"></script>
+<script src="../../js/Stats.js"></script>
+<script src="../../js/OrbitControls.js"></script>
+<script src="../../js/THREEx.KeyboardState.js"></script>
+<script src="../../js/THREEx.FullScreen.js"></script>
+<script src="../../js/THREEx.WindowResize.js"></script>
+<script src="../../js/libs/tween.min.js"></script>
+
+
+<div id="ThreeJS" style="position: absolute; left:0px; top:0px"></div>
+  
+<script>
+
+// MAIN
+
+// standard global variables
+var mouseX = 0, mouseY = 0,
+	windowHalfX = window.innerWidth / 2,
+	windowHalfY = window.innerHeight / 2;
+var container, scene, camera, renderer, controls, stats;
+var keyboard = new THREEx.KeyboardState();
+var clock = new THREE.Clock();
+
+// custom global variables
+var video, videoImage, videoImageContext, videoTexture, movieScreen;
+
+//~ var targetList = [];
+var projector, mouse = { x: 0, y: 0 }, INTERSECTED;
+
+var tbfEvolving,
+	tbfLogin,
+	tbfDatos,
+	tbfRails,
+	tbfRealidad,
+	tbfInteractive,
+	tbfMapping,
+	tbf360,
+	tbfNull;
+// pages created by tbf
+var rubyNordlock, rubyToner, rubyCedimo, rubyEym, rubyNull, rubyGAAIA;
+var willBeLaunched="";
+init();
+animate();
+
+// FUNCTIONS
+function initializePlane(objectName,position,whSize,texturePath){
+	var texture = THREE.ImageUtils.loadTexture(texturePath);
+	var material = new THREE.MeshBasicMaterial( { map: texture, side:THREE.DoubleSide } );
+	var plane = new THREE.PlaneGeometry(whSize.w, whSize.h);
+	var object = new THREE.Mesh(plane, material);
+	object.name = objectName;
+	object.position.set(position.x,position.y,position.z);
+	return object;
+}
+
+function init()
+{
+	// SCENE
+	scene = new THREE.Scene();
+	// CAMERA
+	var SCREEN_WIDTH = window.innerWidth, SCREEN_HEIGHT = window.innerHeight;
+	var VIEW_ANGLE = 50, ASPECT = SCREEN_WIDTH / SCREEN_HEIGHT, NEAR = 0.1, FAR = 20000;
+	camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR);
+	scene.add(camera);
+	camera.position.set(0,0,4.0);
+	camera.lookAt(scene.position);
+	// RENDERER
+	if ( Detector.webgl )
+		renderer = new THREE.WebGLRenderer( {antialias:true} );
+	else
+		renderer = new THREE.CanvasRenderer();
+	renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+	container = document.getElementById( 'ThreeJS' );
+	container.appendChild( renderer.domElement );
+	// EVENTS
+	THREEx.WindowResize(renderer, camera);
+	THREEx.FullScreen.bindKey({ charCode : 'm'.charCodeAt(0) });
+	// CONTROLS
+	controls = new THREE.OrbitControls( camera, renderer.domElement );
+
+	// this material causes a mesh to use colors assigned to faces
+	var faceColorMaterial = new THREE.MeshBasicMaterial( 
+	{ color: 0xffffff, vertexColors: THREE.FaceColors } );
+	
+	
+	///declaracion de elementos
+	var texturePath = '../../images/tbfEvolving.jpg';
+	tbfEvolving = initializePlane("evolvingConcepts",{x:-1,y:1.0,z:0.0},{w:1.0, h:1.0},texturePath);
+	tbfEvolving.rotation.set(0,0,0);
+	
+	var texturePath_login = '../../images/tbfLogin.jpg';
+	tbfLogin = initializePlane("login",{x:0.0,y:1.0,z:0.0},{w:1.0, h:1.0},texturePath_login);
+	
+	var texturePath_datos = '../../images/tbfDatos.jpg';
+	tbfDatos = initializePlane("tbfDatos",{x:1.0,y:1.0,z:0.0},{w:1.0, h:1.0},texturePath_datos);
+	//rails
+	var texturePath_rails = '../../images/rubyonrails.jpg';
+	tbfRails = initializePlane("Ruby On Rails",{x:-1.0,y:0.0,z:0.0},{w:1.0, h:1.0},texturePath_rails);
+	
+	var texturePath_realidad = '../../images/moblieapps.jpg';
+	tbfMoblie = initializePlane("Moblie Apps",{x:0.0,y:0.0,z:0.0},{w:1.0, h:1.0},texturePath_realidad);
+	
+	var texturePath_interactive = '../../images/apidevelopment.jpg';
+	tbfApi = initializePlane("Api Development",{x:1.0,y:0.0,z:0.0},{w:1.0, h:1.0},texturePath_interactive);
+	
+	var texturePath_mapping = '../../images/ecommerce.jpg';
+	tbfEcommerce = initializePlane("Ecommerce",{x:-1.0,y:-1.0,z:0.0},{w:1.0, h:1.0},texturePath_mapping);
+	
+	var texturePath_videojuegos = '../../images/videogames.jpg';
+	tbfVJ = initializePlane("Video Juegos",{x:0.0,y:-1.0,z:0.0},{w:1.0, h:1.0},texturePath_videojuegos);
+	
+	var texturePath_sites = '../../images/personalizedsites.jpg';
+	tbfSites = initializePlane("Sitio Personalizados",{x:1.0,y:-1.0,z:0.0},{w:1.0, h:1.0},texturePath_sites);
+
+
+
+	//variables de control
+	var actual_page_out = "";
+
+	//se dibujan las imagenes
+	//~ scene.add(tbfHome);
+	scene.add(tbfEvolving);
+	scene.add(tbfLogin);
+	scene.add(tbfDatos);
+	scene.add(tbfRails);
+	scene.add(tbfMoblie);
+	scene.add(tbfApi);
+	scene.add(tbfEcommerce);
+	scene.add(tbfVJ);
+	scene.add(tbfSites);
+	
+	// declaracion de sitios
+	
+	texturePath = '../../images/nordlock_bannerhd.png';
+	rubyNordlock = initializePlane("nordlock",{x:1.0,y:-1.0,z:0.0},{w:2.25, h:0.76},texturePath);
+	rubyNordlock.rotation.set(0,0,0);
+	rubyNordlock.scale.set(0.1,0.1,0.1);
+	
+	texturePath = '../../images/tonerDepot.jpg';
+	rubyToner = initializePlane("tonerDepot",{x:1.0,y:-1.0,z:0.0},{w:1.0, h:1.0},texturePath);
+	rubyToner.rotation.set(0,0,0);
+	rubyToner.scale.set(0.1,0.1,0.1);
+	
+	texturePath = '../../images/cedimo_bannerhd.png';
+	rubyCedimo = initializePlane("cedimo",{x:1.0,y:-1.0,z:0.0},{w:2.25, h:0.76},texturePath);
+	rubyCedimo.rotation.set(0,0,0);
+	rubyCedimo.scale.set(0.1,0.1,0.1);
+	
+	texturePath = '../../images/eym_bannerhd.png';
+	rubyEym = initializePlane("eym",{x:1.0,y:-1.0,z:0.0},{w:2.25, h:0.76},texturePath);
+	rubyEym.rotation.set(0,0,0);
+	rubyEym.scale.set(0.1,0.1,0.1);
+	
+	var sizingFactor = 4;
+	texturePath = '../../images/BG-01.jpg';
+	//~ rubyNull = initializePlane("rubyNull",{x:1.0,y:-1.0,z:0.0},{w:3.0, h:3.0},texturePath);
+	rubyNull = initializePlane("rubyNull",{x:1.0,y:-1.0,z:0.0},{w:sizingFactor*ASPECT, h:sizingFactor},texturePath);
+	rubyNull.rotation.set(0,0,0);
+	rubyNull.scale.set(0.1,0.1,0.1);
+
+	//declaracion de flechas
+	texturePath = '../../images/flecha_arriba.png';
+	rubyArriba = initializePlane("Siguiente",{x:1.0,y:-1.0,z:0.0},{w:0.10, h:0.10},texturePath);
+	rubyArriba.rotation.set(0,0,0);
+	rubyArriba.scale.set(0.1,0.1,0.1);
+
+	texturePath = '../../images/flecha_abajo.png';
+	rubyAbajo = initializePlane("Anterior",{x:1.0,y:-1.0,z:0.0},{w:0.10, h:0.10},texturePath);
+	rubyAbajo.rotation.set(0,0,0);
+	rubyAbajo.scale.set(0.1,0.1,0.1);
+
+	texturePath = '../../images/flecha_salir.png';
+	rubySalir = initializePlane("Salir",{x:1.0,y:-1.0,z:0.0},{w:0.10, h:0.10},texturePath);
+	rubySalir.rotation.set(0,0,0);
+	rubySalir.scale.set(0.1,0.1,0.1);
+	//
+
+
+
+	//---------ADD A VIDEO------------------
+	// create the video element
+	video = document.createElement( 'video' );
+	
+	if(video.canPlayType('video/mp4'))
+		video.src = "videos/tbffinal.mp4";
+	else if(video.canPlayType('video/webm'))
+		video.src = "videos/tbffinal.webm";
+	else if(video.canPlayType('video/ogg'))
+		video.src = "videos/tbffinal.ogv";
+	
+	videoImage = document.createElement( 'canvas' );
+	videoImage.width = 960;
+	videoImage.height = 540;
+
+	videoImageContext = videoImage.getContext( '2d' );
+	// background color if no video present
+	videoImageContext.fillStyle = '#000000';
+	videoImageContext.fillRect( 0, 0, videoImage.width, videoImage.height );
+
+	videoTexture = new THREE.Texture( videoImage );
+	videoTexture.minFilter = THREE.LinearFilter;
+	videoTexture.magFilter = THREE.LinearFilter;
+	
+	var movieMaterial = new THREE.MeshBasicMaterial( { map: videoTexture, overdraw: true, side:THREE.DoubleSide } );
+	// the geometry on which the movie will be displayed;
+	// 		movie image will be scaled to fit these dimensions.
+	var movieGeometry = new THREE.PlaneGeometry( 5, 3, 1, 1 );
+	movieScreen = new THREE.Mesh( movieGeometry, movieMaterial );
+	movieScreen.position.set(-1,1,0);
+	movieScreen.scale.set(0.1,0.1,0.1);
+	movieScreen.rotation.set(Math.PI/2.0,0,0);
+	movieScreen.name = "movieScreen";
+	//~ scene.add(movieScreen);
+	//////////////////////////////////////////////////////////////////////
+	
+	// initialize object to perform world/screen calculations
+	projector = new THREE.Projector();
+	
+	// when the mouse moves, call the given function
+	document.addEventListener( 'mousedown', onDocumentMouseDown, false );
+	document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+	document.addEventListener( 'mouseup', onDocumentMouseUp, false );
+	window.addEventListener( 'resize', onWindowResize, false );
+
+	/////// draw text on canvas /////////
+
+	// create a canvas element
+	canvas1 = document.createElement('canvas');
+	context1 = canvas1.getContext('2d');
+	context1.font = "Bold 20px Arial";
+	context1.fillStyle = "rgba(0,0,0,0.95)";
+    context1.fillText('Hello, world!', 0, 20);
+    
+	// canvas contents will be used for a texture
+	texture1 = new THREE.Texture(canvas1);
+	texture1.needsUpdate = true;
+	
+	////////////////////////////////////////
+	
+	var spriteMaterial = new THREE.SpriteMaterial( { map: texture1, useScreenCoordinates: true, alignment: THREE.SpriteAlignment.topLeft } );
+	
+	sprite1 = new THREE.Sprite( spriteMaterial );
+	sprite1.scale.set(200,100,1.0);
+	sprite1.position.set( 50, 50, 0 );
+	scene.add( sprite1 );
+
+	//////////////////////////////////////////	
+}
+
+function onWindowResize() {
+
+	windowHalfX = window.innerWidth / 2;
+	windowHalfY = window.innerHeight / 2;
+
+	camera.aspect = window.innerWidth / window.innerHeight;
+	camera.updateProjectionMatrix();
+
+	renderer.setSize( window.innerWidth, window.innerHeight );
+
+}
+
+function onDocumentMouseDown( event )
+{
+	// the following line would stop any other event handler from firing
+	// (such as the mouse's TrackballControls)
+	event.preventDefault();
+	
+	console.log("Click.");
+	
+	// update the mouse variable
+	//~ mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+	//~ mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+	
+	// find intersections
+
+	// create a Ray with origin at the mouse position
+	//   and direction into the scene (camera direction)
+	var vector = new THREE.Vector3( mouse.x, mouse.y, 1 );
+	projector.unprojectVector( vector, camera );
+	var ray = new THREE.Raycaster( camera.position, vector.sub( camera.position ).normalize() );
+
+	// create an array containing all objects in the scene with which the ray intersects
+	//~ var intersects = ray.intersectObjects( targetList );
+	var intersects = ray.intersectObjects( scene.children);
+	
+	// if there is one (or more) intersections
+	if ( intersects.length > 0 )
+	{
+		console.log("Hit @ " + toString( intersects[0].point ) );
+		// change the color of the closest face.
+
+		var selectedObject = intersects[ 0 ].object.name;
+		switch(selectedObject){
+		/*	
+		case "augmentedReality":
+			//~ document.location.href = "http://tbf.mx";
+			tweenSpinDown(tbfEvolving,500);
+			awayFromTbf(500);
+			scene.add(movieScreen);
+			videoOut(movieScreen,500);
+			tweenSpinDown(tbfEvolving,500);
+			translateTo(tbfEvolving,{x:0,y:0,z:0},500);
+			setTimeout(tweenSpinUp(movieScreen,500),1000);
+			setTimeout(tweenSpinUp(tbfEvolving,500),1000);
+			setTimeout(translateTo(tbfEvolving,{x:-3,y:0,z:0},500),1000);
+			video.load(); // must call after setting/changing source
+			video.play();
+			
+			if ( video.readyState === video.HAVE_ENOUGH_DATA )
+			{
+				videoImageContext.drawImage( video, 0, 0 );
+				if ( videoTexture )
+					videoTexture.needsUpdate = true;
+			}
+			
+			videoTexture.needsUpdate = true;
+			break;
+		*/	
+		case "Moblie Apps":
+			video.pause();
+			video.currentTime = 0;
+			videoIn(movieScreen,500);
+			setTimeout(hideVideo,500);
+			nearToTbf(500);
+			break;
+		case "tbfDatos":
+			//~ tweenHomeFade(3000,0);
+			willBeLaunched = "tbfDatos";
+			break;
+		case "movieScreen":
+			video.pause();
+			video.currentTime = 0;
+			videoIn(movieScreen,1000);
+			setTimeout(hideVideo,1000);
+			nearToTbf(1000);
+			break;
+		case "tbfNull":
+			//~ tweenHomeTogether(3000,0);
+			break;
+		case "Sitio Personalizados":
+			//~ tweenHomeFade(500);
+			//~ setTimeout(tweenHomeTogether(500),500);
+			
+			showRuby();
+			//~ setTimeout(tweenRubyTogether(500),500);
+			tweenRightSpinRuby(1000,'z',0);
+			//~ tweenHomeTogether();
+			break;
+		case "rubyNull":
+			tweenLeftSpinRuby(1000,'z',0);
+			//~ tweenHomeTogether(1000,1000);
+			setTimeout(hideRuby,1000);
+			break;
+		case "nordlock":
+			//~ pageOut(rubyNordlock,1000);
+			willBeLaunched = "nordlock";
+			break;
+		case "tonerDepot":
+			//~ pageOut(rubyToner,1000);
+			willBeLaunched = "tonerDepot";
+			break;
+		case "cedimo":
+			//~ pageOut(rubyCedimo,1000);
+			willBeLaunched = "cedimo";
+			break;
+		case "eym":
+			//~ pageOut(rubyEym,1000);
+			willBeLaunched = "eym";
+			break;
+		case "Anterior":
+			setTimeout (carruseldown(rubyNordlock,100),100);
+			setTimeout (carruseldown(rubyToner,100),100);
+			setTimeout (carruseldown(rubyCedimo,100),100);
+			setTimeout (carruseldown(rubyEym,100),100);
+
+			break;
+		case "Siguiente":
+			//mover elementos del carrusel
+			setTimeout (carruselup(rubyNordlock,100),100);
+			setTimeout (carruselup(rubyToner,100),100);
+			setTimeout (carruselup(rubyCedimo,100),100);
+			setTimeout (carruselup(rubyEym,100),100);
+			break;	
+		}
+		intersects[ 0 ].object.geometry.colorsNeedUpdate = true;
+	}
+}
+
+
+function showRuby(){//rubyNordlock, rubyToner, rubyCedimo, rubyEyM, rubyGAAIA
+	scene.add(rubyNull);
+	scene.add(rubyNordlock);
+	scene.add(rubyToner);
+	scene.add(rubyCedimo);
+	scene.add(rubyEym);
+	scene.add(rubyArriba);
+	scene.add(rubyAbajo);
+	scene.add(rubySalir);	
+}
+
+function hideRuby(){//rubyNordlock, rubyToner, rubyCedimo, rubyEyM, rubyGAAIA
+	scene.remove(rubyNull);
+	scene.remove(rubyNordlock);
+	scene.remove(rubyToner);
+	scene.remove(rubyCedimo);
+	scene.remove(rubyEym);
+	scene.remove(rubyArriba);
+	scene.remove(rubyAbajo);
+}
+
+function hideVideo(){
+	scene.remove(movieScreen);
+}
+
+function tweenRightSpinRuby(spinTime,axis,delay){
+	setTimeout ( tweenSpinRight(rubyNordlock,{x:0.0,y:0.0,z:1.4},spinTime,axis) , delay);
+	setTimeout ( tweenSpinRight(rubyToner,{x:0.0,y:0.50,z:1.3},spinTime,axis) , delay);
+	setTimeout ( tweenSpinRight(rubyCedimo,{x:0.0,y:0.0,z:1.2},spinTime,axis) , delay);
+	setTimeout ( tweenSpinRight(rubyEym,{x:0.00,y:-0.50,z:1.3},spinTime,axis) , delay);
+	setTimeout ( tweenSpinRight(rubyArriba,{x:1.20,y:0.05,z:1.4},spinTime,axis) , delay);
+	setTimeout ( tweenSpinRight(rubyAbajo,{x:1.20,y:-0.05,z:1.4},spinTime,axis) , delay);
+	setTimeout ( tweenSpinRight(rubySalir,{x:1.20,y:0.15,z:1.4},spinTime,axis) , delay);
+	setTimeout ( tweenSpinRight(rubyNull,{x:0.0,y:0.0,z:0.9},spinTime,axis) , delay);
+}
+
+function tweenLeftSpinRuby(spinTime,axis,delay){
+	setTimeout ( tweenSpinLeft(rubyNordlock,{x:1.0,y:-1.0,z:0.0},spinTime,axis) , delay);
+	setTimeout ( tweenSpinLeft(rubyToner,{x:1.0,y:-1.0,z:0.0},spinTime,axis) , delay);
+	setTimeout ( tweenSpinLeft(rubyCedimo,{x:1.0,y:-1.0,z:0.0},spinTime,axis) , delay);
+	setTimeout ( tweenSpinLeft(rubyEym,{x:1.0,y:-1.0,z:0.0},spinTime,axis) , delay);
+	setTimeout ( tweenSpinLeft(rubyArriba,{x:1.0,y:-1.0,z:0.0},spinTime,axis) , delay);
+	setTimeout ( tweenSpinLeft(rubyAbajo,{x:1.0,y:-1.0,z:0.0},spinTime,axis) , delay);
+	setTimeout ( tweenSpinLeft(rubySalir,{x:1.0,y:-1.0,z:0.0},spinTime,axis) , delay);
+	setTimeout ( tweenSpinLeft(rubyNull,{x:1.0,y:-1.0,z:0.0},spinTime,axis) , delay);
+}
+
+function tweenSpinDown(aObject,spinTime){
+	var tweenRotation = new TWEEN.Tween(aObject.rotation).to( {
+						x: Math.PI / 2.0,
+						y: 0,
+						z: 0}, spinTime)
+					.easing( TWEEN.Easing.Quadratic.In).start();
+}
+
+function tweenSpinUp(aObject,spinTime){
+	var tweenRotation = new TWEEN.Tween(aObject.rotation ).to( {
+						x: 0,
+						y: 0,
+						z: 0}, spinTime)
+					.easing( TWEEN.Easing.Quadratic.In).start();
+}
+
+function translateAway(aObject,awayTime){
+	var tweenTranslation = new TWEEN.Tween(aObject.position).to( {
+						x: aObject.position.x,
+						y: aObject.position.y,
+						z: -128}, awayTime)
+					.easing( TWEEN.Easing.Quadratic.Out).start();
+}
+function carruselup(aObject,awayTime){
+	var positionY;
+	var positionZ = aObject.position.z;
+	switch (aObject.position.y)
+	{
+		case 0:
+			if(aObject.position.z < 1.3){
+				positionZ = positionZ + 0.1;
+				positionY = aObject.position.y - 0.5;
+			}
+			if(aObject.position.z > 1.3){
+				positionZ = positionZ - 0.1;
+				positionY = aObject.position.y + 0.5;
+			}
+		break;
+
+		case 0.50:
+			positionZ = positionZ - 0.1;
+			positionY = aObject.position.y - 0.5;
+		break;
+
+		case -0.50:
+			positionZ = positionZ + 0.1;
+			positionY = aObject.position.y + 0.5;
+		break;
+	} 
+	// TWEEN.Tween("posicion actual").to({"destino"},"en tiempo") mover a un objeto a...
+	var tweenTranslation = new TWEEN.Tween(aObject.position).to( {
+						x: aObject.position.x,
+						y: positionY,
+						z: positionZ}, awayTime)
+					.easing( TWEEN.Easing.Quadratic.Out).start();
+}
+function carruseldown(aObject,awayTime){
+	var positionY;
+	var positionZ = aObject.position.z;
+	switch (aObject.position.y)
+	{
+		case 0:
+			if(aObject.position.z < 1.3){
+				positionZ = positionZ + 0.1;
+				positionY = aObject.position.y + 0.5;
+			}
+			if(aObject.position.z > 1.3){
+				positionZ = positionZ - 0.1;
+				positionY = aObject.position.y - 0.5;
+			}
+		break;
+
+		case 0.50:
+			positionZ = positionZ + 0.1;
+			positionY = aObject.position.y - 0.5;
+		break;
+
+		case -0.50:
+			positionZ = positionZ - 0.1;
+			positionY = aObject.position.y + 0.5;
+		break;
+	} 
+	// TWEEN.Tween("posicion actual").to({"destino"},"en tiempo") mover a un objeto a...
+	var tweenTranslation = new TWEEN.Tween(aObject.position).to( {
+						x: aObject.position.x,
+						y: positionY,
+						z: positionZ}, awayTime)
+					.easing( TWEEN.Easing.Quadratic.Out).start();
+}
+function translateTo(aObject,position, awayTime){
+	var tweenTranslation = new TWEEN.Tween(aObject.position).to( {
+						x: position.x,
+						y: position.y,
+						z: position.z}, awayTime)
+					.easing( TWEEN.Easing.Quadratic.In).start();
+}
+
+function awayFromTbf(awayTime){
+	translateAway(tbfEvolving,awayTime);
+	translateAway(tbfLogin,awayTime);
+	translateAway(tbfDatos,awayTime);
+	translateAway(tbfRails,awayTime);
+	translateAway(tbfRealidad,awayTime);
+	translateAway(tbfInteractive,awayTime);
+	translateAway(tbfMapping,awayTime);
+	translateAway(tbf360,awayTime);
+	translateAway(tbfNull,awayTime);
+}
+	
+function nearToTbf(nearTime){
+	translateTo(tbfEvolving,{x:-1,y:1.0,z:0.0},nearTime);
+	translateTo(tbfLogin,{x:0.0,y:1.0,z:0.0},nearTime);
+	translateTo(tbfDatos,{x:1.0,y:1.0,z:0.0},nearTime);
+	translateTo(tbfRails,{x:-1.0,y:0.0,z:0.0},nearTime);
+	translateTo(tbfRealidad,{x:0.0,y:0.0,z:0.0},nearTime);
+	translateTo(tbfInteractive,{x:1.0,y:0.0,z:0.0},nearTime);
+	translateTo(tbfMapping,{x:-1.0,y:-1.0,z:0.0},nearTime);
+	translateTo(tbf360,{x:0.0,y:-1.0,z:0.0},nearTime);
+	translateTo(tbfNull,{x:1.0,y:-1.0,z:0.0},nearTime);
+}
+
+function tweenSpinRight(aObject,position,spinTime,axis){
+	var tweenTranslation = new TWEEN.Tween(aObject.position).to( {
+						x: position.x,
+						y: position.y,
+						z: position.z}, spinTime)
+					.easing( TWEEN.Easing.Quadratic.Out).start();
+
+	var rotation = {
+		x: 0,
+		y: 0,
+		z: 0
+	}
+	
+	if (axis =='x'){
+		rotation.x = 2*Math.PI;
+	}else if (axis == 'y'){
+		rotation.y = 2*Math.PI;
+	}else if (axis == 'z'){
+		rotation.z = 2*Math.PI;
+	}
+	
+	var tweenRotation = new TWEEN.Tween(aObject.rotation ).to( {
+						x: rotation.x,
+						y: rotation.y,
+						z: rotation.z}, spinTime)
+					.easing( TWEEN.Easing.Quadratic.Out).start();
+	
+	var tweenScale = new TWEEN.Tween(aObject.scale ).to( {
+						x: 1.0,
+						y: 1.0,
+						z: 1.0}, spinTime)
+					.easing( TWEEN.Easing.Linear.None).start();
+}
+
+function tweenSpinLeft(aObject,position,spinTime,axis){
+	var tweenTranslation = new TWEEN.Tween(aObject.position).to( {
+						x: position.x,
+						y: position.y,
+						z: position.z}, spinTime)
+					.easing( TWEEN.Easing.Quadratic.In).start();
+
+	var rotation = {
+		x: 0,
+		y: 0,
+		z: 0
+	}
+	
+	var tweenRotation = new TWEEN.Tween(aObject.rotation ).to( {
+						x: rotation.x,
+						y: rotation.y,
+						z: rotation.z}, spinTime)
+					.easing( TWEEN.Easing.Quadratic.In).start();
+	
+	var tweenScale = new TWEEN.Tween(aObject.scale ).to( {
+						x: 0.1,
+						y: 0.1,
+						z: 0.1}, spinTime)
+					.easing( TWEEN.Easing.Linear.None).start();
+}
+
+function videoIn(aObject,inTime){
+	screenIn(aObject,{x:0,y:0,z:0},inTime);
+}
+
+function videoOut(aObject,outTime){
+	screenOut(aObject,{x:0,y:0,z:0},outTime);
+}
+
+function pageOut(aObject,outTime){
+	tweenPageOut(aObject,{x:0,y:0,z:6},outTime);
+}
+
+function launchPage(page){
+	// document.location.href = page;
+	var win = window.open(page, '_blank');
+  	win.focus();
+}
+
+function tweenPageOut(aObject,position,outTime){
+	var tweenTranslation = new TWEEN.Tween(aObject.position).to( {
+						x: position.x,
+						y: position.y,
+						z: position.z}, outTime)
+					.easing( TWEEN.Easing.Exponential.Out).start();
+}
+
+function screenIn(aObject,position,inTime){
+	var tweenRotation = new TWEEN.Tween(aObject.rotation ).to( {
+						x: Math.PI/2.0,
+						y: 0,
+						z: 0}, inTime)
+					.easing( TWEEN.Easing.Quadratic.In).start();
+	
+	var tweenTranslation = new TWEEN.Tween(aObject.position).to( {
+						x: position.x,
+						y: position.y,
+						z: position.z}, inTime)
+					.easing( TWEEN.Easing.Quadratic.In).start();
+	
+	var tweenScale = new TWEEN.Tween(aObject.scale ).to( {
+						x: 0.1,
+						y: 0.1,
+						z: 0.1}, inTime)
+					.easing( TWEEN.Easing.Linear.None).start();
+}
+
+function screenOut(aObject,position,outTime){
+	var tweenTranslation = new TWEEN.Tween(aObject.position).to( {
+						x: position.x,
+						y: position.y,
+						z: position.z}, outTime)
+					.easing( TWEEN.Easing.Quadratic.Out).start();
+	
+	var tweenScale = new TWEEN.Tween(aObject.scale ).to( {
+						x: 1.0,
+						y: 1.0,
+						z: 1.0}, outTime)
+					.easing( TWEEN.Easing.Linear.None).start();
+}
+
+function toString(v) { return "[ " + v.x + ", " + v.y + ", " + v.z + " ]"; }
+
+function onDocumentMouseMove( event )
+{
+	// the following line would stop any other event handler from firing
+	// (such as the mouse's TrackballControls)
+	event.preventDefault();
+
+	// update sprite position
+	sprite1.position.set( event.clientX, event.clientY - 20, 0 );
+	
+	//~ // update the mouse variable
+	mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+	mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+}
+
+function onDocumentMouseUp( event ) {
+	event.preventDefault();
+	controls.enabled = true;
+
+	if (INTERSECTED) {
+		//~ plane.position.copy( INTERSECTED.position );
+		SELECTED = null;
+	}
+	container.style.cursor = 'auto';
+	
+	switch(willBeLaunched){
+	case "tbfDatos":
+		willBeLaunched = "";
+		launchPage("/contacto/index");//http://tbf.mx/contacto/index //<%= contacto_path %>
+		break;
+	case "nordlock":
+		//~ pageOut(rubyNordlock,1000);
+		willBeLaunched = "";
+		launchPage("http://www.nordlock.mx");
+		
+		break;
+	case "tonerDepot":
+		//~ pageOut(rubyToner,1000);
+		willBeLaunched = "";
+		launchPage("http://toner.tbf.mx");
+		
+		break;
+	case "cedimo":
+		//~ pageOut(rubyCedimo,1000);
+		willBeLaunched = "";
+		launchPage("http://cedimo.com.mx");
+		
+		break;
+	case "eym":
+		//~ pageOut(rubyEym,1000);
+		willBeLaunched = "";
+		launchPage("http://eym.tbf.mx");
+		break;			
+	default:
+		willBeLaunched = "";
+		break;
+	}
+}
+
+function animate()
+{
+    requestAnimationFrame( animate );
+	render();
+	update();
+}
+
+function update()
+{
+	
+	if ( keyboard.pressed("p") )
+		video.play();
+		
+	if ( keyboard.pressed("space") )
+		video.pause();
+
+	if ( keyboard.pressed("s") ) // stop video
+	{
+		video.pause();
+		video.currentTime = 0;
+	}
+	
+	if ( keyboard.pressed("r") ) // rewind video
+		video.currentTime = 0;
+		// create a Ray with origin at the mouse position
+	//   and direction into the scene (camera direction)
+	var vector = new THREE.Vector3( mouse.x, mouse.y, 1 );
+	projector.unprojectVector( vector, camera );
+	var ray = new THREE.Raycaster( camera.position, vector.sub( camera.position ).normalize() );
+
+	// create an array containing all objects in the scene with which the ray intersects
+	var intersects = ray.intersectObjects( scene.children );
+
+	// INTERSECTED = the object in the scene currently closest to the camera 
+	//		and intersected by the Ray projected from the mouse position 	
+	
+	// if there is one (or more) intersections
+	if ( intersects.length > 0 )
+	{
+		// if the closest object intersected is not the currently stored intersection object
+		if ( intersects[ 0 ].object != INTERSECTED ) 
+		{
+		    // restore previous intersection object (if it exists) to its original color
+			if ( INTERSECTED ) 
+				INTERSECTED.material.color.setHex( INTERSECTED.currentHex );
+			// store reference to closest object as current intersection object
+			INTERSECTED = intersects[ 0 ].object;
+			// store color of closest object (for later restoration)
+			INTERSECTED.currentHex = INTERSECTED.material.color.getHex();
+			// set a new color for closest object
+			//~ INTERSECTED.material.color.setHex( 0xffff00 );
+			INTERSECTED.material.color.setHex( 0xeeeeee);
+			
+			// update text, if it has a "name" field.
+			if ( intersects[ 0 ].object.name )
+			{
+				if(intersects[ 0 ].object.name != "rubyNull"){
+				    context1.clearRect(0,0,640,480);
+					var message = intersects[ 0 ].object.name;
+					var metrics = context1.measureText(message);
+					var width = metrics.width;
+					context1.fillStyle = "rgba(0,0,0,0.95)"; // black border
+					context1.fillRect( 0,0, width+8,20+8);
+					context1.fillStyle = "rgba(255,255,255,0.95)"; // white filler
+					context1.fillRect( 2,2, width+4,20+4 );
+					context1.fillStyle = "rgba(0,0,0,1)"; // text color
+					context1.fillText( message, 4,20 );
+					//aqui es
+					
+					/*
+					var texture_alt;
+					var nombre = intersects[ 0 ].object.name
+					switch(nombre){
+
+					case "Ruby On Rails":
+						
+						context1.clearRect(0,0,640,480);
+						var message = intersects[ 0 ].object.name;
+						var metrics = context1.measureText(message);
+						var width = metrics.width;
+						context1.fillStyle = "rgba(0,0,0,0.95)"; // black border
+						context1.fillRect( 0,0, width+8,20+8);
+						context1.fillStyle = "rgba(255,255,255,0.95)"; // white filler
+						context1.fillRect( 2,2, width+4,20+4 );
+						context1.fillStyle = "rgba(0,0,0,1)"; // text color
+						context1.fillText( message, 4,20 );
+						texture_alt = THREE.ImageUtils.loadTexture('../../images/rubyonrails_on.jpg');
+						//intersects[ 0 ].object.material.map(texture_alt);
+						intersects[ 0 ].object.material.map.image.src = '../../images/rubyonrails_on.jpg'
+						texture1.needsUpdate = true;
+						break;
+					case "Moblie Apps":
+						texture_alt = THREE.ImageUtils.loadTexture('../../images/moblieapps_on.jpg');
+						intersects[ 0 ].object.material.map.image.src = '../../images/moblieapps_on.jpg';
+						context1.clearRect(0,0,640,480);
+						var message = intersects[ 0 ].object.name;
+						var metrics = context1.measureText(message);
+						var width = metrics.width;
+						context1.fillStyle = "rgba(0,0,0,0.95)"; // black border
+						context1.fillRect( 0,0, width+8,20+8);
+						context1.fillStyle = "rgba(255,255,255,0.95)"; // white filler
+						context1.fillRect( 2,2, width+4,20+4 );
+						context1.fillStyle = "rgba(0,0,0,1)"; // text color
+						context1.fillText( message, 4,20 );
+						texture1.needsUpdate = true;
+						break;
+					case "Api Development":
+						texture_alt = THREE.ImageUtils.loadTexture('../../images/apidevelopment_on.jpg');
+						intersects[ 0 ].object.material.map.image.src = '../../images/apidevelopment_on.jpg'
+						context1.clearRect(0,0,640,480);
+						var message = intersects[ 0 ].object.name;
+						var metrics = context1.measureText(message);
+						var width = metrics.width;
+						context1.fillStyle = "rgba(0,0,0,0.95)"; // black border
+						context1.fillRect( 0,0, width+8,20+8);
+						context1.fillStyle = "rgba(255,255,255,0.95)"; // white filler
+						context1.fillRect( 2,2, width+4,20+4 );
+						context1.fillStyle = "rgba(0,0,0,1)"; // text color
+						context1.fillText( message, 4,20 );
+						texture1.needsUpdate = true;
+						break;
+					case "Ecommerce":
+						texture_alt = THREE.ImageUtils.loadTexture('../../images/ecommerce_on.jpg');
+						intersects[ 0 ].object.material.map.image.src = '../../images/ecommerce_on.jpg'
+						context1.clearRect(0,0,640,480);
+						var message = intersects[ 0 ].object.name;
+						var metrics = context1.measureText(message);
+						var width = metrics.width;
+						context1.fillStyle = "rgba(0,0,0,0.95)"; // black border
+						context1.fillRect( 0,0, width+8,20+8);
+						context1.fillStyle = "rgba(255,255,255,0.95)"; // white filler
+						context1.fillRect( 2,2, width+4,20+4 );
+						context1.fillStyle = "rgba(0,0,0,1)"; // text color
+						context1.fillText( message, 4,20 );
+						texture1.needsUpdate = true;
+						break;
+					case "Video Juegos":
+						texture_alt = THREE.ImageUtils.loadTexture('../../images/videogames_on.jpg');
+						intersects[ 0 ].object.material.map.image.src = '../../images/videogames_on.jpg'
+						context1.clearRect(0,0,640,480);
+						var message = intersects[ 0 ].object.name;
+						var metrics = context1.measureText(message);
+						var width = metrics.width;
+						context1.fillStyle = "rgba(0,0,0,0.95)"; // black border
+						context1.fillRect( 0,0, width+8,20+8);
+						context1.fillStyle = "rgba(255,255,255,0.95)"; // white filler
+						context1.fillRect( 2,2, width+4,20+4 );
+						context1.fillStyle = "rgba(0,0,0,1)"; // text color
+						context1.fillText( message, 4,20 );
+						texture1.needsUpdate = true;
+						break;
+					case "Sitio Personalizados":
+						texture_alt = THREE.ImageUtils.loadTexture('../../images/personalizedsites_on.jpg');
+						intersects[ 0 ].object.material.map.image.src = '../../images/personalizedsites_on.jpg'
+						context1.clearRect(0,0,640,480);
+						var message = intersects[ 0 ].object.name;
+						var metrics = context1.measureText(message);
+						var width = metrics.width;
+						context1.fillStyle = "rgba(0,0,0,0.95)"; // black border
+						context1.fillRect( 0,0, width+8,20+8);
+						context1.fillStyle = "rgba(255,255,255,0.95)"; // white filler
+						context1.fillRect( 2,2, width+4,20+4 );
+						context1.fillStyle = "rgba(0,0,0,1)"; // text color
+						context1.fillText( message, 4,20 );
+						texture1.needsUpdate = true;
+						break;
+					
+					default:
+						//intersects[ 0 ].object.material.map(texture_alt);
+						
+
+						break;
+					}
+					*/
+					
+					texture1.needsUpdate = true;
+				}
+				else{
+					context1.clearRect(0,0,300,300);
+					//aqui sera
+					texture1.needsUpdate = true;
+				}
+			}
+			else
+			{
+				context1.clearRect(0,0,300,300);
+				texture1.needsUpdate = true;
+			}
+		}
+	} 
+	else // there are no intersections
+	{
+		// restore previous intersection object (if it exists) to its original color
+		if ( INTERSECTED ) 
+			INTERSECTED.material.color.setHex( INTERSECTED.currentHex );
+		// remove previous intersection object reference
+		//     by setting current intersection object to "nothing"
+		INTERSECTED = null;
+		context1.clearRect(0,0,300,300);
+		texture1.needsUpdate = true;
+	}
+	
+	controls.update();
+	//~ stats.update();
+}
+
+function render() 
+{
+	TWEEN.update();
+	if ( video.readyState === video.HAVE_ENOUGH_DATA )
+	{
+		videoImageContext.drawImage( video, 0, 0 );
+		if ( videoTexture )
+			videoTexture.needsUpdate = true;
+	}
+	//~ camera.position.x += ( mouseX - camera.position.x ) * .05;
+	//~ camera.position.y += ( - mouseY + 2 - camera.position.y ) * .05;
+	camera.position.x += ( mouse.x - camera.position.x ) * .05;
+	camera.position.y += ( - mouse.y - camera.position.y ) * .05;
+
+	camera.lookAt( scene.position );
+
+	renderer.render( scene, camera );
+}
+
+</script>
+
+</body>
+</html>

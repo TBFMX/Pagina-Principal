@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get 'admin' => 'admin#index'
 
   controller :sessions do
-    get 'login' => :new
+    get 'login' => :new , :as => "login"
     post 'login' => :create
     delete 'logout' => :destroy
   end
@@ -27,16 +27,17 @@ Rails.application.routes.draw do
     post 'welcome/index' => :create
     delete 'welcome/index' => :destroy
     delete 'welcome/logout' => :destroy
+    get 'welcome/test_trial' => :test_trial
+    get '2' => :test_trial
     #post '/' => :create
     #delete '/' => :destroy
     #delete '/logout' => :destroy
   end
   
   get 'sessions/new'
-
   get 'sessions/create'
-
   get 'sessions/destroy'
+
 
   resources :welcome
 
