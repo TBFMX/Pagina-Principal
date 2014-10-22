@@ -43,11 +43,9 @@ class WelcomeController < ApplicationController
   end
 
   def test_trial
-    
   end
-  def pagos
-    
-      
+  
+  def pagos   
   end
 
   def pago_correcto
@@ -103,6 +101,5 @@ class WelcomeController < ApplicationController
       end
       redirect_to root_path
   end  
-
 
 end

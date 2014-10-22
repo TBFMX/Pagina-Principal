@@ -10,7 +10,7 @@ class Mailer < ActionMailer::Base
     @greeting = "Hi"
     @user = user
     #mail to: uemail
-    mail(:to => uemail, :subject => "Password Reset", :from => "\"Conserje\" <info@tbf.mx>")
+    mail(:to => uemail, :subject => "Password Reset", :from => "\"System\"<info@tbf.mx>")
 
   end
 
@@ -24,29 +24,30 @@ class Mailer < ActionMailer::Base
     @greeting = "Hi"
     @user = user
     #mail to: uemail
-    mail(:to => uemail, :subject => "Recuperacion de Password", :from => "\"Conserje\" <info@tbf.mx>", :reply_to =>"conserje@tbf.com")
+    mail(:to => uemail, :subject => "Recuperacion de Password", :from => "\"System\"<info@tbf.mx>", :reply_to =>"noreply@tbf.com")
   end
 
   def password_reset(user)
     @user = user
-    mail :to => user.email, :subject => "Password Reset" , :from => "\"Conserje\" <info@tbf.mx>", :reply_to =>"conserje@tbf.com"
+    mail :to => user.email, :subject => "Password Reset" , :from => "\"System\"<info@tbf.mx>", :reply_to =>"noreply@tbf.com"
   end
 
   def create_user(user)
     @user = user
-    mail :to => user.email, :subject => "Se creo su usuario", :from => "\"System\"<info@tbf.mx>", :reply_to =>"david@tbf.com"
+    enviar_a= " user.email , david@tbf.mx"
+    mail :to => user.email, :cco => "sebastian@tbf.mx" ,:subject => "Se creo su usuario", :from => "\"System\"<info@tbf.mx>", :reply_to =>"david@tbf.com"
   end
 
   def destroy_user(user)
     @user = user
-    mail :to => user.email, :subject => "Su usuario a sido destruido", :from => "\"Conserje\" <info@tbf.mx>", :reply_to =>"conserje@tbf.com"
+    mail :to => user.email, :subject => "Su usuario a sido destruido", :from => "\"System\"<info@tbf.mx>", :reply_to =>"noreply@tbf.com"
   end
 
   def sended(datos)
     @greeting = "Hi"
     @datos = datos
 
-    mail(:to => "david@tbf.mx", :subject => "Nuevo Mensaje de Contacto", :from => "\"Conserje\" <info@tbf.mx>", :reply_to =>"conserje@tbf.com")
+    mail(:to => "david@tbf.mx", :subject => "Nuevo Mensaje de Contacto", :from => "\"System\"<info@tbf.mx>", :reply_to =>"noreply@tbf.com")
     #mail to: "hugo@tbf.mx"
   end
   

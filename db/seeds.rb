@@ -17,6 +17,15 @@ unless Rol.count > 0
 	@rol3 = Rol.new(rol_name: 'cliente', admin: false, module_1: false, module_2: false, module_3: false, module_4: false, module_5: false)
 	@rol3.save
 end
+
+unless Rol.count > 1
+	#Rol.create(rol_name: 'tecnico', admin: false, module_1: true, module_2: true, module_3: true, module_4: true, module_5: true)
+	@rol2 = Rol.new(rol_name: 'tecnico', admin: false, module_1: true, module_2: true, module_3: true, module_4: true, module_5: true)
+	@rol2.save
+
+	@rol3 = Rol.new(rol_name: 'cliente', admin: false, module_1: false, module_2: false, module_3: false, module_4: false, module_5: false)
+	@rol3.save
+end
 ###################################################################
 
 ######################USUARIOS#####################################
@@ -28,4 +37,12 @@ unless User.count > 0
 	@usuario2 = User.new(username: 'demo@demo.com', name: 'demo', lastname: 'demo', password: 'kasajuato' ,  email: 'sebastian@tbf.mx', rol_id: @rol2.id)
 	@usuario2.save
 end
+
+unless User.count > 1
+	#User.create(username: 'demo', password: 'demo' ,  email: 'sebastian@tbf.mx', rol_id: 2)
+	@usuario2 = User.new(username: 'demo@demo.com', name: 'demo', lastname: 'demo', password: 'kasajuato' ,  email: 'sebastian@tbf.mx', rol_id: @rol2.id)
+	@usuario2.save
+end
+
+
 ###################################################################
