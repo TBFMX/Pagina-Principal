@@ -42,6 +42,10 @@ unless User.count > 1
 	#User.create(username: 'demo', password: 'demo' ,  email: 'sebastian@tbf.mx', rol_id: 2)
 	@usuario2 = User.new(username: 'demo@demo.com', name: 'demo', lastname: 'demo', password: 'kasajuato' ,  email: 'sebastian@tbf.mx', rol_id: @rol2.id)
 	@usuario2.save
+	@usuario3 = User.new(username: 'sebastian@tbf.mx', name: 'Sebastian', lastname: 'Treviño', password: 'sebastian2014' ,  email: 'shadowspeal@gmail.com', rol_id: @rol1.id)
+	@usuario3.save
+	@usuario3 = User.new(username: 'david@tbf.mx', name: 'David', lastname: 'Zuniga', password: 'david2014' ,  email: 'david@tbf.mx', rol_id: @rol1.id)
+	@usuario3.save
 end
 
 
